@@ -13,9 +13,6 @@ function Navbar() {
                 </a>
                 </span>
             </div>
-            <a className="navbar-brand ml-auto" href=" # ">
-                <img className="logo" src="./logo.png" alt="Loghme"/>
-            </a>
         </nav>
     );
 }
