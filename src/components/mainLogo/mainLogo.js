@@ -21,16 +21,16 @@ function MainLogo() {
                 </div>
             </div>
             <div>
-            <form class="form-inline searchBar mx-auto py-2">
-            <div class="form-group mx-1 mb-1">
-                <button type="submit" class="search-btn
+            <form className="form-inline searchBar mx-auto py-2">
+            <div className="form-group mx-1 mb-1">
+                <button type="submit" className="search-btn
                  btn btn-primary">جست و جو</button>
             </div>
-            <div class="form-group mx-1 mb-1">
-                <input type="text" class="search-input form-control" placeholder="نام رستوران"/>
+            <div className="form-group mx-1 mb-1">
+                <input type="text" className="search-input form-control" placeholder="نام رستوران"/>
             </div>
-            <div class="form-group mx-1 mb-1">
-                <input type="text" class="search-input form-control" placeholder="نام غذا"/>
+            <div className="form-group mx-1 mb-1">
+                <input type="text" className="search-input form-control" placeholder="نام غذا"/>
             </div>
             </form>
         </div>

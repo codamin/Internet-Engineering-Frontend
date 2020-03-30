@@ -11,7 +11,7 @@ function FoodPartyMenu() {
                 </div>
             </div>
             <div className="row justify-content-center">
-                <span class="label label-default">۲۱:۳۴ : زمان باقیمانده</span>
+                <span className="label label-default">۲۱:۳۴ : زمان باقیمانده</span>
             </div>
             <div className="container-fluid horizontal-scrollable  shadow mt-4">
 

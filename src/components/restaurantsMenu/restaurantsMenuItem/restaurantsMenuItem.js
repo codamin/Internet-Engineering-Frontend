@@ -14,8 +14,8 @@ function RestaurantsMenuItem() {
                 </div>
             </div>
             <div className="row justify-content-center">
-                <div class="col-auto">
-                    <button type="submit" class="btn menu-btn">نمایش منو</button>
+                <div className="col-auto">
+                    <button type="submit" className="btn menu-btn">نمایش منو</button>
                  </div>
             </div>
         </div>
