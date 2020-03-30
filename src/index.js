@@ -14,19 +14,9 @@ import {
 ReactDOM.render(
   <Router>
   <Switch>
-
     <Route exact path="/">
       <Home />
     </Route>
-
-    {/* <Route path="/about">
-      <About />
-    </Route>
-
-    <Route path="/dashboard">
-      <Dashboard />
-    </Route> */}
-
   </Switch>
 </Router>,
   document.getElementById('root')

@@ -6,8 +6,8 @@ import FoodPartyMenu from 'components/foodPartyMenu/foodPartyMenu'
 import RestaurantsMenu from 'components/restaurantsMenu/restaurantsMenu';
 
 //////
-  import API from 'apis/api'
-  API.get('restaurant').then(res => console.log(res.data));
+  // import API from 'apis/api'
+  // API.get('restaurant').then(res => console.log(res.data));
 //////
 
 class Home extends Component {
