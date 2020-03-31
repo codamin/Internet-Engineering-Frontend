@@ -15,7 +15,6 @@ class RestaurantsMenu extends React.Component {
         API.get('restaurant').then(
             jsonData => {
                 this.setState({restaurants: jsonData.data});
-                console.log(jsonData.data)
             })
     }
 

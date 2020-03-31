@@ -1,4 +1,11 @@
 import React from 'react'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useRouteMatch
+  } from 'react-router-dom'
 import './restaurantsMenuItem.css'
 import pizza from 'Assets/Icons/pizza.png'
 
@@ -15,7 +22,11 @@ function RestaurantsMenuItem(props) {
             </div>
             <div className="row justify-content-center">
                 <div className="col-auto">
-                    <button type="submit" className="btn menu-btn">نمایش منو</button>
+                    <button type="submit" className="btn menu-btn">
+                        <Link to={`/restaurant/${props.restaurantData.id}`}>
+                        نمایش منو
+                        </Link>
+                    </button>
                  </div>
             </div>
         </div>
