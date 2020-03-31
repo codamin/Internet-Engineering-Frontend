@@ -2,26 +2,14 @@ import React from 'react'
 import MenuItem from 'components/restaurant/restaurantContainer/menuItem/'
 import './restaurantMenu.css'
 
-// class RestaurantMenu extends React.Component {
-//     render() {
-//         return(
-//         <div className="col-8 restaurants">
-//             <div className="container">
-//                 {this.props.menu.map(menuData => <MenuItem itemData={menuData}/>)}
-//                 {/* {props.menu} */}
-//             </div>
-//         </div>
-//         )
-//     }
-// }
-
 function RestaurantMenu(props) {
+    if(!props || props.menu == undefined){
+        return null; //You can change here to put a customized loading spinner 
+    }
     return(
-        <div className="col-8 restaurants">
-            <div className="container">
-                {props.menu.map(f => <h1>{f.name}</h1>)}
-            </div>
-        </div>  
+        <div className="row container">
+            {props.menu.map(f => <MenuItem key={f.name} food={f}/>)}
+        </div>
     );
 }
 

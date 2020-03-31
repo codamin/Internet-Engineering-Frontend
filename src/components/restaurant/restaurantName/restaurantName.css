@@ -2,3 +2,9 @@
     font-family: Vazir-bold;
     font-size: xxx-large;
 }
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    /* flex-direction: ; */
+}

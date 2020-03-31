@@ -19,7 +19,6 @@ class RestaurantsMenu extends React.Component {
     }
 
     render() {
-        console.log(this.state.restaurants)
         return(
             <div className="container mt-5">
                 <div className="row justify-content-center mb-2">

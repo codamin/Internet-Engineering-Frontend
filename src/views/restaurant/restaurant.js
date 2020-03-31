@@ -35,7 +35,7 @@ class Restaurant extends React.Component {
                 <Navbar />
                 <RestaurantHeader />
                 <RestaurantName name={this.state.data.name} />
-                <RestaurantContainer menu={this.state.data.menu}/>
+                <RestaurantContainer menu={this.state.data.menu} cart={this.state.cart} />
                 <Footer />
             </div>
         )
