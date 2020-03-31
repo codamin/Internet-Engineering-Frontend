@@ -15,11 +15,11 @@ class RestaurantsMenu extends React.Component {
         API.get('restaurant').then(
             jsonData => {
                 this.setState({restaurants: jsonData.data});
-                console.log(jsonData.data)
             })
     }
 
     render() {
+        console.log(this.state.restaurants)
         return(
             <div className="container mt-5">
                 <div className="row justify-content-center mb-2">

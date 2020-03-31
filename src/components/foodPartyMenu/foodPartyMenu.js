@@ -16,7 +16,6 @@ class FoodPartyMenu extends React.Component {
         API.get('party').then(
             jsonData => {
                 this.setState({foods: jsonData.data});
-                console.log(jsonData.data)
             })
     }
 
