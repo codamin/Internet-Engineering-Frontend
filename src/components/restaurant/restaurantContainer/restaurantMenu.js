@@ -8,7 +8,7 @@ function RestaurantMenu(props) {
     }
     return(
         <div className="row container">
-            {props.menu.map(f => <MenuItem key={f.name} food={f}/>)}
+            {props.menu.map(f => <MenuItem key={f.name} food={f} />)}
         </div>
     );
 }

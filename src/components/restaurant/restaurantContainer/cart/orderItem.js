@@ -11,7 +11,7 @@ function OrderItem(props) {
             <div className="row mt-2 no-gutters">
                 <a href="#" className="col-1 flaticon-minus minus-btn no-gutters justify-content-start"></a>
                 <div className="col-2 flex-container no-gutters justify-content-center food-num-cart">
-
+                    
                 </div>
                 <a href="#" className="col-1 flaticon-plus plus-btn no-gutters justify-content-end"></a>
                 <div className="col-8 flex-container justify-content-end food-name-cart">
