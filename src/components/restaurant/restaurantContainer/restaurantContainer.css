@@ -1,0 +1,11 @@
+.main-part {
+    margin-bottom: 3em;
+}
+
+.restaurants {
+    border-style: hidden;
+    border-right-style: dashed;
+    border-color: #c4c3c2;
+    /* margin: 2em; */
+}
+

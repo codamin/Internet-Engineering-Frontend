@@ -33,7 +33,7 @@ function MainLogo() {
                 <input type="text" className="search-input form-control" placeholder="نام غذا"/>
             </div>
             </form>
-        </div>
+            </div>
         </div>
     );
 }

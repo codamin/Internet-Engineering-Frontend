@@ -1,0 +1,12 @@
+.flex-container {
+    display: flex;
+    justify-content: center;
+    /* flex-direction: ; */
+}
+
+.food-menu {
+    font-family: Vazir-bold;
+    color: #1a535c;
+    border-bottom: 3px solid #1a535c;
+    font-size: 3em;
+}
