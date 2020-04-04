@@ -21,7 +21,7 @@ function FoodPartyItem(props) {
                             <img className="star" src={star}></img>
                         </div>
                         <div className="col-auto px-0 text-right">
-                            ۵
+                            {props.foodData.popularity}
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@ function FoodPartyItem(props) {
             </div>
             <div className="row mt-2 no-gutters">
                 <div className="col  rounded-lg text-center mx-0">
-                    <button type="button" className="btn buy-btn">خرید</button>
+                    <button type="button" className="btn buy-btn" data-toggle="modal" data-target="#foodPartyModal">خرید</button>
                 </div>
                 <div className="col rounded-lg text-center mx-0">
                     <button type="button" className="btn rmn-number">موجودی</button>
@@ -46,6 +46,39 @@ function FoodPartyItem(props) {
                     {props.foodData.restaurantName}
                 </div>
             </div>
+
+
+            <div className="modal fade" id="foodPartyModal" tabIndex="-1" role="dialog" aria-hidden="true">
+                    {/* <form> */}
+                        <div className="modal-dialog" role="document">
+                            <div className="modal-content">
+                                <div className="modal-body container">
+                                    <div className="row justify-content-center">
+                                        {props.foodData.restaurantName}
+                                    </div>
+                                    <div className="row">
+                                        <div className="col container">
+                                            <div className="row">
+                                                <div className="col">{props.foodData.popularity}</div>
+                                                <div className="col" src={star}></div>
+                                                <div className="col-auto text-right">{props.foodData.name}</div>
+                                            </div>
+                                            <div className="row justify-content-end">{props.foodData.description}</div>
+                                            <div className="row">
+                                                <div className="col">تومان {props.foodData.price}</div>
+                                                <div className="col">{props.foodData.oldPrice}</div>
+                                            </div>
+                                        </div>
+                                        <div className="col-auto">
+                                            <img src={props.foodData.image}/>
+                                        </div>
+                                    </div>
+                                    <div className="row"></div>
+                                </div>
+                            </div>
+                        </div>
+                    {/* </form> */}
+                </div>                
         </div>
     );
 }

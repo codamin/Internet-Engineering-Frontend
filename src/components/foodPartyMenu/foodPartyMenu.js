@@ -23,17 +23,17 @@ class FoodPartyMenu extends React.Component {
     render() {
         return(
             <div>
-            <div className="row justify-content-center mt-4 mb-2 no-gutters">
-                <div className="col-1 food-party-title text-center">
-                        !جشن غذا 
+                <div className="row justify-content-center mt-4 mb-2 no-gutters">
+                    <div className="col-1 food-party-title text-center">
+                            !جشن غذا 
+                    </div>
+                </div>
+                <div className="container-fluid horizontal-scrollable shadow mt-4">
+                    <div className="row flex-nowrap">
+                        {this.state.foods.map(foodData => <FoodPartyItem foodData={foodData} />)}
+                    </div>
                 </div>
             </div>
-            <div className="container-fluid horizontal-scrollable shadow mt-4">
-                <div className="row flex-nowrap">
-                    {this.state.foods.map(foodData => <FoodPartyItem foodData={foodData} />)}
-                </div>
-            </div>
-        </div>
         );
     }
 }
