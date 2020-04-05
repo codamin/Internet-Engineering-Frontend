@@ -37,11 +37,11 @@ function FoodModal(props) {
         )
     }
     let num = handleNumOfFood();
-    if(!props || props.food == undefined){
+    if(!props || props.food == undefined || props.id == undefined){
         return null; //You can change here to put a customized loading spinner n
     }
     return (
-        <div className="modal fade" id="foodModal" tabIndex="-1" role="dialog" aria-labelledby="mymodalLabel" aria-hidden="true">
+        <div className="modal fade" id={"foodModal_" + props.id} tabIndex="-1" role="dialog" aria-labelledby="mymodalLabel" aria-hidden="true">
             <div className="modal-dialog modal-l" role="document">
                 <div className="modal-content">
                     <div className="modal-body">

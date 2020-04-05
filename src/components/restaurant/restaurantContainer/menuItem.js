@@ -4,7 +4,7 @@ import FoodModal from 'components/restaurant/restaurantContainer/modal/foodModal
 import './menuItem.css'
 
 function MenuItem(props) {
-    if(!props || props.food == undefined){
+    if(!props || props.food == undefined || props.id == undefined){
         return null; //You can change here to put a customized loading spinner n
     }
     return(
@@ -33,12 +33,13 @@ function MenuItem(props) {
                 </div>
                 <div className="row mb-3 mt-1 food-cart no-gutters container">
                     <div className="col text-center flex-container justify-content-center">
-                        <button type="button" className="btn stat-button stat-active text-center" data-toggle="modal" data-target="#foodModal">افزودن به سبد خرید</button>
+                        <button type="button" className="btn stat-button stat-active text-center" data-toggle="modal" data-target={"#foodModal_" + props.id}>افزودن به سبد خرید</button>
                     </div>
                 </div>
             </div>
+            <h1>{props.id}</h1>
         </div>
-        <FoodModal food={props.food} />
+        <FoodModal food={props.food} key={props.id} id={props.id} />
     </>
     )
 }
