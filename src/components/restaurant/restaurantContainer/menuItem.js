@@ -37,7 +37,6 @@ function MenuItem(props) {
                     </div>
                 </div>
             </div>
-            <h1>{props.id}</h1>
         </div>
         <FoodModal food={props.food} key={props.id} id={props.id} />
     </>

@@ -17,7 +17,8 @@ function Cart(props) {
             <div className="row p-3">
                 <div className="col-12 flex-container">
                     <div className="container cart-container">
-                        {props.cart.orderItems.map(item => <OrderItem item={item} />)}
+                        {props.cart.empty != 'true' &&
+                        props.cart.orderItems.map(item => <OrderItem item={item} />)}
                     </div>
                 </div>
             </div>

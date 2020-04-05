@@ -14,7 +14,9 @@ function RestaurantContainer(props) {
             </div>
             <div className="row mt-5 no-gutters">
                 <div className="col-8 restaurants no-gutter">
-                    <RestaurantMenu  menu={props.menu} />
+                    <div className="row container">
+                        <RestaurantMenu  menu={props.menu} />
+                    </div>
                 </div>
                 <div className="col-4 no-gutters">
                     <Cart cart={props.cart} />

@@ -8,10 +8,9 @@ function RestaurantMenu(props) {
     }
     return props.menu.map((position, key) => {
         return(
-            <div className="row container">
-                {/* {props.menu.map(f => <MenuItem key={key} food={f} />)} */}
+            <>
                 <MenuItem key={key} id={key} food={position} />
-            </div>
+            </>
         )
     });
 }
