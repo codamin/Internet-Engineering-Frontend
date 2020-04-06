@@ -1,6 +1,6 @@
 import React from 'react';
-import FoodPartyItem from 'components/foodPartyMenu/foodPartyItem/foodPartyItem';
-import 'components/foodPartyMenu/foodPartyMenu.css';
+import FoodPartyItem from 'components/home/foodPartyMenu/foodPartyItem/foodPartyItem';
+import 'components/home/foodPartyMenu/foodPartyMenu.css';
 
 import API from 'apis/api'
 
@@ -15,6 +15,7 @@ class FoodPartyMenu extends React.Component {
     componentDidMount() {
         API.get('party').then(
             jsonData => {
+                console.log(jsonData.data)
                 this.setState({foods: jsonData.data});
             })
     }

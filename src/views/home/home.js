@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Navbar from 'components/navbar/navbar'
-import Footer from 'components/footer/footer'
-import MainLogo from 'components/mainLogo/mainLogo'
-import FoodPartyMenu from 'components/foodPartyMenu/foodPartyMenu'
-import RestaurantsMenu from 'components/restaurantsMenu/restaurantsMenu';
+import Navbar from 'components/home/navbar/navbar'
+import Footer from 'components/commons/footer/footer'
+import MainLogo from 'components/home/mainLogo/mainLogo'
+import FoodPartyMenu from 'components/home/foodPartyMenu/foodPartyMenu'
+import RestaurantsMenu from 'components/home/restaurantsMenu/restaurantsMenu';
 
 
 class Home extends Component {

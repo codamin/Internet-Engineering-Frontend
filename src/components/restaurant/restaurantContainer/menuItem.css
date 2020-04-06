@@ -44,7 +44,7 @@ input::placeholder {
     text-align: end;
 }
 
-.btn {
+/* .btn {
     font-family: Vazir-Bold;
     font-size: 2em;
     background-color: #ffe66d;
@@ -57,7 +57,7 @@ input::placeholder {
     font-size: 2em;
     border-radius: 20px;
     background-color: #efefef;
-}
+} */
 
 .stat-button {
     font-size: 0.7em;

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Navbar from 'components/navbar/navbar'
+import Navbar from 'components/home/navbar/navbar'
 import RestaurantHeader from 'components/restaurantHeader/restaurantHeader'
 import RestaurantName from 'components/restaurant/restaurantName/restaurantName'
 import RestaurantContainer from 'components/restaurant/restaurantContainer/restaurantContainer'
-import Footer from 'components/footer/footer'
-import MainLogo from 'components/mainLogo/mainLogo'
+import Footer from 'components/commons/footer/footer'
+import MainLogo from 'components/home/mainLogo/mainLogo'
 import API from 'apis/api'
 import { useParams } from 'react-router';
 

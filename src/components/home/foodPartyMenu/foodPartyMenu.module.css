@@ -1,0 +1,26 @@
+.food-party-title {
+    font-size: 2em;
+    border-bottom: solid #1a535c;
+    color: #1a535c;
+}
+
+.label {
+    background-color: #c1e6e3;
+    padding: 8px;
+    border-radius: 5px;
+    border: solid 2px #4d605e;
+}
+
+.horizontal-scrollable {
+    overflow-x: scroll;
+}
+
+.horizontal-scrollable::-webkit-scrollbar {
+    border: none;
+    background-color: transparent;
+    display: none;
+}
+
+.foodPartyfoodName {
+    font-size: 0.8em;
+}
