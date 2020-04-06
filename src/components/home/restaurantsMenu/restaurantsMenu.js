@@ -1,5 +1,5 @@
 import React from 'react'
-import RestaurantsMenuItem from 'components/restaurantsMenu/restaurantsMenuItem/restaurantsMenuItem'
+import RestaurantsMenuItem from 'components/home/restaurantsMenu/restaurantsMenuItem/restaurantsMenuItem'
 
 import API from 'apis/api'
 

@@ -1,0 +1,22 @@
+.title {
+    font-size: 3em;
+    border-bottom: solid #1a535c;
+    color: #1a535c;
+}
+
+.restaurant-item     {
+    background-color: white;
+    height: 15em;
+    width: 15em;
+}
+
+.restaurant-logo {
+    border-radius: 50%;
+    width: 6em;
+    height: 6em;
+}
+
+.menu-btn {
+    background-color: #ffe66d;
+}
+

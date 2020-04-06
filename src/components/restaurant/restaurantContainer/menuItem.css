@@ -43,7 +43,11 @@
     text-align: end;
 } */
 
+<<<<<<< HEAD
 .restaurant-menu .food .btn {
+=======
+/* .btn {
+>>>>>>> fc6e0cc356660f35f4e606e6828ff5df2b30359b
     font-family: Vazir-Bold;
     font-size: 2em;
     background-color: #ffe66d;
@@ -56,7 +60,7 @@
     font-size: 2em;
     border-radius: 20px;
     background-color: #efefef;
-}
+} */
 
 .restaurant-menu .food .stat-button {
     font-size: 0.7em;

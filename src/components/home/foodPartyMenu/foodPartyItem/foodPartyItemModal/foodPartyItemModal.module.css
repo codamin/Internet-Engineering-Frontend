@@ -1,0 +1,60 @@
+.modalBox {
+    border-radius: 1.2em;
+}
+
+.foodImg {
+    width: 8em;
+    height: 8em;
+}
+
+.star {
+    width: 1em;
+    height: 1em;
+}
+
+.btn {
+    color: white;
+    width: 90%;
+    background-color: #4ecdc4;
+}
+
+.lastRow {
+    border-top: dashed #afafaf 2px;
+    font-size: 1.3em;
+    color: gray;
+}
+
+.clickable {
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.minus::before {
+    color: tomato;
+}
+
+.plus::before {
+    color: #22463f;
+}
+
+.restaurantName {
+    font-size: 1.3em;
+}
+
+.foodName {
+    font-size: 1.3em;
+}
+
+.foodDescription {
+    font-size: 0.8em;
+}
+
+.oldPrice {
+    text-decoration-line: line-through;
+    text-decoration-color: red;
+    color: gray;
+}
+
+.priceRow {
+    font-size: 1.5em;
+}
