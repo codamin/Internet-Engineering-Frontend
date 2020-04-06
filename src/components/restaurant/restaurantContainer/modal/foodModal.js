@@ -5,7 +5,25 @@ import NumFood from 'components/restaurant/restaurantContainer/modal/numFood'
 import './foodModal.css'
 
 function FoodModal(props) {
-    function handleClickPlus(e) {
+    function handleClickPlus1(func) {
+        API.post('cart', {
+            restaurantId: `${props.food.restaurantId}`,
+            foodName: `${props.food.name}`            
+        }).then(function (response) {
+            console.log(response);
+            // if (typeof props.onChange === 'function') {
+            //     props.onChange();
+            // }
+            if (typeof func === 'function') {
+                func();
+            }
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    }
+
+    function handleClickPlus() {
         API.post('cart', {
             restaurantId: `${props.food.restaurantId}`,
             foodName: `${props.food.name}`            
@@ -37,7 +55,7 @@ function FoodModal(props) {
         )
     }
     let num = handleNumOfFood();
-    if(!props || props.food == undefined || props.id == undefined){
+    if(!props || props.food == undefined || props.id == undefined || props.onChang == undefined){
         return null; //You can change here to put a customized loading spinner n
     }
     return (
@@ -63,7 +81,7 @@ function FoodModal(props) {
                                         <div className="col-5">
                                             <button type="button" className="btn stat-button stat-active text-center" onClick={handleClickPlus}>افزودن به سبد خرید</button>    
                                         </div>
-                                        <button type="button" className="btn col-1 flation-minus minus-btn no-gutters" onClick={handleClickMinus}></button>    
+                                        <button type="button" className="btn col-1 flation-minus minus-btn no-gutters" onClick={handleClickMinus}></button>        
                                         <div className="col-2 flex-container no-gutters justify-content-center food-num-cart">
                                         <NumFood food={props.food} />
                                         </div>

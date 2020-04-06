@@ -7,7 +7,7 @@ function Cart(props) {
     if(!props || props.cart == undefined || props.cart.orderItems == undefined){
         return null; //You can change here to put a customized loading spinner 
     }
-    return(
+    return (
         <div className="container ml-4 cart cart-box">
             <div className="row p-2">
                 <div className="col-3 flex-container"></div>

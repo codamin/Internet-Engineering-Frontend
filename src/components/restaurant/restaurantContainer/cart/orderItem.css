@@ -1,0 +1,9 @@
+.restaurant-cart .plus-btn {
+    width: 1.2em;
+    color: #1a535c;
+}
+
+.restaurant-cart .minus-btn {
+    width: 1.2em;
+    color: red;
+}

@@ -1,8 +1,8 @@
-.main-part {
+.restaurant-conatiner {
     margin-bottom: 3em;
 }
 
-.restaurants {
+.restaurant-container .right-border {
     border-style: hidden;
     border-right-style: dashed;
     border-color: #c4c3c2;

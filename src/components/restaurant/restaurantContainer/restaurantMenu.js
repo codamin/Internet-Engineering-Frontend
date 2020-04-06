@@ -8,9 +8,7 @@ function RestaurantMenu(props) {
     }
     return props.menu.map((position, key) => {
         return(
-            <>
-                <MenuItem key={key} id={key} food={position} />
-            </>
+                <MenuItem key={key} id={key} food={position} onChang={props.onChang} />
         )
     });
 }
