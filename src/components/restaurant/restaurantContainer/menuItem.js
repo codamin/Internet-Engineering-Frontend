@@ -14,7 +14,7 @@ function MenuItem(props) {
     const style2 = "container m-3 food no-gutters"
     return (
         <>
-            <div className="col-4 mb-3 flex-container no-gutters">
+            <div className="col-4 mb-3 flex-container no-gutters menu-item-card">
                 <div className={props.id < 3 ? style1 : style2}>
                     <div className="row mt-3 flex-container no-gutters">
                         <img className="col-auto food-pic no-gutters" src={props.food.image} alt="foodPic" />
