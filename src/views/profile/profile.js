@@ -3,6 +3,7 @@ import Navbar from 'components/home/navbar/navbar'
 import Footer from 'components/commons/footer/footer'
 import Jombotron from 'components/commons/jombotron/jombotron'
 import ProfileOrders from 'components/profile/profileOrders/profileOrders'
+import ProfileCredit from 'components/profile/profileCredit/profileCredit'
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,9 +17,10 @@ function Profile({ match }) {
         <Jombotron/>
         <Router>
             <Switch>
+              {console.log(match.url)}
               <Route exact path={match.path} component={ProfileOrders}/>
               <Route path={match.path + "/orders"} component={ProfileOrders}/>
-              {/* <Route exact path="/credit" component={ProfileCredit}/> */}
+              <Route path={match.path + "/credit"} component={ProfileCredit}/>
             </Switch>
         </Router>
         <Footer/>
