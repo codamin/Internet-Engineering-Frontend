@@ -5,6 +5,7 @@ import styles from './profileCredit.module.css'
 class ProfileCredit extends React.Component {
     constructor(props) {
         super(props)
+        // console.log(props)
         this.state = {credit: 0}
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -19,11 +20,12 @@ class ProfileCredit extends React.Component {
         API.post('user', {
             credit: this.state.credit,
         }).then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
+        })
+        .catch(function (error) {
             console.log(error);
         });
+        console.log('call back called in credit.js')
+        this.props.updateUserFunction()
     }
 
     render() {
