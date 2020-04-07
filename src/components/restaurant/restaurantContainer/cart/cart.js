@@ -13,7 +13,7 @@ function Cart(props) {
             </div>
         )
     }
-    return (
+    return(
         <div className="container ml-4 cart cart-box">
             <div className="row p-2">
                 <div className="col-3 flex-container"></div>

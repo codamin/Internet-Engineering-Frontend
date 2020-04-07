@@ -1,0 +1,53 @@
+.main {
+    background-color: #ff6b6b;
+}
+
+.moneyCurrency {
+    margin-right: .5em;
+}
+
+
+.jomboLeft {
+    font-family: Vazir-Light;
+    margin-right: 8em;
+}
+
+.jomboRight {
+    font-family: Vazir-Bold;
+}
+
+.jombotron>.container-fluid {
+    background-color: inherit;
+}
+
+.smallIcon::before {
+    color: white;
+    font-size: 2em !important;
+}
+
+.bigIcon::before {
+    color: white;
+    font-size: 5.5em !important;
+}
+
+.userName {
+    font-size: 2em;
+}
+
+.smallText {
+    font-size: 1em;
+}
+
+.whiteText {
+    color: white;
+}
+
+.blackText {
+    color: black;
+}
+
+.infoText {
+    text-align: end;
+    color: white;
+    margin-bottom: 0rem;
+}

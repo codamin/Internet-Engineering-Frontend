@@ -1,37 +1,38 @@
-.restaurant-menu .food .flex-container {
+.flex-container {
     display: flex;
     justify-content: center;
     /* flex-direction: ; */
 }
 
-.restaurant-menu .food {
+.restaurant {
     border-radius: 8px;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
     background-color: white;
 }
 
-.restaurant-menu .food .food-pic {
+.rest-pic {
     border-radius: 8px;
-    max-width: 60%;
-    height: auto;
+    width: 6.5em;
+    /* height: 4em; */
 }
 
-.restaurant-menu .food .food-name {
+.food-name {
     font-family: Vazir-medium;
-    font-size: 0.95em;
+    font-size: 1.5em;
     padding-top: 2%;
 }
 
-.restaurant-menu .food .star {
-    width: 0.85em;
-    height: 0.85em;
+.star {
+    width: 0.58em;
+    height: 0.58em;
+    color: gray;
 }
 
-.restaurant-menu .food .score {
-    font-size: 0.85em;
+.score {
+    font-size: 0.7em;
 }
 
-.restaurant-menu .food .food-cart {
+.food-cart {
     font-size: 1.2em;
 }
 
@@ -39,11 +40,11 @@
     direction: rtl;
 }
 
-/* .restaurant-menu input::placeholder {
+input::placeholder {
     text-align: end;
-} */
+}
 
-.restaurant-menu .food .btn {
+/* .btn {
     font-family: Vazir-Bold;
     font-size: 2em;
     background-color: #ffe66d;
@@ -52,32 +53,32 @@
     border-radius: 8px;
 }
 
-.restaurant-menu .food .form-control {
+.form-control {
     font-size: 2em;
     border-radius: 20px;
     background-color: #efefef;
 } */
 
-.restaurant-menu .food .stat-button {
+.stat-button {
     font-size: 0.7em;
     /* color: black; */
 }
 
-.restaurant-menu .food.btn.stat-in-way {
+.btn.stat-in-way {
     background-color: lightgreen;
     color: #676767;
 }
 
-.restaurant-menu .food.btn.stat-finding {
+.btn.stat-finding {
     background-color: silver;
     color: #676767;
 }
 
-.restaurant-menu .food .btn .stat-active {
+.btn.stat-active {
     background-color: #ffe66d;
 }
 
-.restaurant-menu .food .btn .btn-finalize {
+.btn.btn-finalize {
     background-color: #4ecdc4;
     font-size: 1.85em;
     color: #f7fff7;
