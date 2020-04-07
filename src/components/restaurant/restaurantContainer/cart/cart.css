@@ -1,67 +1,67 @@
-.cart-box .cart {
+.cart {
     font-family: Vazir;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
 }
 
-.cart-box .cart-box {
+.cart-box {
     font-size: 70%;
     background-color: white;
 }
 
-.cart-box .menu-name {
+.menu-name {
     font-family: Vazir-bold;
-    font-size: 2.5em;
+    font-size: 1.7em;
     border-bottom: 3px solid gray;
 }
 
-.cart-box .cart-container {
+.cart-container {
     border: 1px dashed silver;
     border-radius: 20px;
     padding: 0% 10% 10% 10%;
 }
 
-.cart-box .total-price {
-    font-size: 2em;
+.total-price {
+    font-size: 1.5em;
 }
 
 .persian {
     direction: rtl;
 }
 
-.cart-box .cart-icon {
+.cart-icon {
     margin-left: 0;
 }
 
-.cart-box .food-cart {
+.food-cart {
     font-size: 1.2em;
 }
 
-.cart-box .btn.btn-finalize {
+.btn.btn-finalize {
     background-color: #4ecdc4;
     font-size: 1.85em;
     color: #f7fff7;
 }
 
-.cart-box .food-num-cart {
+.food-num-cart {
     font-size: 1.4em;
 }
 
-.cart-box .food-field-bottom {
+.food-field-bottom {
     border-bottom: 0.85px solid silver;
 }
 
 
-.cart-box .plus-btn {
+.plus-btn {
     width: 1.2em;
     color: #1a535c;
 }
 
-.cart-box .minus-btn {
+.minus-btn {
     width: 1.2em;
     color: red;
 }
 
-.cart-box .food-name-cart {
+.food-name-cart {
     font-size: 1.3em;
 }
