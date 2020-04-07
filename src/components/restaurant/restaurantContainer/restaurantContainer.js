@@ -21,7 +21,6 @@ function RestaurantContainer(props) {
                 <FoodMenu />
             </div>
             <div className="row mt-5 no-gutters">
-<<<<<<< HEAD
                 <div className="col-8 right-border no-gutter">
                     <div className="row container restaurant-menu no-gutters">
                         {props.menu ?
@@ -37,15 +36,6 @@ function RestaurantContainer(props) {
                     <div class="spinner-border" role="status">
                         <span class="sr-only">Loading...</span>
                     </div>}
-=======
-                <div className="col-8 restaurants no-gutter">
-                    <div className="row container">
-                        <RestaurantMenu  menu={props.menu} />
-                    </div>
-                </div>
-                <div className="col-4 no-gutters">
-                    <Cart cart={props.cart} />
->>>>>>> 6e6b0542b8a311c24fa26df5aaf442111813d9be
                 </div>
             </div>    
         </div>
