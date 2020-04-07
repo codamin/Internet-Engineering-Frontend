@@ -40,7 +40,8 @@ class FoodPartyItemModal extends React.Component {
                                 </div>
                                 <div className={["row mt-3 mr-0 justify-content-end", styles.foodDescription].join(' ')}>{this.state.foodData.description}</div>
                                 <div className={["row mt-3 justify-content-end", styles.priceRow].join(' ')}>
-                                    <div className="col-auto">{eng2fa(this.state.foodData.price)}</div>
+                                    <div className="col-auto">{"تومان"}</div>
+                                    <div className="col-auto pl-0">{eng2fa(this.state.foodData.price)}</div>
                                     <div className={["col-auto", styles.oldPrice].join(' ')}>{eng2fa(this.state.foodData.oldPrice)}</div>
                                 </div>
                             </div>

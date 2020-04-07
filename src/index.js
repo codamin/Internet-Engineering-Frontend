@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Home from './views/home/home';
+import Profile from './views/profile/profile'
 import Restaurant from './views/restaurant/restaurant'
 import './Assets/Fonts/vazir-fonts/fonts.css';
 import './Assets/Icons/font/flaticon.css';
@@ -15,12 +16,10 @@ import {
 ReactDOM.render(
   <Router>
   <Switch>
-    <Route exact path="/">
-      <Home />
-    </Route>
-
-    <Route exact path="/restaurant/:restaurantId" component={Restaurant} />
-
+    <Route exact path="/" component={Home}/>
+    <Route exact path="/profile" component={Profile}/>
+    <Route exact path="/profile/orders" component={Profile}/>
+    <Route exact path="/restaurant/:restaurantId" component={Restaurant}/>
   </Switch>
 </Router>,
   document.getElementById('root')

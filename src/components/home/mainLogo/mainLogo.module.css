@@ -1,4 +1,4 @@
-.jumbotron-fluid {
+.pannel {
     background-size: cover;
     background-image: linear-gradient(rgba(255, 107, 107, 0.6), rgba(255, 107, 107, 0.6)), url('./cover.jpg');
     height: 20em;
@@ -7,7 +7,7 @@
     background-color: inherit;
 }
 
-.main-logo {
+.mainLogo {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -21,6 +21,8 @@
     box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.6);
     margin-bottom: 1em;
     border-radius: 50%;
+    height: 4em;
+    width: 4em;
 }
 
 .searchBar {
@@ -32,14 +34,14 @@
     box-shadow: 0px 1px 7px 3px #0006;
 }
 
-.search-input {
+.searchInput {
     text-align: center;
     height: 3em;
     background-color: #ededed;
     border-radius: 5px;
 }
 
-.search-btn {
+.searchBtn {
     text-align: center;
     border: none;
     color: black;
