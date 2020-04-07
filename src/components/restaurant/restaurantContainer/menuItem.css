@@ -39,6 +39,11 @@
     direction: rtl;
 }
 
+.restaurant-menu .menu-item-card {
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+
 /* .restaurant-menu input::placeholder {
     text-align: end;
 } */
@@ -81,4 +86,5 @@
     background-color: #4ecdc4;
     font-size: 1.85em;
     color: #f7fff7;
+    margin-bottom: auto;
 }

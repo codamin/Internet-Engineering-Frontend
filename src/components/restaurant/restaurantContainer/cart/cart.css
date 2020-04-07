@@ -11,8 +11,8 @@
 
 .restaurant-cart .menu-name {
     font-family: Vazir-bold;
-    font-size: 1.7em;
-    border-bottom: 3px solid gray;
+    font-size: 2em;
+    border-bottom: 2px solid gray;
 }
 
 .restaurant-cart .cart-container {
@@ -22,7 +22,13 @@
 }
 
 .restaurant-cart .total-price {
-    font-size: 1.5em;
+    font-family: Vazir-bold;
+    font-size: 2em;
+}
+
+.restaurant-cart .total-sum {
+    font-family: Vazir;
+    font-size: 1.7;
 }
 
 .persian {
@@ -38,8 +44,10 @@
 }
 
 .restaurant-cart .btn.btn-finalize {
+    border-radius: 10px;
+    font-family: Vazir;
     background-color: #4ecdc4;
-    font-size: 1.85em;
+    font-size: 2.7em;
     color: #f7fff7;
 }
 
@@ -50,7 +58,6 @@
 .restaurant-cart .food-field-bottom {
     border-bottom: 0.85px solid silver;
 }
-
 
 .restaurant-cart .plus-btn {
     width: 1.2em;

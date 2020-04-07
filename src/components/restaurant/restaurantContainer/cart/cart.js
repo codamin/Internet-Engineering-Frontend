@@ -2,10 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import OrderItem from 'components/restaurant/restaurantContainer/cart/orderItem'
+import API from 'apis/api'
 
 import './cart.css'
 
+
 function Cart(props) {
+
+    function finalize() {
+        API.post('cart/finalize').then(function (response) {
+            console.log(response);
+        })
+    }
+
     if(!props){
         return (
             <div class="spinner-border" role="status">
@@ -16,9 +25,9 @@ function Cart(props) {
     return(
         <div className="container ml-4 cart cart-box">
             <div className="row p-2">
-                <div className="col-3 flex-container"></div>
-                <div className="col-6 flex-container menu-name">سبد خرید</div>
-                <div className="col-3 flex-container"></div>
+                <div className="col-4 flex-container"></div>
+                <div className="col-4 p-2 flex-container menu-name">سبد خرید</div>
+                <div className="col-4 flex-container"></div>
             </div>
             <div className="row p-3">
                 <div className="col-12 flex-container">
@@ -40,11 +49,11 @@ function Cart(props) {
                         <span class="sr-only">Loading...</span>
                     </div>}
                 </div>
-                <div className="col-6 flex-container justify-content-end persian">جمع کل:</div>
+                <div className="col-6 flex-container justify-content-end persian total-sum">جمع کل:</div>
             </div>
             <div className="row m-2 no-gutters">
                 <div className="col-12 mb-3 text-center">
-                    <button type="button" className="btn  ml-2 mr-2 stat-button btn-finalize text-center">تایید نهایی</button>
+                    <button type="button" className="btn  ml-2 mr-2 stat-button btn-finalize text-center no-gutters" onClick={finalize}>تایید نهایی</button>
                 </div>
             </div>
         </div>
