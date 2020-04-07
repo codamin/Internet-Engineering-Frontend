@@ -31,7 +31,7 @@ class Restaurant extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="restaurant">
                 <Navbar />
                 <RestaurantHeader />
                 <RestaurantName name={this.state.data.name} />

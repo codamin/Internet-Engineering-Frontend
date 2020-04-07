@@ -2,10 +2,9 @@
     margin-bottom: 3em;
 }
 
-.restaurants {
+.restaurant .right-border {
     border-style: hidden;
     border-right-style: dashed;
     border-color: #c4c3c2;
-    /* margin: 2em; */
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import star_logo from 'components/restaurant/restaurantContainer/star.png'
-// import FoodModal from 'components/restaurant/restaurantContainer/modal/foodModal'
+import eng2fa from 'components/home/foodPartyMenu/foodPartyItem/foodPartyItem'
 import FoodPartyItemModal from 'components/home/foodPartyMenu/foodPartyItem/foodPartyItemModal/foodPartyItemModal'
 
 
@@ -35,6 +35,7 @@ function MenuItem(props) {
                     <div className="row mt-1 mb-2 container-fluid container no-gutters">
                         <div className="col flex-container justify-content-end">تومان</div>
                         <div className="col pl-1 flex-container justify-content-start">
+                            {/* {eng2fa(props.food.price)} */}
                             {props.food.price}
                         </div>
                     </div>

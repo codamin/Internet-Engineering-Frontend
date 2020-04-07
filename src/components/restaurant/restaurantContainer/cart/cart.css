@@ -1,27 +1,27 @@
-.cart {
+.restaurant-cart  .cart {
     font-family: Vazir;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
 }
 
-.cart-box {
+.restaurant-cart .cart-box {
     font-size: 70%;
     background-color: white;
 }
 
-.menu-name {
+.restaurant-cart .menu-name {
     font-family: Vazir-bold;
     font-size: 1.7em;
     border-bottom: 3px solid gray;
 }
 
-.cart-container {
+.restaurant-cart .cart-container {
     border: 1px dashed silver;
     border-radius: 20px;
     padding: 0% 10% 10% 10%;
 }
 
-.total-price {
+.restaurant-cart .total-price {
     font-size: 1.5em;
 }
 
@@ -29,39 +29,39 @@
     direction: rtl;
 }
 
-.cart-icon {
+.restaurant-cart .cart-icon {
     margin-left: 0;
 }
 
-.food-cart {
+.restaurant-cart .food-cart {
     font-size: 1.2em;
 }
 
-.btn.btn-finalize {
+.restaurant-cart .btn.btn-finalize {
     background-color: #4ecdc4;
     font-size: 1.85em;
     color: #f7fff7;
 }
 
-.food-num-cart {
+.restaurant-cart .food-num-cart {
     font-size: 1.4em;
 }
 
-.food-field-bottom {
+.restaurant-cart .food-field-bottom {
     border-bottom: 0.85px solid silver;
 }
 
 
-.plus-btn {
+.restaurant-cart .plus-btn {
     width: 1.2em;
     color: #1a535c;
 }
 
-.minus-btn {
+.restaurant-cart .minus-btn {
     width: 1.2em;
     color: red;
 }
 
-.food-name-cart {
+.restaurant-cart .restaurant-cart .food-name-cart {
     font-size: 1.3em;
 }
