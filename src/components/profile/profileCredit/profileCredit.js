@@ -16,7 +16,14 @@ class ProfileCredit extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        // API.p
+        API.post('user', {
+            credit: this.state.credit,
+        }).then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+        });
     }
 
     render() {
@@ -31,7 +38,7 @@ class ProfileCredit extends React.Component {
                     </div>
                 </div>
             
-                <form className="form-inline onSubmit={handleSubmit}">
+                <form className="form-inline" onSubmit={this.handleSubmit}>
                     <button type="submit" className={"btn mb-2 " + styles.creditBtn}>افزایش</button>
                     <div className="form-group mx-3 mb-2">
                         <input className={"form-control input_credit " + styles.creditForm} onChange={this.handleChange} placeholder="میزان افزایش اعتبار"/>
