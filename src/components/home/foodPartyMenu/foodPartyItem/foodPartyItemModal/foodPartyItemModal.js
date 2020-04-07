@@ -1,5 +1,5 @@
 import React from 'react'
-
+import API from 'apis/api'
 import styles from './foodPartyItemModal.module.css'
 import star from 'Assets/Icons/star.png'
 
@@ -15,12 +15,45 @@ class FoodPartyItemModal extends React.Component {
             ordered: 1
         }
         this.handlePlus = this.handlePlus.bind(this);
+        this.handleMinus = this.handleMinus.bind(this);
+        this.handleAddToCart = this.handleAddToCart.bind(this);
     }
-
+    
     handlePlus(event) {
+        // console.log(this.state);
+        this.setState({
+            ordered: this.state.ordered + 1
+          });
+    }
+    
+    handleMinus(event) {
+
         console.log(this.state);
-        this.setState(
-            state =>({ordered:state.ordered + 1}))
+        if(this.state.ordered > 0) {
+            this.setState(state =>({ordered:state.ordered - 1}))
+        }
+    }
+    
+    handleAddToCart(envent) {
+        for (let step = 0; step < 5; step++) {
+            // Runs 5 times, with values of step 0 through 4.
+            console.log(this.state.ordered);
+        }
+
+        for(let i = 0; i < this.state.ordered; i++) {
+            console.log('sent')
+            console.log(`${this.state.foodData.restaurantId}`)
+            console.log(`${this.state.foodData.name}`)
+            API.post('cart', {
+                restaurantId: `${this.state.foodData.restaurantId}`,
+                foodName: `${this.state.foodData.name}`           
+            }).then(function (response) {
+                console.log(response);
+              })
+              .catch(function (error) {
+                console.log(error);
+            });
+        }
     }
 
     render() {
@@ -51,10 +84,10 @@ class FoodPartyItemModal extends React.Component {
                         </div>
                         <div className={['row',styles.lastRow,'mt-3','pt-3','px-3','d-flex','align-items-center','no-gutters'].join(' ')}>
                             <div className="col-5">
-                                <button type="button" className={"btn " + styles.btn}>افزودن به سبد خرید</button>
+                                <button type="button" className={"btn " + styles.btn} onClick={this.handleAddToCart}>افزودن به سبد خرید</button>
                             </div>
                             <div className="col-auto mr-2">
-                                <span className={[styles.clickable, styles.right].join(' ')}><i className={["flaticon-minus", styles.minus].join(' ')}></i></span>
+                                <span className={[styles.clickable, styles.right].join(' ')} onClick={this.handleMinus}><i className={["flaticon-minus", styles.minus].join(' ')}></i></span>
                             </div>
                             <div className={"col-auto text-center"}>
                                 {eng2fa(this.state.ordered)}
