@@ -44,7 +44,6 @@ function MenuItem(props) {
                         </div>
                     </div>
                 </div>
-                {/* <FoodModal food={props.food} key={props.id} id={props.id} onChang={props.onChang}/> */}
                 <FoodPartyItemModal foodData={props.food} key={props.id} id={props.id} />
             </div>
         </>

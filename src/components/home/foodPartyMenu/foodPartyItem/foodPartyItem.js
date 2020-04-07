@@ -34,7 +34,7 @@ function FoodPartyItem(props) {
             </div>
             <div className="row mt-2 no-gutters">
                 <div className="col  rounded-lg text-center mx-0">
-                    <button type="button" className="btn buy-btn" data-toggle="modal" data-target={"#foodPartyModal_" + props.id}>خرید</button>
+                    <button type="button" className="btn buy-btn" data-toggle="modal" data-target={"#foodModal_" + props.id}>خرید</button>
                 </div>
                 <div className="col rounded-lg text-center mx-0">
                     <button type="button" className="btn rmn-number">موجودی</button>

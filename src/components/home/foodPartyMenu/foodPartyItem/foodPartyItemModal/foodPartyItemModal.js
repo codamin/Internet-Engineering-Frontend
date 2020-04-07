@@ -24,7 +24,7 @@ class FoodPartyItemModal extends React.Component {
     }
 
     render() {
-        return(<div className="modal fade" id={"foodPartyModal_" + this.props.id} tabIndex="-1" role="dialog" aria-hidden="true">
+        return(<div className="modal fade" id={"foodModal_" + this.props.id} tabIndex="-1" role="dialog" aria-hidden="true">
             <div className="modal-dialog" role="document">
                 <div className={['modal-content',styles.modalBox].join(' ')}>
                     <div className={["modal-body","container","px-0"].join(' ')}>
