@@ -7,6 +7,7 @@ const digitMap = {0:'۰', 1:'۱', 2:'۲', 3:'۳', 4:'۴', 5:'۵', 6:'۶', 7:'۷'
 const eng2fa = (engNum) => {return((''+engNum).split('').map(digit=>digitMap[digit]).join(''))} 
 
 function FoodPartyItem(props) {
+    
     return(
         <div className="col-auto container item m-3 px-3 pt-3 shadow rounded-lg">
             <div className="row">
@@ -33,7 +34,7 @@ function FoodPartyItem(props) {
             </div>
             <div className="row mt-2 no-gutters">
                 <div className="col  rounded-lg text-center mx-0">
-                    <button type="button" className="btn buy-btn" data-toggle="modal" data-target="#foodPartyModal">خرید</button>
+                    <button type="button" className="btn buy-btn" data-toggle="modal" data-target={"#foodPartyModal_" + props.id}>خرید</button>
                 </div>
                 <div className="col rounded-lg text-center mx-0">
                     <button type="button" className="btn rmn-number">موجودی</button>
@@ -44,7 +45,7 @@ function FoodPartyItem(props) {
                     {props.foodData.restaurantName}
                 </div>
             </div>
-            <FoodPartyItemModal foodData={props.foodData}/>
+            <FoodPartyItemModal foodData={props.foodData} id={props.id} />
         </div>
     );
 }

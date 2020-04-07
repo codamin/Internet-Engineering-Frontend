@@ -7,8 +7,11 @@ const digitMap = {0:'۰', 1:'۱', 2:'۲', 3:'۳', 4:'۴', 5:'۵', 6:'۶', 7:'۷'
 const eng2fa = (engNum) => {return((''+engNum).split('').map(digit=>digitMap[digit]).join(''))} 
 
 function FoodPartyItemModal(props) {
+    if(!props || props.foodData == undefined || props.id == undefined) {
+        return null;
+    }
     return(
-        <div className="modal fade" id="foodPartyModal" tabIndex="-1" role="dialog" aria-hidden="true">
+        <div className="modal fade" id={"foodPartyModal_" + props.id} tabIndex="-1" role="dialog" aria-hidden="true">
             <div className="modal-dialog" role="document">
                 <div className={['modal-content',styles.modalBox].join(' ')}>
                     <div className={["modal-body","container","px-0"].join(' ')}>
