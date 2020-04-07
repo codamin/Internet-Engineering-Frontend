@@ -30,7 +30,9 @@ class FoodPartyMenu extends React.Component {
                 </div>
                 <div className="container-fluid horizontal-scrollable shadow mt-4">
                     <div className="row flex-nowrap">
-                        {this.state.foods.map(foodData => <FoodPartyItem foodData={foodData} />)}
+                        {this.state.foods.map((position, key) => {
+                            return <FoodPartyItem foodData={position} key={key} id={key} />
+                        })}
                     </div>
                 </div>
             </div>
