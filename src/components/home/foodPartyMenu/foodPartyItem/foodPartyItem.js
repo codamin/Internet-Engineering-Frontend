@@ -13,7 +13,7 @@ function FoodPartyItem(props) {
             <div className="row">
                 <div className="col container">
                     <div className="row justify-content-end">
-                        <div className="col-auto pr-0 text-right foodPartyfoodName">{props.foodData.name}</div>
+                        <div className="col-auto pr-0 text-right foodPartyfoodName">{props.foodData.name}lkjafsdlfkjsdf</div>
                     </div>
                     <div className="row">
                         <div className="col pr-1 text-right">
