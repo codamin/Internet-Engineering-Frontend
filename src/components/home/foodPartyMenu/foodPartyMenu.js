@@ -31,10 +31,14 @@ class FoodPartyMenu extends React.Component {
         return(
             <div>
                 <div className="row justify-content-center mt-4 mb-2 no-gutters">
-                    <div className="col-1 food-party-title text-center">
-                            !جشن غذا 
+                    <div className="col-auto food-party-title text-center">
+                            !جشن غذا
                     </div>
                 </div>
+                <div className="row">
+                    
+                </div>
+                
                 <div className="container-fluid horizontal-scrollable shadow mt-4">
                     <div className="row flex-nowrap">
                         {this.state.foods.map((position, key) => {

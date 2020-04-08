@@ -13,7 +13,7 @@ function FoodPartyItem(props) {
             <div className="row">
                 <div className="col container">
                     <div className="row justify-content-end">
-                        <div className="col-auto foodPartyfoodName pr-0 text-right">{props.foodData.name}</div>
+                        <div className="col-auto pr-0 text-right foodPartyfoodName">{props.foodData.name}</div>
                     </div>
                     <div className="row">
                         <div className="col pr-1 text-right">
@@ -24,7 +24,7 @@ function FoodPartyItem(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col ml-1">
+                <div className="col">
                     <img className="rounded-lg item-img" src={props.foodData.image}></img>
                 </div>
             </div>
@@ -41,7 +41,7 @@ function FoodPartyItem(props) {
                 </div>
             </div>
             <div className="row justify-content-center mt-3 pt-2 rest-name">
-                <div className="col text-center">
+                <div className="col text-center text-truncate">
                     {props.foodData.restaurantName}
                 </div>
             </div>

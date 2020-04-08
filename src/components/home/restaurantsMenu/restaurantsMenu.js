@@ -1,6 +1,6 @@
 import React from 'react'
 import RestaurantsMenuItem from 'components/home/restaurantsMenu/restaurantsMenuItem/restaurantsMenuItem'
-
+import './restaurantsMenu.css'
 import API from 'apis/api'
 
 class RestaurantsMenu extends React.Component {
@@ -20,13 +20,13 @@ class RestaurantsMenu extends React.Component {
 
     render() {
         return(
-            <div className="container mt-5">
+            <div className="container-fluid mt-5 resMenuItem justify-content-center">
                 <div className="row justify-content-center mb-2">
                     <div className="col-auto title text-center">
                         رستوران ها
                     </div>
                 </div>
-                <div className="row">
+                <div className="row justify-content-center">
                     {this.state.restaurants.map(restaurantData => <RestaurantsMenuItem restaurantData={restaurantData}/>)}
                 </div>
             </div>
