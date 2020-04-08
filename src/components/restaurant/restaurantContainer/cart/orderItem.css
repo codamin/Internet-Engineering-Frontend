@@ -1,0 +1,26 @@
+.order-item-card .food-field.bottom {
+    border-bottom: 0.85px solid silver;
+}
+
+.order-item-card .food-name-cart {
+    font-size: 1.85em;
+}
+
+.order-item-card .plus-btn::before {
+    font-size: 1.2em;
+    color: #1a535c;
+}
+
+.order-item-card .minus-btn::before {
+    font-size: 1.2em;
+    color: red;
+}
+
+.order-item-card .persian {
+    direction: rtl;
+}
+
+.order-item-card .flex-container {
+    display: flex;
+    justify-content: center;
+}
