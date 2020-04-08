@@ -53,6 +53,7 @@ class FoodPartyItemModal extends React.Component {
               .catch(function (error) {
                 console.log(error);
             });
+            this.props.updateFunction()
         }
     }
 
