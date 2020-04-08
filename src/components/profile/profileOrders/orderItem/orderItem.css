@@ -1,0 +1,43 @@
+.order-row {
+    background-color: #e7e7e7;
+    font-size: 1.7em;
+    border-radius: 15px;
+    margin-bottom: 1em;
+}
+
+.order-col {
+    border: 1px solid gray;
+    height: 2.8em;
+    line-height: 2.5em;
+}
+
+.order-left-col {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.order-right-col {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.stat-button {
+    font-size: 0.8em;
+    color: black;
+    border-radius: 14px;
+}
+
+.btn.stat-in-way {
+    background-color: lightgreen;
+    color: #676767;
+}
+
+.btn.stat-finding {
+    background-color: #82e0ff;
+    color: #676767;
+}
+
+.btn.stat-active {
+    background-color: #ffe66d;
+    box-shadow: -1px 8px 8px -3px rgba(0, 0, 0, 0.25);
+}

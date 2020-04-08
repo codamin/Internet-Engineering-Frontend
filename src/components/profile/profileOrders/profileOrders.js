@@ -18,7 +18,6 @@ class ProfileOrders extends React.Component {
             jsonData => {
                 console.log(jsonData.data)
                 this.setState({orders: jsonData.data.orderRepository.orders});
-                console.log(this.state)
         })
     }
 
@@ -33,7 +32,7 @@ class ProfileOrders extends React.Component {
                         <a className={styles.whiteText} href="#"> سفارش ها</a>
                     </div>
                 </div>
-                {this.state.orders.map(orderData => <OrderItem orderData={orderData} />)}
+                {this.state.orders.map((orderData, key) => <OrderItem orderData={orderData} id={key} />)}
             </div>
         );
   }

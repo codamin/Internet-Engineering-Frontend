@@ -17,8 +17,7 @@ ReactDOM.render(
   <Router>
   <Switch>
     <Route exact path="/" component={Home}/>
-    <Route exact path="/profile" component={Profile}/>
-    <Route exact path="/profile/orders" component={Profile}/>
+    <Route path="/profile" component={Profile}/>
     <Route exact path="/restaurant/:restaurantId" component={Restaurant}/>
   </Switch>
 </Router>,

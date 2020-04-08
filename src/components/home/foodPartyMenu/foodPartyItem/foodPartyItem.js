@@ -37,7 +37,7 @@ function FoodPartyItem(props) {
                     <button type="button" className="btn buy-btn" data-toggle="modal" data-target={"#foodModal_" + props.id}>خرید</button>
                 </div>
                 <div className="col rounded-lg text-center mx-0">
-                    <button type="button" className="btn rmn-number">موجودی</button>
+    <button type="button" className="btn rmn-number">{[eng2fa(props.foodData.count)," :موجودی"].join(' ')}</button>
                 </div>
             </div>
             <div className="row justify-content-center mt-3 pt-2 rest-name">
@@ -45,7 +45,7 @@ function FoodPartyItem(props) {
                     {props.foodData.restaurantName}
                 </div>
             </div>
-            <FoodPartyItemModal foodData={props.foodData} id={props.id} />
+            <FoodPartyItemModal foodData={props.foodData} id={props.id} updateFunction={props.updateFunction}/>
         </div>
     );
 }

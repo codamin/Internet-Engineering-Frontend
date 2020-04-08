@@ -1,12 +1,12 @@
 .maincard {
     background-color: white;
-    height: auto;
+    height: 22em;
     width: 60em;
     margin-top: 10em;
     border-radius: 3em;
-    padding: 4em;
-    padding-top: 9em;
-    margin-bottom: 14em;
+    padding: 0em;
+    padding-top: 12em;
+    margin-bottom: 40em;
 }
 
 .cardOptions {
@@ -19,25 +19,30 @@
 }
 
 .cardLeftOption {
-    background-color: white;
+    background-color: #ff6b6b;
     border-style: hidden;
     border-right-style: dashed;
-    border-width: 0.1em;
-    border-color: #c4c3c2;
+    border-width: 3px;
+    border-color: #8c8c8c;
     font-size: 2em;
     color: white;
     border-radius: 12px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     line-height: 3em;
+    font-family: Vazir-Medium;
+}
+
+.inputCredit {
+    font-family: Vazir-Light;
 }
 
 .cardRightOption {
-    background-color: #ff6b6b;
+    background-color: white;
     border-style: hidden;
-    border-left-style: 0.1em;
-    border-width: thin;
-    border-color: #c4c3c2;
+    border-left-style: dashed;
+    border-width: 3px;
+    border-color: #8c8c8c;
     font-size: 2em;
     color: black;
     border-radius: 12px;
@@ -46,8 +51,18 @@
     line-height: 3em;
 }
 
-input::placeholder {
-    text-align: end;
+.creditBtn {
+    font-size: 2em;
+    background-color: #4ecdc4;
+    color: white;
+    width: 7em;
+    border-radius: 20px;
+}
+
+.creditForm {
+    font-size: 2em;
+    border-radius: 20px;
+    background-color: #efefef;
 }
 
 .whiteText {
