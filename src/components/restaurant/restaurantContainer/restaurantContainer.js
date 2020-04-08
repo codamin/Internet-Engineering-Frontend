@@ -24,7 +24,7 @@ function RestaurantContainer(props) {
                 <div className="col-8 right-border no-gutter">
                     <div className="row container restaurant-menu no-gutters">
                         {props.menu ?
-                        <RestaurantMenu  menu={props.menu} onChang={props.onChang} /> : 
+                        <RestaurantMenu  menu={props.menu} updateFunction={props.updateFunction} /> : 
                         <div class="spinner-border" role="status">
                             <span class="sr-only">Loading...</span>
                         </div>}
@@ -32,7 +32,7 @@ function RestaurantContainer(props) {
                 </div>
                 <div className="col-4 no-gutters restaurant-cart">
                     {props.cart ?
-                    <Cart cart={props.cart} onChang={props.onChang} /> :
+                    <Cart cart={props.cart} updateFunction={props.updateFunction} /> :
                     <div class="spinner-border" role="status">
                         <span class="sr-only">Loading...</span>
                     </div>}

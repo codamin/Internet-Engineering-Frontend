@@ -6,6 +6,8 @@ import API from 'apis/api'
 
 import './cart.css'
 
+const digitMap = {0:'۰', 1:'۱', 2:'۲', 3:'۳', 4:'۴', 5:'۵', 6:'۶', 7:'۷', 8:'۸', 9:'۹'}
+const eng2fa = (engNum) => {return((''+engNum).split('').map(digit=>digitMap[digit]).join(''))} 
 
 function Cart(props) {
 
@@ -13,6 +15,7 @@ function Cart(props) {
         API.post('cart/finalize').then(function (response) {
             console.log(response);
         })
+        props.updateFunction();
     }
 
     if(!props){
@@ -33,7 +36,7 @@ function Cart(props) {
                 <div className="col-12 flex-container">
                     <div className="container cart-container">
                         {props.cart.empty != 'true' && props.cart.orderItems ?
-                        props.cart.orderItems.map(item => <OrderItem item={item} />) :
+                        props.cart.orderItems.map(item => <OrderItem item={item} updateFunction={props.updateFunction} />) :
                         <div class="spinner-border" role="status">
                             <span class="sr-only">Loading...</span>
                         </div>}
@@ -44,7 +47,7 @@ function Cart(props) {
                 <div className="col-3 flex-container justify-content-end">تومان</div>
                 <div className="col-3 flex-container justify-content-start">
                     {props.cart.finalPrice != undefined ?
-                    props.cart.finalPrice : 
+                    eng2fa(props.cart.finalPrice) : 
                     <div class="spinner-border" role="status">
                         <span class="sr-only">Loading...</span>
                     </div>}

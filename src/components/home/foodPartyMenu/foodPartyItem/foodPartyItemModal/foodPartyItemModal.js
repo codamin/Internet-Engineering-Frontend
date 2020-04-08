@@ -27,8 +27,7 @@ class FoodPartyItemModal extends React.Component {
     }
     
     handleMinus(event) {
-
-        console.log(this.state);
+        // console.log(this.state);
         if(this.state.ordered > 0) {
             this.setState(state =>({ordered:state.ordered - 1}))
         }
@@ -96,9 +95,13 @@ class FoodPartyItemModal extends React.Component {
                             <div className="col-auto ml-2">
                                 <span className={styles.clickable} onClick={this.handlePlus}><i className={["flaticon-plus", styles.plus].join(' ')}></i></span>
                             </div>
-                            <div className={"col-3 ml-auto text-center rounded " + styles.count}>
-                               {[eng2fa(this.state.foodData.count)," :موجودی"].join(' ')}
-                            </div>
+                            {this.state.foodData.count != undefined &&
+                                <div className={"col-3 ml-auto text-center rounded " + styles.count}>
+                                    {this.state.foodData.count ?
+                                    [eng2fa(this.state.foodData.count)," :موجودی"].join(' '):
+                                    "ناموجود"}
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>

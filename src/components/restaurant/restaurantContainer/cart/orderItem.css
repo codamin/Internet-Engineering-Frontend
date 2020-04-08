@@ -11,9 +11,14 @@
     color: #1a535c;
 }
 
+.clickable {
+    cursor: pointer;
+    font-size: 10px;
+}
+
 .order-item-card .minus-btn::before {
-    font-size: 1.2em;
-    color: red;
+    font-size: 10px;
+    color: tomato;
 }
 
 .order-item-card .persian {

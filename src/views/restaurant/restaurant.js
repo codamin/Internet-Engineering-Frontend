@@ -15,10 +15,10 @@ class Restaurant extends React.Component {
             data: [],
             cart: [],
         }
+        this.updateCart = this.updateCart.bind(this);
     }
 
     updateCart() {
-        const { restaurantId } = this.props.match.params
         API.get(`cart`).then(
             jsonData => {
                 this.setState({cart: jsonData.data});
@@ -44,7 +44,7 @@ class Restaurant extends React.Component {
                 <Navbar />
                 <RestaurantHeader />
                 <RestaurantName name={this.state.data.name} />
-                <RestaurantContainer menu={this.state.data.menu} cart={this.state.cart} onChang={this.updateCart} />
+                <RestaurantContainer menu={this.state.data.menu} cart={this.state.cart} updateFunction={this.updateCart} />
                 <Footer />
             </div>
         )
