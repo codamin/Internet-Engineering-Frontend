@@ -25,7 +25,7 @@ class Navbar extends React.Component {
 
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-light sticky-top no-gutters">
+            <nav className="navbar navbar-expand-lg navbar-light no-gutters">
                 <div className="navbar-nav">
                     <span><a className="exitLink persian" href="#">خروج</a></span>
                     <span>

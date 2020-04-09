@@ -26,9 +26,7 @@ function Cart(props) {
     return(
         <div className="container ml-4 cart cart-box">
             <div className="row p-2 justify-content-center">
-                {/* <div className="col-4 flex-container"></div> */}
                 <div className="col-auto p-2 flex-container menu-name">سبد خرید</div>
-                {/* <div className="col-4 flex-container"></div> */}
             </div>
             <div className="row p-3">
                 <div className="col-12 flex-container">

@@ -15,7 +15,7 @@ function OrderItem(props) {
           })
 
     }
-
+    
     function handleClickMinus(e) {
         API.delete('cart', {data: {
             restaurantId: `${props.itemfood.restaurantId}`,
@@ -37,7 +37,7 @@ function OrderItem(props) {
                     {eng2fa(props.item.number)}
                 </div>
                 <span className="col-auto mr-3 flaticon-plus plus-btn clickable justify-content-end no-gutters" onClick={handleClickPlus}></span>
-                <div className="col-8 flex-container justify-content-end food-name-cart no-gutters">
+                <div className="col-auto flex-container justify-content-end food-name-cart no-gutters">
                     {props.item.food.name}
                 </div>
             </div>
