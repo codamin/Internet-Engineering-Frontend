@@ -1,0 +1,83 @@
+
+.cart-modal {
+    width: 485px;
+}
+
+.modal-content {
+    border-radius: 5px;
+}
+
+.cart-modal .cart {
+    font-family: Vazir;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+}
+
+.cart-modal .cart-box {
+    font-size: 70%;
+    background-color: white;
+}
+
+.cart-modal .menu-name {
+    font-family: Vazir-bold;
+    font-size: 2em;
+    border-bottom: 2px solid gray;
+}
+
+.cart-modal .cart-container {
+    border: 1px dashed silver;
+    border-radius: 20px;
+    padding: 0% 10% 10% 10%;
+}
+
+.cart-modal .total-price {
+    font-family: Vazir-bold;
+    font-size: 2em;
+}
+
+.cart-modal .total-sum {
+    font-family: Vazir;
+    font-size: 1.7;
+}
+
+.persian {
+    direction: rtl;
+}
+
+.cart-modal .cart-icon {
+    margin-left: 0;
+}
+
+.cart-modal .food-cart {
+    font-size: 1.2em;
+}
+
+.cart-modal .btn.btn-finalize {
+    border-radius: 10px;
+    font-family: Vazir;
+    background-color: #4ecdc4;
+    font-size: 2.7em;
+    color: #f7fff7;
+}
+
+.cart-modal .food-num-cart {
+    font-size: 1.4em;
+}
+
+.cart-modal .food-field-bottom {
+    border-bottom: 0.85px solid silver;
+}
+
+.cart-modal .plus-btn {
+    width: 1.2em;
+    color: #1a535c;
+}
+
+.cart-modal .minus-btn {
+    width: 1.2em;
+    color: red;
+}
+
+.cart-modal .cart-modal .food-name-cart {
+    font-size: 1.3em;
+}
