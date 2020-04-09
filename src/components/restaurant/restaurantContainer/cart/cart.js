@@ -14,8 +14,8 @@ function Cart(props) {
     function finalize() {
         API.post('cart/finalize').then(function (response) {
             console.log(response);
+            props.updateFunction();
         })
-        props.updateFunction();
     }
 
     if(!props){

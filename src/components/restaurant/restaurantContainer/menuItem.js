@@ -18,7 +18,7 @@ function MenuItem(props) {
         <>
             <div className="col-4 mb-3 flex-container no-gutters menu-item-card">
                 <div className={props.id < 3 ? style1 : style2}>
-                    <div className="row mt-3 flex-container no-gutters">
+                    <div className="row mt-2 flex-container no-gutters">
                         <img className="col-auto food-pic no-gutters" src={props.food.image} alt="foodPic" />
                     </div>
 
@@ -40,9 +40,9 @@ function MenuItem(props) {
                             {eng2fa(props.food.price)}
                         </div>
                     </div>
-                    <div className="row mb-3 mt-1 food-cart no-gutters container">
-                        <div className="col text-center flex-container justify-content-center">
-                            <button type="button" className="btn stat-button stat-active text-center" data-toggle="modal" data-target={"#foodModal_" + props.id}>افزودن به سبد خرید</button>
+                    <div className="row mb-3 mt-1 food-cart container no-gutters">
+                        <div className="col text-center flex-container justify-content-center no-gutters">
+                            <button type="button" className="btn stat-button stat-active justify-content-center text-center" data-toggle="modal" data-target={"#foodModal_" + props.id}>افزودن به سبد خرید</button>
                         </div>
                     </div>
                 </div>
