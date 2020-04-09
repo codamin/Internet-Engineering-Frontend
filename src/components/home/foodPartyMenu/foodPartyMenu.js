@@ -1,14 +1,14 @@
 import React from 'react';
 import FoodPartyItem from 'components/home/foodPartyMenu/foodPartyItem/foodPartyItem';
 import 'components/home/foodPartyMenu/foodPartyMenu.css';
-
+import Timer from './timer/timer'
 import API from 'apis/api'
 
 class FoodPartyMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            foods: []
+            foods: [],
         }
         this.getFoodPartyInfo = this.getFoodPartyInfo.bind(this)
     }
@@ -35,10 +35,7 @@ class FoodPartyMenu extends React.Component {
                             !جشن غذا
                     </div>
                 </div>
-                <div className="row">
-                    
-                </div>
-                
+                <Timer updateFunction={this.getFoodPartyInfo}/>
                 <div className="container-fluid horizontal-scrollable shadow mt-4">
                     <div className="row flex-nowrap">
                         {this.state.foods.map((position, key) => {
