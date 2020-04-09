@@ -15,15 +15,29 @@ import API from 'apis/api'
 class Profile extends Component{
   constructor(props) {
     super(props)
-    this.state = {userInfo: {}}
+    this.state = {
+      userInfo: {},
+      cart: []
+    }
     this.getUserInfo = this.getUserInfo.bind(this)
+    this.updateCart = this.updateCart.bind(this)
   }
 
   componentDidMount() {
     console.log('profile did mount called')
     this.getUserInfo();
+    API.get(`cart`).then(
+      jsonData => {
+          this.setState({cart: jsonData.data});
+      })
   }
-
+  updateCart() {
+    API.get(`cart`).then(
+        jsonData => {
+            this.setState({cart: jsonData.data});
+            console.log(this.state.cart)
+    })
+  }
   getUserInfo() {
     console.log('getUserInfo called');
     API.get('user').then((response) => {
@@ -38,7 +52,7 @@ class Profile extends Component{
   render() {
     return (
       <div>
-        <Navbar/>
+        <Navbar cart={this.state.cart} updateUserFunction={this.updateCart}/>
         <Jombotron userInfo={this.state.userInfo}/>
         <Router>
             <Switch>

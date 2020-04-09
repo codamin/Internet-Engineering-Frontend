@@ -13,7 +13,6 @@ class Navbar extends React.Component {
         this.state = {
             cart: [],
         }
-        // this.updateCart = this.updateCart.bind(this);
     }
 
     componentDidMount() {
@@ -25,19 +24,23 @@ class Navbar extends React.Component {
     }
 
     render() {
+        if(this.props.cart == undefined || this.props.updateFunction == undefined) {
+            return "fuck"
+        }
         return (
             <nav className="navbar navbar-expand-lg navbar-light no-gutters">
                 <div className="navbar-nav">
                     <span><a className="exitLink persian" href="#"></a></span>
                     <span>
                         <button type="button" className="flaticon-smart-cart" data-toggle="modal" data-target="#cartModal"></button>
-                        <span className="badge badge-pill badge-light d-flex justify-content-center">{this.state.cart.empty == undefined ? 
+                        <span className="badge badge-pill badge-light d-flex justify-content-center">{this.props.cart.empty == undefined ? 
                         <div class="spinner-border navbar-spinner" role="status">
                              <span class="sr-only">Loading...</span>
-                        </div> : this.state.cart.empty == 'true' ? 0 : eng2fa(this.state.cart.orderItems.length)}</span>
+                        </div> : this.props.cart.empty == 'true' ? 0 : eng2fa(this.props.cart.orderItems.length)}</span>
                     </span>
                 </div>
-                <CartModal />
+                {console.log(this.props.cart)}
+                <CartModal cart={this.props.cart} updateFunction={this.props.updateFunction} />
             </nav>
         );
     }

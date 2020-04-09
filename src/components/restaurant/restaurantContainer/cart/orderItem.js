@@ -18,7 +18,7 @@ function OrderItem(props) {
     
     function handleClickMinus(e) {
         API.delete('cart', {data: {
-            restaurantId: `${props.itemfood.restaurantId}`,
+            restaurantId: `${props.item.food.restaurantId}`,
             foodName: `${props.item.food.name}`            
         }}).then(function (response) {
             console.log(response);

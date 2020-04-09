@@ -41,7 +41,7 @@ class Restaurant extends React.Component {
     render() {
         return (
             <div className="restaurant">
-                <Navbar />
+                <Navbar cart={this.state.cart} updateFunction={this.updateCart} />
                 <RestaurantHeader />
                 <RestaurantName name={this.state.data.name} />
                 <RestaurantContainer menu={this.state.data.menu} cart={this.state.cart} updateFunction={this.updateCart} />
