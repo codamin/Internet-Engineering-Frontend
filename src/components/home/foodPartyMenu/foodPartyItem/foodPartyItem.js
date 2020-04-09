@@ -2,9 +2,7 @@ import React from 'react'
 import FoodPartyItemModal from './foodPartyItemModal/foodPartyItemModal'
 import './foodPartyItem.css'
 import star from 'Assets/Icons/star.png'
-
-const digitMap = {0:'۰', 1:'۱', 2:'۲', 3:'۳', 4:'۴', 5:'۵', 6:'۶', 7:'۷', 8:'۸', 9:'۹'}
-const eng2fa = (engNum) => {return((''+engNum).split('').map(digit=>digitMap[digit]).join(''))} 
+import {eng2fa} from 'utils/utils'
 
 function FoodPartyItem(props) {
     
@@ -20,7 +18,7 @@ function FoodPartyItem(props) {
                             <img className="star" src={star}></img>
                         </div>
                         <div className="col-auto px-0 text-right">
-                            {props.foodData.popularity}
+                            {eng2fa(props.foodData.popularity)}
                         </div>
                     </div>
                 </div>
