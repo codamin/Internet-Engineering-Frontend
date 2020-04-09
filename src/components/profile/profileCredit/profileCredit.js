@@ -4,31 +4,46 @@ import styles from './profileCredit.module.css'
 import {eng2fa} from 'utils/utils'
 import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
+import {NotificationManager} from 'react-notifications';
 
 class ProfileCredit extends React.Component {
     constructor(props) {
         super(props)
-        // console.log(props)
-        this.state = {credit: 0}
+        this.state = {
+            credit: '',
+            hasError: false,
+            error: ''
+        }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleChange(event) {
-        this.setState({credit: event.target.value})
+        this.setState({
+            credit: event.target.value
+        },()=>{
+            console.log('credit= ', this.state.credit)
+        })
     }
 
     handleSubmit(event) {
-        event.preventDefault();
-        API.post('user', {
-            credit: this.state.credit,
-        }).then(function (response) {
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-        console.log('call back called in credit.js')
-        this.props.updateUserFunction()
+        if(isNaN(this.state.credit)) {
+            event.preventDefault();
+            console.log('bad number', typeof(this.state.credit))
+            NotificationManager.error('credit must be a positive number')
+        }
+        else {
+            event.preventDefault();
+            API.post('user', {
+                credit: this.state.credit,
+            }).then(function (response) {
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+            console.log('call back called in credit.js')
+            this.props.updateUserFunction()
+        }
     }
 
     render() {
@@ -46,7 +61,7 @@ class ProfileCredit extends React.Component {
                 <form className="form-inline" onSubmit={this.handleSubmit}>
                     <button type="submit" className={"btn mb-2 " + styles.creditBtn}>افزایش</button>
                     <div className="form-group mx-3 mb-2">
-                        <input className={"form-control input_credit " + styles.creditForm} onChange={this.handleChange} placeholder="میزان افزایش اعتبار"/>
+                        <input type="text"  className={"form-control input_credit " + styles.creditForm} value={this.state.credit} onChange={this.handleChange} placeholder="میزان افزایش اعتبار"/>
                     </div>
                 </form>
             </div>
