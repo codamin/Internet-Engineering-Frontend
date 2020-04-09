@@ -13,6 +13,7 @@ class Navbar extends React.Component {
         super(props);
         this.state = {
             cart: [],
+            show:false,
         }
         // this.updateCart = this.updateCart.bind(this);
     }
@@ -27,13 +28,16 @@ class Navbar extends React.Component {
         )
     }
 
+    
     render() {
         if(this.props.cart == undefined || this.props.updateFunction == undefined) {
             return "fuck"
         }
-        {console.log(this.props.cart)}
+
+        const handleClose = () => this.setState({show:false});
+        const handleShow = () => this.setState({show:true});
         return (
-            <nav className="navbar navbar-expand-lg navbar-light no-gutters d-flex flex-nowrap">
+            <nav className="navbar navbar-expand-lg navbar-light no-gutters sticky-top d-flex flex-nowrap">
                 <div className="navbar-nav d-flex flex-nowrap flex-row align-items-center">
                     <span>
                         <a className="exitLink persian" href="#">خروج</a>
@@ -51,7 +55,7 @@ class Navbar extends React.Component {
                         this.props.cart.empty == 'true' ? 0 :
 
                         <span>
-                            <button className="btn flaticon-smart-cart" data-toggle="modal" data-target="#cartModal"></button>
+                            <button className="btn flaticon-smart-cart" data-toggle="modal" data-target="#cartModal" onClick={handleShow}></button>
                             <span className="badge badge-pill badge-light text-center mx-0 d-flex justify-content-center">
                                 {this.props.cart.empty == 'true' ? 0 : eng2fa(this.props.cart.orderItems.length)}
                             </span>
@@ -59,7 +63,7 @@ class Navbar extends React.Component {
                         
                         }
                 </div>
-                <CartModal cart={this.props.cart} updateFunction={this.props.updateFunction} />
+                <CartModal cart={this.props.cart} updateFunction={this.props.updateFunction} show={this.state.show} handleClose={handleClose}/>
             </nav>
         );
     }

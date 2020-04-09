@@ -30,7 +30,7 @@ function RestaurantContainer(props) {
                         </div>}
                     </div>
                 </div>
-                <div className="col-4 no-gutters restaurant-cart">
+                <div className="col-4 pl-4 no-gutters restaurant-cart">
                     {props.cart ?
                     <Cart cart={props.cart} updateFunction={props.updateFunction} /> :
                     <div class="spinner-border" role="status">

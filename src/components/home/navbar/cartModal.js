@@ -1,6 +1,7 @@
 import React from 'react'
-
+import {Modal} from 'react-bootstrap'
 import OrderItem from 'components/restaurant/restaurantContainer/cart/orderItem'
+import Cart from 'components/restaurant/restaurantContainer/cart/cart'
 
 import API from 'apis/api'
 
@@ -48,40 +49,9 @@ class CartModal extends React.Component {
             return "fuck";
         }
         return(
-            <div class="modal fade" id="cartModal" tabIndex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                <div class="modal-dialog cart-modal">
-                    <div className="container cart cart-box modal-content">
-                        <div className="row p-2 justify-content-center">
-                            <div className="col-auto p-2 flex-container menu-name">سبد خرید</div>
-                        </div>
-                        <div className="row p-3">
-                            <div className="col-12 flex-container">
-                                <div className="container cart-container">
-                                    {this.props.cart.empty != 'true' && this.props.cart.orderItems ?
-                                    this.props.cart.orderItems.map(item => <OrderItem item={item} updateFunction={this.props.updateFunction} />) :
-                                    <div class="spinner-border" role="status">
-                                        <span class="sr-only">Loading...</span>
-                                    </div>}
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row pb-2 container total-price no-gutters">
-                            <div className="col-3 flex-container justify-content-end">تومان</div>
-                            <div className="col-3 flex-container justify-content-start">
-                                {this.props.cart.finalPrice != undefined ?
-                                eng2fa(this.props.cart.finalPrice) : 
-                                <Spinner />}
-                            </div>
-                            <div className="col-6 flex-container justify-content-end persian total-sum">جمع کل:</div>
-                        </div>
-                        <div className="row m-2 no-gutters">
-                            <div className="col-12 mb-3 text-center">
-                                <button type="button" className="btn  ml-2 mr-2 stat-button btn-finalize text-center no-gutters" onClick={this.finalize}>تایید نهایی</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Modal show={this.props.show} onHide={this.props.handleClose} dialogClassName="cart-modal">
+                <Cart cart={this.props.cart} updateFunction={this.props.updateFunction} />
+            </Modal>
         );
     }
 }   

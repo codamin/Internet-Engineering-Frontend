@@ -28,7 +28,7 @@ class Navbar extends React.Component {
             return "fuck"
         }
         return (
-            <nav className="navbar navbar-expand-lg navbar-light no-gutters">
+            <nav className="navbar navbar-expand-lg navbar-light sticky-top no-gutters">
                 <div className="navbar-nav">
                     <span><a className="exitLink persian" href="#"></a></span>
                     <span>

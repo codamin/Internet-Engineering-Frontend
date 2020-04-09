@@ -1,6 +1,8 @@
 
 .cart-modal {
-    width: 585px;
+    display: block; 
+    width: 360px;
+    padding-left: 0px;
 }
 
 .modal-content {
