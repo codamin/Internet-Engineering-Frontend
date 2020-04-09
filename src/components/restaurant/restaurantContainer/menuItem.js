@@ -20,14 +20,14 @@ function MenuItem(props) {
                         <img className="col-auto food-pic no-gutters" src={props.food.image} alt="foodPic" />
                     </div>
 
-                    <div className="row m-2 food-name container no-gutters">
-                        <div className="col-2 pt-2 pr-1 flex-container justify-content-end star">
+                    <div className="row mt-3 container d-flex flex-nowrap no-gutters px-0 align-items-center">
+                        <div className="col-2 mr-1 flex-container justify-content-end star">
                             <img className="star justify-content-start" src={star_logo} alt="star" />
                         </div>
-                        <div className="col-2 pt-2 flex-container justify-content-start score">
-                            {props.food.popularity}
+                        <div className="col-auto flex-container justify-content-start score popularity">
+                            {eng2fa(props.food.popularity)}
                         </div>
-                        <div className="col-8 flex-container justify-content-start food-name">
+                        <div className="col-auto flex-container ml-auto justify-content-start restaurant-page-item-food-name">
                             {props.food.name}
                         </div>
                     </div>

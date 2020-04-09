@@ -18,10 +18,18 @@
     position: relative;
 }
 
-.restaurant-menu .food .food-name {
+.restaurant-page-item-food-name {
     font-family: Vazir-medium;
-    font-size: 0.95em;
-    padding-top: 2%;
+    font-size: 1em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 6.8em;
+    direction: rtl;
+    white-space: nowrap;
+}
+
+.restaurant-menu .food .popularity {
+    top: 0.1em;
 }
 
 .restaurant-menu .food .star {
