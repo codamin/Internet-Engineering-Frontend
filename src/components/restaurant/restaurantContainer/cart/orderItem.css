@@ -4,8 +4,12 @@
 }
 
 .order-item-card .food-name-cart {
+    font-size: 1.8em;
     font-family: Vazir;
-    font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 9rem;
+    white-space: nowrap;
 }
 
 .order-item-card .food-num-cart {

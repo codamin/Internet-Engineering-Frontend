@@ -5,8 +5,6 @@ import API from 'apis/api'
 import {eng2fa} from 'utils/utils'
 import './cart.css'
 
-
-
 function Cart(props) {
 
     function finalize() {
@@ -18,9 +16,7 @@ function Cart(props) {
 
     if(!props){
         return (
-            <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
+            <div class="spinner-border" role="status"></div>
         )
     }
     return(
@@ -30,7 +26,7 @@ function Cart(props) {
             </div>
             <div className="row p-3">
                 <div className="col-12 flex-container">
-                    <div className="container cart-container">
+                    <div className="container cart-container px-2">
                         {props.cart.empty != 'true' && props.cart.orderItems ?
                         props.cart.orderItems.map(item => <OrderItem item={item} updateFunction={props.updateFunction} />) :
                         <div class="text-center mt-4">

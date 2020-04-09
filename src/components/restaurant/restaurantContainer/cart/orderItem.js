@@ -30,14 +30,14 @@ function OrderItem(props) {
         return null; //You can change here to put a customized loading spinner 
     }
     return(
-        <div className="order-item-card">
-            <div className="row mt-2 no-gutters d-flex align-items-center">
+        <div className="col order-item-card">
+            <div className="row mt-2 mx-1 no-gutters d-flex align-items-center flex-nowrap">
                 <span className="col-auto mr-3 flaticon-minus minus-btn clickable no-gutters justify-content-start" onClick={handleClickMinus}></span>
                 <div className="col-auto mr-2 flex-container no-gutters justify-content-center food-num-cart">
                     {eng2fa(props.item.number)}
                 </div>
-                <span className="col-auto mr-3 flaticon-plus plus-btn clickable justify-content-end no-gutters" onClick={handleClickPlus}></span>
-                <div className="col-auto flex-container justify-content-end food-name-cart no-gutters ml-auto">
+                <span className="col-auto mr-3 flaticon-plus plus-btn clickable justify-content-end" onClick={handleClickPlus}></span>
+                <div className="col-auto flex-container text-right justify-content-end food-name-cart ml-auto">
                     {props.item.food.name}
                 </div>
             </div>
