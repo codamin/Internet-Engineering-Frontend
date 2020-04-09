@@ -1,6 +1,6 @@
 import React from 'react';
 import './timer.css';
-
+import {eng2fa} from 'utils/utils'
 import API from 'apis/api'
 
 class Timer extends React.Component {
@@ -46,7 +46,7 @@ class Timer extends React.Component {
 
     format() {
         return(
-            (Math.floor(this.state.remainingTime/60)).toString() + ":" + (this.state.remainingTime%60));
+            (eng2fa(Math.floor(this.state.remainingTime/60))).toString() + ":" + (eng2fa(this.state.remainingTime%60)));
     }
 
     render() {

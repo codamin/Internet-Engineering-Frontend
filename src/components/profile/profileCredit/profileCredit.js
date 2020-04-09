@@ -1,6 +1,8 @@
 import React from 'react';
 import API from 'apis/api';
 import styles from './profileCredit.module.css'
+import {eng2fa} from 'utils/utils'
+
 
 class ProfileCredit extends React.Component {
     constructor(props) {

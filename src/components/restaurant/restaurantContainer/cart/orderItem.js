@@ -1,4 +1,9 @@
 import React from 'react'
+<<<<<<< HEAD
+import './orderItem.css'
+import API from 'apis/api'
+import {eng2fa} from 'utils/utils'
+=======
 
 import API from 'apis/api'
 import './orderItem.css'
@@ -6,6 +11,7 @@ import './orderItem.css'
 
 const digitMap = {0:'۰', 1:'۱', 2:'۲', 3:'۳', 4:'۴', 5:'۵', 6:'۶', 7:'۷', 8:'۸', 9:'۹'}
 const eng2fa = (engNum) => {return((''+engNum).split('').map(digit=>digitMap[digit]).join(''))} 
+>>>>>>> 70fb86f3aa933456fd913af84ad5421b19e2de60
 
 function OrderItem(props) {
 
