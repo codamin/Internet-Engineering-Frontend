@@ -35,7 +35,6 @@ class Navbar extends React.Component {
                         <button type="button" className="flaticon-smart-cart" data-toggle="modal" data-target="#cartModal"></button>
                         <span className="badge badge-pill badge-light d-flex justify-content-center">{this.props.cart.empty == undefined ? 
                         <div class="spinner-border navbar-spinner" role="status">
-                             <span class="sr-only">Loading...</span>
                         </div> : this.props.cart.empty == 'true' ? 0 : eng2fa(this.props.cart.orderItems.length)}</span>
                     </span>
                 </div>

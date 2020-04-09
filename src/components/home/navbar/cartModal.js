@@ -57,11 +57,12 @@ class CartModal extends React.Component {
                         <div className="row p-3">
                             <div className="col-12 flex-container">
                                 <div className="container cart-container">
-                                    {this.props.cart.empty != 'true' && this.props.cart.orderItems ?
-                                    this.props.cart.orderItems.map(item => <OrderItem item={item} updateFunction={this.props.updateFunction} />) :
-                                    <div class="spinner-border" role="status">
-                                        <span class="sr-only">Loading...</span>
-                                    </div>}
+                                    {
+                                        this.props.cart.empty != 'true' && this.props.cart.orderItems ?
+                                        this.props.cart.orderItems.map(item => <OrderItem item={item} updateFunction={this.props.updateFunction} />) :
+                                        <div class="spinner-border" role="status">
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>
