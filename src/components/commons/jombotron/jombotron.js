@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './jombotron.module.css'
+import {eng2fa} from 'utils/utils.js'
 
 function Jombotron(props) {
     return(
@@ -9,7 +10,7 @@ function Jombotron(props) {
                     <div className={"col-auto mr-auto " + styles.jomboLeft}>
                         <div className="row justify-content-end align-items-center no-gutters">
                             <div className="col-auto">
-    <p className={[styles.infoText, styles.smallText].join(' ')}>{props.userInfo.phone}</p>
+                                <p className={[styles.infoText, styles.smallText].join(' ')}>{eng2fa(props.userInfo.phone)}</p>
                             </div>
                             <div className="col-auto">
                                 <a href="# ">
@@ -19,7 +20,7 @@ function Jombotron(props) {
                         </div>
                         <div className="row justify-content-end align-items-center no-gutters">
                             <div className="col-auto">
-    <p className={[styles.infoText, styles.smallText].join(' ')}>{props.userInfo.email}</p>
+                                <p className={[styles.infoText, styles.smallText].join(' ')}>{props.userInfo.email}</p>
                             </div>
                             <div className="col-auto">
                                 <a href="# ">
@@ -32,7 +33,7 @@ function Jombotron(props) {
                                 <p className={[styles.infoText, styles.smallText, styles.moneyCurrency].join(' ')}> تومان </p>
                             </div>
                             <div className="col-auto">
-                                <p className={[styles.infoText, styles.smallText].join(' ')}>{props.userInfo.credit} </p>
+                                <p className={[styles.infoText, styles.smallText].join(' ')}>{eng2fa(props.userInfo.credit)} </p>
                             </div>
                             <div className="col-auto">
                                 <a href="# ">
