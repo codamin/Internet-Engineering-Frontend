@@ -2,6 +2,7 @@ import React from 'react';
 import './timer.css';
 import {eng2fa} from 'utils/utils'
 import API from 'apis/api'
+import PropTypes from 'prop-types'
 
 class Timer extends React.Component {
     constructor(props) {
@@ -34,8 +35,11 @@ class Timer extends React.Component {
         () => this.tick(),1000);
     }
 
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+    }
+
     tick() {
-        // console.log(this.state)
         if(this.state.remainingTime == 0) {
             this.getTimerInfo()
             this.setState({remainingTime: this.state.period});
@@ -53,12 +57,16 @@ class Timer extends React.Component {
     render() {
         return(
             <div className="row justify-content-center">
-                <span class="label label-default">
-                    {"زمان باقیمانده: " + this.format()}
+                <span class="label label-default rem-timer">
+                    {"زمان باقی مانده:   " + this.format()}
                 </span>
             </div>
         )
     }
+}
+
+Timer.propTypes = {
+    updateFunction: PropTypes.func.isRequired
 }
 
 export default Timer

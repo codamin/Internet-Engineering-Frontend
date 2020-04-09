@@ -24,18 +24,15 @@
     background-color: #4ecdc4;
     color: white;
     width: 20px;
-    left: 34.7em;
-    top: 1.3em;
 }
 
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after{
-    color: rgb(73, 73, 73);
+    color: gray;
     font-size: 2em !important;
 }
 
-.profile-btn {
-    font-family: vazir-light;
-    font-size: 2em;
-    color: gray;
+.navbar-spinner {
+    /* margin-right: 1em; */
+    width: 1px;
+    height: 1px;
 }
-

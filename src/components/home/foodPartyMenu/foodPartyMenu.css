@@ -1,7 +1,8 @@
 .food-party-title {
-    font-size: 2em;
+    font-size: 3em;
     border-bottom: solid #1a535c;
     color: #1a535c;
+    width: 5em;
 }
 
 .label {

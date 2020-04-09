@@ -3,6 +3,7 @@ import API from 'apis/api';
 import styles from './profileCredit.module.css'
 import {eng2fa} from 'utils/utils'
 import {Link} from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 class ProfileCredit extends React.Component {
     constructor(props) {
@@ -51,6 +52,10 @@ class ProfileCredit extends React.Component {
             </div>
         );
     }
+}
+
+ProfileCredit.propTypes = {
+    updateFunction: PropTypes.func.isRequired
 }
 
 export default ProfileCredit

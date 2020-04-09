@@ -36,13 +36,19 @@ class FoodPartyMenu extends React.Component {
                     </div>
                 </div>
                 <Timer updateFunction={this.getFoodPartyInfo}/>
-                <div className="container-fluid horizontal-scrollable shadow mt-4">
-                    <div className="row flex-nowrap">
-                        {this.state.foods.map((position, key) => {
-                            return <FoodPartyItem foodData={position} id={key} updateFunction={this.getFoodPartyInfo}/>
-                        })}
+                {
+                    this.state.foods == undefined ?
+                    <div class="text-center ml-3">
+                        <div class="spinner-border" role="status"></div>
+                    </div> :
+                    <div className="container-fluid horizontal-scrollable shadow mt-4">
+                        <div className="row flex-nowrap">
+                            {this.state.foods.map((position, key) => {
+                                return <FoodPartyItem foodData={position} id={key} updateFunction={this.getFoodPartyInfo}/>
+                            })}
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         );
     }

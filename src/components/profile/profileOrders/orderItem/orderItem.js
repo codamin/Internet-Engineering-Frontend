@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
+import OrderItemModal from './orderItemModal/orderItemModal'
 import './orderItem.css'
 
 function RenderDone(props) {
@@ -28,59 +30,31 @@ function renderButton(state, id) {
     else if(state == 'finding delivery') return <RenderFinding/>
 }
 
-function TableRow(props) {
-    return(<tr>
-            <td>{props.data.food.price}</td>
-            <td>{props.data.number}</td>
-            <td>{props.data.food.name}</td>
-            <td>{props.row + 1}</td>
-        </tr>);
-}
-
-
 function OrderItem(props) {
     return (
         <div>
-            <div className="row order-row">
+            <div className="row profile-order-row">
                 <div className="col-5 profile-order-col profile-order-left-col text-center">
                     {renderButton(props.orderData.state, props.id)}
                 </div>
-                <div className="col-5 profile-order-col text-center">رستوران خامس</div>
+                <div className="col-5 profile-order-col text-center">{props.orderData.restaurantName}</div>
                 <div className="col-2 profile-order-col text-center profile-order-right-col">{props.id + 1}</div>
             </div>
-            
-            <div className="modal fade" id={"order_modal_" + props.id} tabindex="-1" role="dialog" aria-labelledby="mymodalLabel" aria-hidden="true">
-                <div className="modal-dialog modal-xl" role="document">
-                    <div className="modal-content">
-                        <div className="modal-body">
-                            <div className="container-fluid">
-                                <div className="row justify-content-center modal-title-row">
-                                    <div className="col-md-6 justify-content-center profile-modal-title-col">رستوران خامس</div>
-                                </div>
-                                <table className="table table-bordered text-center">
-                                    <thead>
-                                        <tr className="profile-modal-table-header">
-                                            <th scope="col">قیمت</th>
-                                            <th scope="col">تعداد</th>
-                                            <th scope="col">نام غذا</th>
-                                            <th scope="col">ردیف</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {props.orderData.orderItems.map((orderItemData, key) =>
-                                            <TableRow data={orderItemData} row={key}/>)
-                                        }
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div className="col-auto profile-total-cost-row">
-                                جمع کل: ۱۸۰۰۰ تومان
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <OrderItemModal orderData={props.orderData} id={props.id}/>
         </div>
     );
 }
+
+OrderItem.propTypes = {
+    orderData: PropTypes.shape({
+        id: PropTypes.number,
+        orderItems: PropTypes.object,
+        remMin: PropTypes.number,
+        remSec: PropTypes.number,
+        restaurant: PropTypes.object,
+        restaurantName: PropTypes.string,
+        state: PropTypes.string
+    })
+}
+
 export default OrderItem;

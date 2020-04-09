@@ -3,6 +3,7 @@ import FoodPartyItemModal from './foodPartyItemModal/foodPartyItemModal'
 import './foodPartyItem.css'
 import star from 'Assets/Icons/star.png'
 import {eng2fa} from 'utils/utils'
+import PropTypes from 'prop-types'
 
 function BuyButton(props) {
     if(props.count == 0) {
@@ -27,7 +28,7 @@ function RemainingButton(props) {
 
 function FoodPartyItem(props) {
     return(
-        <div className="col-auto container item m-3 px-3 pt-3 shadow rounded-lg">
+        <div className="col-auto container item m-3 px-3 pt-3 rounded-lg">
             <div className="row d-flex flex-nowrap">
                 <div className="col-auto container rest-item-food-info">
                     <div className="row justify-content-end">
@@ -67,6 +68,22 @@ function FoodPartyItem(props) {
             <FoodPartyItemModal foodData={props.foodData} id={props.id} updateFunction={props.updateFunction}/>
         </div>
     );
+}
+
+FoodPartyItem.propTypes = {
+    count: PropTypes.number.isRequired,
+    foodData: PropTypes.shape({
+        available: PropTypes.bool,
+        count: PropTypes.number,
+        description: PropTypes.string,
+        image: PropTypes.string,
+        name: PropTypes.string,
+        oldPrice: PropTypes.number,
+        popularity: PropTypes.number,
+        price: PropTypes.number,
+        restaurantId: PropTypes.string,
+        restaurantName: PropTypes.string
+    })
 }
 
 export default FoodPartyItem;

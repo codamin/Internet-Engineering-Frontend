@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './jombotron.module.css'
 import {eng2fa} from 'utils/utils.js'
+import PropTypes from 'prop-types'
 
 function Jombotron(props) {
     return(
@@ -58,6 +59,16 @@ function Jombotron(props) {
             </div>
         </div>
     );
+}
+
+Jombotron.propTypes = {
+    userInfo: PropTypes.shape({
+        phone: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+        firstName: PropTypes.string.isRequired,
+        lastName: PropTypes.string.isRequired,
+        credit: PropTypes.number.isRequired,  
+    })
 }
 
 export default Jombotron

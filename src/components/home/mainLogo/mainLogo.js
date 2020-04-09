@@ -26,10 +26,10 @@ function MainLogo() {
                 <button type="submit" className={"btn btn-primary " + styles.searchBtn}>جست و جو</button>
             </div>
             <div className="form-group mx-1 mb-1">
-                <input type="text" className={"form-control " + styles.searchInput} placeholder="نام رستوران"/>
+                <input type="text" className={["form-control",styles.searchInput, styles.inputPlaceholder].join(' ')} placeholder="نام رستوران"/>
             </div>
             <div className="form-group mx-1 mb-1">
-                <input type="text" className={"form-control " + styles.searchInput} placeholder="نام غذا"/>
+                <input type="text" className={["form-control",styles.searchInput, styles.inputPlaceholder].join(' ')} placeholder="نام غذا"/>
             </div>
             </form>
             </div>

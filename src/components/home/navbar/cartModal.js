@@ -5,7 +5,7 @@ import OrderItem from 'components/restaurant/restaurantContainer/cart/orderItem'
 import API from 'apis/api'
 
 import './cartModal.css'
-import Spinner from 'components/commons/spinner'
+import Spinner from 'components/commons/spinner/spinner'
 import star from 'Assets/Icons/star.png'
 import {eng2fa} from 'utils/utils'
 
@@ -40,7 +40,7 @@ class CartModal extends React.Component {
 
     render() {
         return(
-            <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal fade" id="cartModal" tabIndex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                 <div class="modal-dialog cart-modal">
                     <div className="container cart cart-box modal-content">
                         <div className="row p-2 justify-content-center">

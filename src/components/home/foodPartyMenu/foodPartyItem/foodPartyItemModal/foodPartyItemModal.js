@@ -3,7 +3,7 @@ import API from 'apis/api'
 import styles from './foodPartyItemModal.module.css'
 import star from 'Assets/Icons/star.png'
 import {eng2fa} from 'utils/utils'
-
+import PropTypes from 'prop-types'
 
 class FoodPartyItemModal extends React.Component {
 
@@ -33,11 +33,6 @@ class FoodPartyItemModal extends React.Component {
     }
     
     handleAddToCart(envent) {
-        for (let step = 0; step < 5; step++) {
-            // Runs 5 times, with values of step 0 through 4.
-            console.log(this.state.ordered);
-        }
-
         for(let i = 0; i < this.state.ordered; i++) {
             console.log('sent')
             console.log(`${this.state.foodData.restaurantId}`)
@@ -109,5 +104,20 @@ class FoodPartyItemModal extends React.Component {
         );
     }
 }   
+
+FoodPartyItemModal.propTypes = {
+    foodData: PropTypes.shape({
+        available: PropTypes.bool,
+        count: PropTypes.number,
+        description: PropTypes.string,
+        image: PropTypes.string,
+        name: PropTypes.string,
+        oldPrice: PropTypes.number,
+        popularity: PropTypes.number,
+        price: PropTypes.number,
+        restaurantId: PropTypes.string,
+        restaurantName: PropTypes.string
+    })
+}
 
 export default FoodPartyItemModal;

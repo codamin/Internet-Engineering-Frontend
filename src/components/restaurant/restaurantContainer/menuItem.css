@@ -12,8 +12,8 @@
 
 .restaurant-menu .food .food-pic {
     border-radius: 8px;
-    width: 45%;
-    height: auto;
+    width: 5em;
+    height: 5em;
     box-sizing: border-box;
     position: relative;
 }

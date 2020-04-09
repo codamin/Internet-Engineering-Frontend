@@ -33,8 +33,8 @@ function Cart(props) {
                     <div className="container cart-container">
                         {props.cart.empty != 'true' && props.cart.orderItems ?
                         props.cart.orderItems.map(item => <OrderItem item={item} updateFunction={props.updateFunction} />) :
-                        <div class="spinner-border" role="status">
-                            <span class="sr-only">Loading...</span>
+                        <div class="text-center mt-4">
+                            <div class="spinner-border" role="status"></div>
                         </div>}
                     </div>
                 </div>

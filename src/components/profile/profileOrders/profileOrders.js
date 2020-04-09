@@ -3,6 +3,7 @@ import API from 'apis/api';
 import OrderItem from './orderItem/orderItem'
 import styles from './profileOrders.module.css'
 import {Link} from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 class ProfileOrders extends React.Component {
 
@@ -11,11 +12,23 @@ class ProfileOrders extends React.Component {
         this.state = {
             orders: []
         }
+        this.getOrdersInfo = this.getOrdersInfo.bind(this)
     }
 
     componentDidMount() {
+        this.getOrdersInfo();
+        this.timerID = setInterval(
+            () => this.getOrdersInfo(),5000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+    }
+    
+    getOrdersInfo() {
         API.get('user').then(
             jsonData => {
+                console.log('getOrdersInfo called')
                 console.log(jsonData.data)
                 this.setState({orders: jsonData.data.orderRepository.orders});
         })
