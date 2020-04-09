@@ -1,5 +1,10 @@
 .foodPartyfoodName {
-    font-size: 1em;
+    font-size: 1.5em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    direction: rtl;
+    width: 9em;
+    white-space: nowrap;
 }
 
 .star {
@@ -44,4 +49,8 @@
     border-top: dashed #afafaf 2px;
     font-size: 1.3em;
     color: gray;
+}
+
+.rest-item-food-info {
+    max-width: 60%;
 }

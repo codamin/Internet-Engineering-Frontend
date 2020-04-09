@@ -16,17 +16,19 @@ class Timer extends React.Component {
     }
 
     getTimerInfo() {
-        console.log('timer mounted')
         API.get('party/time').then(
             jsonData => {
-                // console.log(jsonData.data)
                 this.setState({
                     remainingTime: jsonData.data.remainingTime,
-                    period: jsonData.data.updatePeriod});
-        })
+                    period: jsonData.data.updatePeriod}
+                );
+                this.props.updateFunction();
+            }
+        )
     }
 
     componentDidMount() {
+        console.log('timer mounted')
         this.getTimerInfo()
         this.timerID = setInterval(
         () => this.tick(),1000);
@@ -34,14 +36,13 @@ class Timer extends React.Component {
 
     tick() {
         // console.log(this.state)
+        if(this.state.remainingTime == 0) {
+            this.getTimerInfo()
+            this.setState({remainingTime: this.state.period});
+        }
         this.setState({
           remainingTime: this.state.remainingTime - 1
         });
-        if(this.state.remainingTime == 0) {
-            // this.
-            this.props.updateFunction();
-            this.setState({remainingTime: this.state.period});
-        }
     }
 
     format() {

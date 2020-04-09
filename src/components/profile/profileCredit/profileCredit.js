@@ -2,7 +2,7 @@ import React from 'react';
 import API from 'apis/api';
 import styles from './profileCredit.module.css'
 import {eng2fa} from 'utils/utils'
-
+import {Link} from 'react-router-dom'
 
 class ProfileCredit extends React.Component {
     constructor(props) {
@@ -35,10 +35,10 @@ class ProfileCredit extends React.Component {
             <div className={"container card align-items-center " + styles.maincard}>
                 <div className={"row align-items-strech " + styles.cardOptions}>
                     <div className={"col-6 text-center " + styles.cardLeftOption}>
-                        <a className={styles.whiteText} href="#"> افزایش اعتبار </a>
+                        <Link to={'/profile/credit'} className={styles.whiteText}> افزایش اعتبار </Link>
                     </div>
                     <div className={"col-6 text-center " + styles.cardRightOption}>
-                        <a className={styles.blackText} href="./profile-orders.html"> سفارش ها</a>
+                        <Link to={'/profile/orders'} className={styles.blackText}> سفارش ها</Link>
                     </div>
                 </div>
             

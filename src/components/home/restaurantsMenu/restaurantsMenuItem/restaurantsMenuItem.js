@@ -1,13 +1,6 @@
 import React from 'react'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useRouteMatch
-  } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import './restaurantsMenuItem.css'
-import pizza from 'Assets/Icons/pizza.png'
 
 function RestaurantsMenuItem(props) {
     return(

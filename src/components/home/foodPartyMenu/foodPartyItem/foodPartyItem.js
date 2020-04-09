@@ -4,14 +4,34 @@ import './foodPartyItem.css'
 import star from 'Assets/Icons/star.png'
 import {eng2fa} from 'utils/utils'
 
+function BuyButton(props) {
+    if(props.count == 0) {
+        return(
+            <button type="button" className="btn buy-btn-disabled disable">خرید</button>
+        );
+    }
+    else return(
+        <button type="button" className="btn buy-btn" data-toggle="modal" data-target={"#foodModal_" + props.id}>خرید</button>
+    );
+}
+
+
+function RemainingButton(props) {
+    if(props.count == 0) return(
+        <button type="button" className="btn rmn-number">{[eng2fa(props.count)," :موجودی"].join(' ')}</button>
+    );
+    else return(
+        <button type="button" className="btn rmn-number">{[eng2fa(props.count)," :موجودی"].join(' ')}</button>
+    );
+}
+
 function FoodPartyItem(props) {
-    
     return(
         <div className="col-auto container item m-3 px-3 pt-3 shadow rounded-lg">
-            <div className="row">
-                <div className="col container">
+            <div className="row d-flex flex-nowrap">
+                <div className="col-auto container rest-item-food-info">
                     <div className="row justify-content-end">
-                        <div className="col-auto pr-0 text-right foodPartyfoodName">{props.foodData.name}lkjafsdlfkjsdf</div>
+                        <div className="col-auto pr-0 text-right foodPartyfoodName">{props.foodData.name}</div>
                     </div>
                     <div className="row">
                         <div className="col pr-1 text-right">
@@ -22,7 +42,7 @@ function FoodPartyItem(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col">
+                <div className="col-auto">
                     <img className="rounded-lg item-img" src={props.foodData.image}></img>
                 </div>
             </div>
@@ -32,10 +52,11 @@ function FoodPartyItem(props) {
             </div>
             <div className="row mt-2 no-gutters">
                 <div className="col  rounded-lg text-center mx-0">
-                    <button type="button" className="btn buy-btn" data-toggle="modal" data-target={"#foodModal_" + props.id}>خرید</button>
+                    <BuyButton count={props.foodData.count} id={props.id}/>
                 </div>
                 <div className="col rounded-lg text-center mx-0">
-    <button type="button" className="btn rmn-number">{[eng2fa(props.foodData.count)," :موجودی"].join(' ')}</button>
+                    {/* <button type="button" className="btn rmn-number">{[eng2fa(props.foodData.count)," :موجودی"].join(' ')}</button> */}
+                    <RemainingButton count={props.foodData.count}/>
                 </div>
             </div>
             <div className="row justify-content-center mt-3 pt-2 rest-name">
