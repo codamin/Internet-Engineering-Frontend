@@ -50,8 +50,7 @@
 }
 
 .restaurant-menu .menu-item-card {
-    /* display: flex; */
-    /* flex-direction: column; */
+    direction: ltr;
 }
 
 /* .restaurant-menu input::placeholder {
