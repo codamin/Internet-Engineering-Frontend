@@ -21,8 +21,6 @@ class Navbar extends React.Component {
     componentDidMount() {
         API.get(`cart`).then(
             jsonData => {
-                console.log('cart:', jsonData.data)
-                // console.log(jsonData.data)
                 this.setState({cart: jsonData.data});
             }
         )
@@ -31,6 +29,14 @@ class Navbar extends React.Component {
     render() {
         const handleClose = () => this.setState({show:false});
         const handleShow = () => this.setState({show:true});
+        if(this.props.updateFunction == undefined) {
+            return(
+                <div className="container-fulid sticky-top main-navbar">
+                <div className="row px-5 no-gutters d-flex align-items-center">
+                </div>
+                </div>
+            )
+        }
         return (
             <div className="container-fulid sticky-top main-navbar">
                 <div className="row px-5 no-gutters d-flex align-items-center">

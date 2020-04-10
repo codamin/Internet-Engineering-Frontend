@@ -1,6 +1,8 @@
 import React from 'react'
 import './restaurantHeader.css'
 import mcLogo from './McDonalds.png'
+import PropTypes from 'prop-types'
+
 
 function RestaurantHeader(props) {
     return(
@@ -12,6 +14,10 @@ function RestaurantHeader(props) {
             </div>
         </div>
     );
+}
+
+RestaurantHeader.propTypes = {
+    logo: PropTypes.string.isRequired
 }
 
 export default RestaurantHeader
