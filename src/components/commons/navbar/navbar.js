@@ -82,6 +82,25 @@ class Navbar extends React.Component {
 Navbar.propTypes = {
     isHome: PropTypes.bool.isRequired,
     isProfile: PropTypes.bool.isRequired,
+    cart: PropTypes.shape({
+        empty: PropTypes.bool.isRequired,
+        finalPrice: PropTypes.number.isRequired,
+        orderItems: PropTypes.arrayOf(PropTypes.shape({
+            food: PropTypes.shape({
+                available: PropTypes.bool.isRequired,
+                count: PropTypes.number,
+                description: PropTypes.string.isRequired,
+                image: PropTypes.string.isRequired,
+                name: PropTypes.string.isRequired,
+                oldPrice: PropTypes.number,
+                popularity: PropTypes.number.isRequired,
+                price: PropTypes.number.isRequired,
+                restaurantId: PropTypes.string.isRequired,
+                restaurantName: PropTypes.string.isRequired
+            }),
+            number: PropTypes.number.isRequired,
+            price: PropTypes.number.isRequired
+        })),
     restaurantId: PropTypes.string.isRequired,
     restaurantName: PropTypes.string.isRequired
     })
