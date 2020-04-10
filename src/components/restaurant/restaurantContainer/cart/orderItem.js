@@ -2,17 +2,22 @@ import React from 'react'
 import './orderItem.css'
 import API from 'apis/api'
 import {eng2fa} from 'utils/utils'
+import {NotificationManager} from 'react-notifications';
 
 function OrderItem(props) {
 
     function handleClickPlus(e) {
         API.post('cart', {
             restaurantId: `${props.item.food.restaurantId}`,
-            foodName: `${props.item.food.name}`            
+            foodName: `${props.item.food.name}`,
+            num: 1         
         }).then(function (response) {
             // console.log(response);
             props.updateFunction();
-          })
+          }).catch(error => {
+            if (error.response) {
+                NotificationManager.error(error.response.data);
+              }})
 
     }
     
@@ -23,7 +28,10 @@ function OrderItem(props) {
         }}).then(function (response) {
             // console.log(response);
             props.updateFunction();
-          })
+          }).catch(error => {
+            if (error.response) {
+                NotificationManager.error(error.response.data);
+              }})
     }
 
     if(!props || props.item == undefined){

@@ -20,35 +20,35 @@ class FoodPartyItemModal extends React.Component {
     }
     
     handlePlus(event) {
-        // console.log(this.state);
         this.setState({
             ordered: this.state.ordered + 1
           });
     }
     
     handleMinus(event) {
-        // console.log(this.state);
         if(this.state.ordered > 0) {
             this.setState(state =>({ordered:state.ordered - 1}))
         }
     }
     
     handleAddToCart(envent) {
-        for(let i = 0; i < this.state.ordered; i++) {
-            API.post('cart', {
-                restaurantId: `${this.state.foodData.restaurantId}`,
-                foodName: `${this.state.foodData.name}`           
-            }).then((response) => {
-                this.props.updateCart()
-                this.props.updateFunction()
-                if(response.status == 200) {
-                    NotificationManager.success('غذا با موفقیت به سبد خرید شما اضافه شد.')
-                }
-                else {
-                    NotificationManager.error('خطا در انجام عملیات')
-                }
-            })
-        }
+        API.post('cart', {
+            restaurantId: `${this.state.foodData.restaurantId}`,
+            foodName: `${this.state.foodData.name}`,
+            num: `${this.state.ordered}`
+        }).then(response => {
+            this.props.updateFunction()
+            this.setState({ordered: 0})
+            if(response.status == 200) {
+                NotificationManager.success('غذا با موفقیت به سبد خرید شما اضافه شد.')
+            }
+            else {
+                NotificationManager.error('خطا در انجام عملیات')
+            }
+        }).catch(error => {
+            if (error.response) {
+                NotificationManager.error(error.response.data);
+              }})
     }
 
     render() {

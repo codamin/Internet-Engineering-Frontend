@@ -1,6 +1,7 @@
 import React from 'react'
 import API from 'apis/api'
 import NumFood from 'components/restaurant/restaurantContainer/modal/numFood'
+import {NotificationManager} from 'react-notifications';
 
 import './foodModal.css'
 
@@ -11,10 +12,10 @@ function FoodModal(props) {
             foodName: `${props.food.name}`            
         }).then(function (response) {
             console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+          }).catch(error => {
+        if (error.response) {
+            NotificationManager.error(error.response.data);
+            }})
     }
 
     function handleClickMinus(e) {
@@ -23,18 +24,20 @@ function FoodModal(props) {
             foodName: `${props.food.name}`            
         }}).then(function (response) {
             console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+          }).catch(error => {
+        if (error.response) {
+            NotificationManager.error(error.response.data);
+            }})
     }
 
     function handleNumOfFood() {
         API.get(`cart/${props.food.restaurantId}/${props.food.name}`).then(
             jsonData => {
                 return jsonData.data.num;
-            }
-        )
+            }).catch(error => {
+            if (error.response) {
+                NotificationManager.error(error.response.data);
+                }})
     }
     let num = handleNumOfFood();
     if(!props || props.food == undefined || props.id == undefined){

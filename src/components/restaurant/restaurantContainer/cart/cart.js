@@ -3,15 +3,18 @@ import PropTypes from 'prop-types'
 import OrderItem from 'components/restaurant/restaurantContainer/cart/orderItem'
 import API from 'apis/api'
 import {eng2fa} from 'utils/utils'
+import {NotificationManager} from 'react-notifications';
 import './cart.css'
 
 function Cart(props) {
 
     function finalize() {
         API.post('cart/finalize').then(function (response) {
-            // console.log(response);
             props.updateFunction();
-        })
+        }).catch(error => {
+            if (error.response) {
+                NotificationManager.error(error.response.data);
+              }})
     }
 
     if(!props){
