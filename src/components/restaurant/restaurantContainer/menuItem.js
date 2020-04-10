@@ -3,7 +3,7 @@ import star_logo from 'components/restaurant/restaurantContainer/star.png'
 import FoodPartyItemModal from 'components/home/foodPartyMenu/foodPartyItem/foodPartyItemModal/foodPartyItemModal'
 import {eng2fa} from 'utils/utils'
 import './menuItem.css'
-
+import PropTypes from 'prop-types'
 
 
 function MenuItem(props) {
@@ -48,6 +48,22 @@ function MenuItem(props) {
             </div>
         </>
     )
+}
+
+MenuItem.propTypes = {
+    id: PropTypes.number.isRequired,
+    food: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        popularity: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        image: PropTypes.string.isRequired,
+        restaurantName: PropTypes.string.isRequired,
+        restaurantId: PropTypes.string.isRequired,
+        count: PropTypes.number,
+        oldPrice: PropTypes.number,
+    }),
+    updateFunction: PropTypes.func.isRequired,
 }
 
 export default MenuItem

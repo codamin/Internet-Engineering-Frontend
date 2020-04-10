@@ -6,6 +6,7 @@ import {eng2fa} from 'utils/utils'
 import {NotificationManager} from 'react-notifications';
 import './cart.css'
 
+
 function Cart(props) {
 
     function finalize() {
@@ -59,8 +60,25 @@ function Cart(props) {
 }
 
 
-Cart.propTyeps = {
-    cart: PropTypes.object.isRequired,
+Cart.propTypes = {
+    cart: PropTypes.shape({
+        restaurantId: PropTypes.string,
+        restaurantName: PropTypes.string,
+        orderItems: PropTypes.arrayOf(PropTypes.shape({
+            food: PropTypes.shape({
+                name: PropTypes.string.isRequired,
+                description: PropTypes.string.isRequired,
+                popularity: PropTypes.number.isRequired,
+                price: PropTypes.number.isRequired,
+                image: PropTypes.string.isRequired,
+                restaurantName: PropTypes.string.isRequired,
+                restaurantId: PropTypes.string.isRequired,
+                count: PropTypes.number,
+                oldPrice: PropTypes.number,
+            }),
+            number: PropTypes.number.isRequired
+        }))
+    }).isRequired
 }
 
 export default Cart

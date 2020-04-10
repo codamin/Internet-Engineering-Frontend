@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import './restaurantName.css'
+
 
 function RestaurantName(props) {
     if(!props){

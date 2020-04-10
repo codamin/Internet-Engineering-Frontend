@@ -20,7 +20,18 @@ function RestaurantMenu(props) {
 }
 
 RestaurantMenu.propTypes = {
-    menu: PropTypes.array.isRequired,
+    menu: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        popularity: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        image: PropTypes.string.isRequired,
+        restaurantName: PropTypes.string.isRequired,
+        restaurantId: PropTypes.string.isRequired,
+        count: PropTypes.number,
+        oldPrice: PropTypes.number,
+    })),
+    updateFunction: PropTypes.func.isRequired,
 }
 
 export default RestaurantMenu

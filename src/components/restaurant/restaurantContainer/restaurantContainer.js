@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import FoodMenu from 'components/restaurant/restaurantContainer/foodMenu'
 import RestaurantMenu from 'components/restaurant/restaurantContainer/restaurantMenu'
 import Cart from 'components/restaurant/restaurantContainer/cart/cart'
-
 import './restaurantContainer.css'
+
 
 function RestaurantContainer(props) {
     if(!props) {
@@ -43,8 +42,36 @@ function RestaurantContainer(props) {
 }
 
 RestaurantContainer.propTypes = {
-    menu: PropTypes.array.isRequired,
-    cart: PropTypes.object.isRequired,
+    menu: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        popularity: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        image: PropTypes.string.isRequired,
+        restaurantName: PropTypes.string.isRequired,
+        restaurantId: PropTypes.string.isRequired,
+        count: PropTypes.number,
+        oldPrice: PropTypes.number,
+    })).isRequired,
+    cart: PropTypes.shape({
+        restaurantId: PropTypes.string,
+        restaurantName: PropTypes.string,
+        orderItems: PropTypes.arrayOf(PropTypes.shape({
+            food: PropTypes.shape({
+                name: PropTypes.string.isRequired,
+                description: PropTypes.string.isRequired,
+                popularity: PropTypes.number.isRequired,
+                price: PropTypes.number.isRequired,
+                image: PropTypes.string.isRequired,
+                restaurantName: PropTypes.string.isRequired,
+                restaurantId: PropTypes.string.isRequired,
+                count: PropTypes.number,
+                oldPrice: PropTypes.number,
+            }),
+            number: PropTypes.number.isRequired
+        }))
+    }).isRequired,
+    updateFunction: PropTypes.func.isRequired
 }
 
 export default RestaurantContainer;

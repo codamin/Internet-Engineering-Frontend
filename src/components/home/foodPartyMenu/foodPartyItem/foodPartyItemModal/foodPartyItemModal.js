@@ -37,6 +37,9 @@ class FoodPartyItemModal extends React.Component {
             foodName: `${this.state.foodData.name}`,
             num: `${this.state.ordered}`
         }).then(response => {
+            if(this.props.updateCart != undefined) {
+                this.props.updateCart()
+            }
             this.props.updateFunction()
             this.setState({ordered: 0})
             if(response.status == 200) {

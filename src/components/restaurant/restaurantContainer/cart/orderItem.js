@@ -2,7 +2,9 @@ import React from 'react'
 import './orderItem.css'
 import API from 'apis/api'
 import {eng2fa} from 'utils/utils'
-import {NotificationManager} from 'react-notifications';
+import {NotificationManager} from 'react-notifications'
+import PropTypes from 'prop-types'
+
 
 function OrderItem(props) {
 
@@ -12,7 +14,6 @@ function OrderItem(props) {
             foodName: `${props.item.food.name}`,
             num: 1         
         }).then(function (response) {
-            // console.log(response);
             props.updateFunction();
           }).catch(error => {
             if (error.response) {
@@ -26,7 +27,6 @@ function OrderItem(props) {
             restaurantId: `${props.item.food.restaurantId}`,
             foodName: `${props.item.food.name}`            
         }}).then(function (response) {
-            // console.log(response);
             props.updateFunction();
           }).catch(error => {
             if (error.response) {
@@ -58,6 +58,24 @@ function OrderItem(props) {
             </div>
         </div>
     )
+}
+
+OrderItem.propTypes = {
+    item: PropTypes.shape({
+        food: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
+            popularity: PropTypes.number.isRequired,
+            price: PropTypes.number.isRequired,
+            image: PropTypes.string.isRequired,
+            restaurantName: PropTypes.string.isRequired,
+            restaurantId: PropTypes.string.isRequired,
+            count: PropTypes.number,
+            oldPrice: PropTypes.number,
+        }),
+        number: PropTypes.number.isRequired
+    }).isRequired,
+    updateFunction: PropTypes.func.isRequired,
 }
 
 export default OrderItem

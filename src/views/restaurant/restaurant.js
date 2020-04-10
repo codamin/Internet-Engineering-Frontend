@@ -4,9 +4,7 @@ import RestaurantHeader from 'components/restaurantHeader/restaurantHeader'
 import RestaurantName from 'components/restaurant/restaurantName/restaurantName'
 import RestaurantContainer from 'components/restaurant/restaurantContainer/restaurantContainer'
 import Footer from 'components/commons/footer/footer'
-import MainLogo from 'components/home/mainLogo/mainLogo'
 import API from 'apis/api'
-import { useParams } from 'react-router';
 
 class Restaurant extends React.Component {
     constructor(props) {
