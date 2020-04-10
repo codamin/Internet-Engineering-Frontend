@@ -1,10 +1,10 @@
 import React from 'react'
-
-import CartModal from 'components/home/navbar/cartModal'
-import Spinner from 'components/commons/spinner/spinner'
+import CartModal from 'components/commons/navbar/cartModal'
 import {eng2fa} from 'utils/utils'
 import API from 'apis/api'
+import {Link} from 'react-router-dom'
 import './navbar.css'
+import mainLogo from 'Assets/LOGO.png'
 
 
 class Navbar extends React.Component {
@@ -12,35 +12,62 @@ class Navbar extends React.Component {
         super(props);
         this.state = {
             cart: [],
+            show:false,
         }
+        // this.updateCart = this.updateCart.bind(this);
     }
 
     componentDidMount() {
-        console.log()
         API.get(`cart`).then(
             jsonData => {
+                console.log('cart')
+                console.log(jsonData.data)
                 this.setState({cart: jsonData.data});
-            })
+            }
+        )
     }
 
+    
     render() {
-        if(this.props.cart == undefined || this.props.updateFunction == undefined) {
-            return "fuck"
-        }
+        const handleClose = () => this.setState({show:false});
+        const handleShow = () => this.setState({show:true});
         return (
-            <nav className="navbar navbar-expand-lg navbar-light sticky-top no-gutters">
-                <div className="navbar-nav">
-                    <span><a className="exitLink persian" href="#"></a></span>
-                    <span>
-                        <button type="button" className="flaticon-smart-cart" data-toggle="modal" data-target="#cartModal"></button>
-                        <span className="badge badge-pill badge-light d-flex justify-content-center">{this.props.cart.empty == undefined ? 
-                        <div class="spinner-border navbar-spinner" role="status">
-                        </div> : this.props.cart.empty == 'true' ? 0 : eng2fa(this.props.cart.orderItems.length)}</span>
-                    </span>
+            <div className="container-fulid main-navbar">
+                <div className="row px-5 no-gutters d-flex align-items-center">
+                    <div className="col-auto">
+                        <a className="exitLink persian" href="#">خروج</a>
+                    </div>
+
+                    {
+                        this.props.isProfile == false &&
+                        <div className="col-auto">
+                            <Link to={'/profile'} className="ml-4 mr-0 profile-btn"> حساب کاربری</Link>
+                        </div>
+                    }
+
+                    {
+                        this.props.cart.empty == undefined ?
+                        <div class="text-center ml-3">
+                            <div class="spinner-border" role="status"></div>
+                        </div>: 
+                        this.props.cart.empty == 'true' ? 0 :
+                        <div className="col-auto">
+                            <button className="btn flaticon-smart-cart" data-toggle="modal" data-target="#cartModal" onClick={handleShow}></button>
+                            <span className="badge badge-pill badge-light text-center mx-0 d-flex justify-content-center">
+                                {this.props.cart.empty == 'true' ? 0 : eng2fa(this.props.cart.orderItems.length)}
+                            </span>
+                        </div>
+                     }
+                    
+                    {
+                        this.props.isHome == false &&
+                        <div className="col-auto ml-auto">
+                            <img Link to={'/'} className="nav-mainLogo ml-auto" src={mainLogo}/>
+                        </div>
+                    }
+                    <CartModal cart={this.props.cart} updateFunction={this.props.updateFunction} show={this.state.show} handleClose={handleClose}/>
                 </div>
-                {console.log(this.props.cart)}
-                <CartModal cart={this.props.cart} updateFunction={this.props.updateFunction} />
-            </nav>
+            </div>
         );
     }
 }

@@ -8,7 +8,7 @@ class FoodPartyMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            foods: [],
+            foods: undefined,
         }
         this.getFoodPartyInfo = this.getFoodPartyInfo.bind(this)
     }
@@ -39,7 +39,7 @@ class FoodPartyMenu extends React.Component {
                 {
                     this.state.foods == undefined ?
                     <div class="text-center ml-3">
-                        <div class="spinner-border" role="status"></div>
+                        <div class="spinner-border mt-5" role="status"></div>
                     </div> :
                     <div className="container-fluid horizontal-scrollable shadow mt-4">
                         <div className="row flex-nowrap">

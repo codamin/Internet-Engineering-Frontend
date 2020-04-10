@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navbar from 'components/home/navbar/navbar'
+import Navbar from 'components/commons/navbar/navbar'
 import Footer from 'components/commons/footer/footer'
 import MainLogo from 'components/home/mainLogo/mainLogo'
 import FoodPartyMenu from 'components/home/foodPartyMenu/foodPartyMenu'
@@ -34,7 +34,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Navbar cart={this.state.cart} updateFunction={this.updateCart}/>
+        <Navbar cart={this.state.cart} updateFunction={this.updateCart} isHome={true} isProfile={false}/>
         <MainLogo/>
         <FoodPartyMenu/>
         <RestaurantsMenu/>

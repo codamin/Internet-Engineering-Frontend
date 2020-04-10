@@ -45,9 +45,6 @@ class CartModal extends React.Component {
     // }
 
     render() {
-        if(this.props.cart == undefined || this.props.updateFunction == undefined) {
-            return "fuck";
-        }
         return(
             <Modal show={this.props.show} onHide={this.props.handleClose} dialogClassName="cart-modal">
                 <Cart cart={this.props.cart} updateFunction={this.props.updateFunction} />

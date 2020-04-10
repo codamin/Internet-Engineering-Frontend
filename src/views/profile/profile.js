@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navbar from 'components/home/navbar/navbar'
+import Navbar from 'components/commons/navbar/navbar'
 import Footer from 'components/commons/footer/footer'
 import Jombotron from 'components/commons/jombotron/jombotron'
 import ProfileOrders from 'components/profile/profileOrders/profileOrders'
@@ -52,7 +52,7 @@ class Profile extends Component{
   render() {
     return (
       <div>
-        <Navbar cart={this.state.cart} updateUserFunction={this.updateCart}/>
+        <Navbar cart={this.state.cart} updateUserFunction={this.updateCart} isProfile={true} isHome={false}/>
         <Jombotron userInfo={this.state.userInfo}/>
         <Router>
             <Switch>

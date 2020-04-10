@@ -8,8 +8,8 @@ class Timer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            remainingTime: 0,
-            period: 0,
+            remainingTime: undefined,
+            period: undefined,
         }
         this.format = this.format.bind(this)
         this.tick = this.tick.bind(this)
@@ -55,6 +55,13 @@ class Timer extends React.Component {
     }
 
     render() {
+        if(this.state.period == undefined || this.state.remainingTime == undefined) {
+            return(
+                <div class="text-center ml-3">
+                    <div class="spinner-border" role="status"></div>
+                </div>
+            );
+        }
         return(
             <div className="row justify-content-center">
                 <span class="label label-default rem-timer">

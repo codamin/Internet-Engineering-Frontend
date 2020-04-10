@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navbar from 'components/home/navbar/navbar'
+import Navbar from 'components/commons/navbar/navbar'
 import RestaurantHeader from 'components/restaurantHeader/restaurantHeader'
 import RestaurantName from 'components/restaurant/restaurantName/restaurantName'
 import RestaurantContainer from 'components/restaurant/restaurantContainer/restaurantContainer'

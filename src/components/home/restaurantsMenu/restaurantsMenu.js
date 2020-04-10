@@ -7,7 +7,7 @@ class RestaurantsMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            restaurants: []
+            restaurants: undefined
         }
     }
 
@@ -26,9 +26,15 @@ class RestaurantsMenu extends React.Component {
                         رستوران ها
                     </div>
                 </div>
-                <div className="row justify-content-center">
-                    {this.state.restaurants.map(restaurantData => <RestaurantsMenuItem restaurantData={restaurantData}/>)}
-                </div>
+                {
+                    this.state.restaurants == undefined ?
+                    <div class="text-center mt-5">
+                        <div class="spinner-border" role="status"></div>
+                    </div> :
+                    <div className="row justify-content-center">
+                        {this.state.restaurants.map(restaurantData => <RestaurantsMenuItem restaurantData={restaurantData}/>)}
+                    </div>
+                }
             </div>
         );
     }
