@@ -18,7 +18,7 @@ class ProfileOrders extends React.Component {
     componentDidMount() {
         this.getOrdersInfo();
         this.timerID = setInterval(
-            () => this.getOrdersInfo(),5000);
+            () => this.getOrdersInfo(),1000);
     }
 
     componentWillUnmount() {
@@ -30,6 +30,7 @@ class ProfileOrders extends React.Component {
             jsonData => {
                 // console.log('getOrdersInfo called')
                 // console.log(jsonData.data)
+                console.log('orders', jsonData.data.orderRepository.orders)
                 this.setState({orders: jsonData.data.orderRepository.orders});
         })
     }

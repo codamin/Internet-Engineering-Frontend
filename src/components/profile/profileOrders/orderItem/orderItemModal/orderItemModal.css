@@ -1,0 +1,18 @@
+.profile-modal-table-header {
+    background-color: rgb(233, 233, 233);
+}
+
+.profile-modal-title-col {
+    text-align: center;
+    font-size: 2.5em;
+    font-family: vazir-light;
+    border-bottom: solid 2px rgb(184, 184, 184);
+}
+
+.factor-modal {
+    border-radius: 3em; 
+}
+
+.profile-total-cost-row {
+    font-family: vazir-bold;
+}
