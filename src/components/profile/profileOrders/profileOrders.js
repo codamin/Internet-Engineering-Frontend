@@ -28,8 +28,8 @@ class ProfileOrders extends React.Component {
     getOrdersInfo() {
         API.get('user').then(
             jsonData => {
-                console.log('getOrdersInfo called')
-                console.log(jsonData.data)
+                // console.log('getOrdersInfo called')
+                // console.log(jsonData.data)
                 this.setState({orders: jsonData.data.orderRepository.orders});
         })
     }

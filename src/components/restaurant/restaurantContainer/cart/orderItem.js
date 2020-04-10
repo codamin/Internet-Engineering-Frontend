@@ -10,7 +10,7 @@ function OrderItem(props) {
             restaurantId: `${props.item.food.restaurantId}`,
             foodName: `${props.item.food.name}`            
         }).then(function (response) {
-            console.log(response);
+            // console.log(response);
             props.updateFunction();
           })
 
@@ -21,7 +21,7 @@ function OrderItem(props) {
             restaurantId: `${props.item.food.restaurantId}`,
             foodName: `${props.item.food.name}`            
         }}).then(function (response) {
-            console.log(response);
+            // console.log(response);
             props.updateFunction();
           })
     }

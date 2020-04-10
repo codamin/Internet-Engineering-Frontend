@@ -22,27 +22,30 @@ class ProfileCredit extends React.Component {
         this.setState({
             credit: event.target.value
         },()=>{
-            console.log('credit= ', this.state.credit)
+            // console.log('credit= ', this.state.credit)
         })
     }
 
     handleSubmit(event) {
+        event.preventDefault();
         if(isNaN(this.state.credit)) {
-            event.preventDefault();
-            console.log('bad number', typeof(this.state.credit))
+            NotificationManager.error('credit must be a number')
+        }
+        else if(Number(this.state.credit) < 0) {
             NotificationManager.error('credit must be a positive number')
         }
         else {
-            event.preventDefault();
             API.post('user', {
                 credit: this.state.credit,
-            }).then(function (response) {
+            }).then((resp) => {
+                this.props.updateUserFunction()
+                if(resp.status == 200) {
+                    NotificationManager.success('اعتبار شما با موقفیت افزایش یافت.')
+                }
+                else{
+                    NotificationManager.error('خطا در انجام عملیات')
+                }
             })
-            .catch(function (error) {
-                console.log(error);
-            });
-            console.log('call back called in credit.js')
-            this.props.updateUserFunction()
         }
     }
 

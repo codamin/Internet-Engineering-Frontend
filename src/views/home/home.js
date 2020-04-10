@@ -20,7 +20,7 @@ class Home extends Component {
       API.get(`cart`).then(
           jsonData => {
               this.setState({cart: jsonData.data});
-              console.log(this.state.cart)
+              // console.log(this.state.cart)
       })
   }
 

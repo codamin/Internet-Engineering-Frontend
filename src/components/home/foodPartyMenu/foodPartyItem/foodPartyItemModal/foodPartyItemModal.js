@@ -4,6 +4,7 @@ import styles from './foodPartyItemModal.module.css'
 import star from 'Assets/Icons/star.png'
 import {eng2fa} from 'utils/utils'
 import PropTypes from 'prop-types'
+import {NotificationManager} from 'react-notifications';
 
 class FoodPartyItemModal extends React.Component {
 
@@ -34,17 +35,16 @@ class FoodPartyItemModal extends React.Component {
     
     handleAddToCart(envent) {
         for(let i = 0; i < this.state.ordered; i++) {
-            console.log('sent')
-            console.log(`${this.state.foodData.restaurantId}`)
-            console.log(`${this.state.foodData.name}`)
             API.post('cart', {
                 restaurantId: `${this.state.foodData.restaurantId}`,
                 foodName: `${this.state.foodData.name}`           
-            }).then(function (response) {
-                console.log(response);
-              })
-              .catch(function (error) {
-                console.log(error);
+            }).catch(function (error) {
+                if(error.response) {
+                    NotificationManager.success('غذا با موفقیت به سبد خرید شما اضافه شد.')
+                }
+                else {
+                    NotificationManager.error('خطا در انجام عملیات')
+                }
             });
             this.props.updateFunction()
         }

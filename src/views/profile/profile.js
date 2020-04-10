@@ -24,7 +24,7 @@ class Profile extends Component{
   }
 
   componentDidMount() {
-    console.log('profile did mount called')
+    // console.log('profile did mount called')
     this.getUserInfo();
     API.get(`cart`).then(
       jsonData => {
@@ -35,17 +35,17 @@ class Profile extends Component{
     API.get(`cart`).then(
         jsonData => {
             this.setState({cart: jsonData.data});
-            console.log(this.state.cart)
+            // console.log(this.state.cart)
     })
   }
   getUserInfo() {
-    console.log('getUserInfo called');
+    // console.log('getUserInfo called');
     API.get('user').then((response) => {
       this.setState({userInfo: response.data});
-      console.log(response.data)
-      console.log('user updated')
+      // console.log(response.data)
+      // console.log('user up dated')
     }).catch(function (error) {
-      console.log(error);
+      // console.log(error);
     });
   }
 

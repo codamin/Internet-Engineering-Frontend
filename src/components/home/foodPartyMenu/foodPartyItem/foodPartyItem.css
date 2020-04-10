@@ -23,7 +23,7 @@
 
 .item {
     background-color: white;
-    height: 15em;
+    height: 15.3em;
     width: 16em;
     box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.4);
 }
@@ -38,12 +38,29 @@
     color: white;
     width: 90%;
     background-color: #4ecdc4;
+    padding: 0;
+    border-radius: 0.5em;
+    font-family: vazir-medium;
+}
+
+.buy-btn-disabled {
+    background-color: rgb(172, 172, 172);
+    width: 90%;
+    padding: 0;
+    border-radius: 0.5em;
+    color: white;
+    font-family: vazir-medium;
 }
 
 .rmn-number {
     width: 90%;
     background-color: #f6fff7;
     border-radius: 0.5em;
+    padding: 0;
+    border-radius: 0.5em;
+    border: solid 1px gray;
+    font-family: vazir-medium;
+    color: gray
 }
 
 .rest-name {
@@ -54,4 +71,8 @@
 
 .rest-item-food-info {
     max-width: 60%;
+}
+
+.home-price-row {
+    font-size: 1.3em;
 }
