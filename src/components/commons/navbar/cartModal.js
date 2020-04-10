@@ -13,27 +13,10 @@ import {eng2fa} from 'utils/utils'
 class CartModal extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            cart: []
-        }
-        // this.update = this.update.bind(this)
-        this.finalize = this.finalize.bind(this)
-    }
-    
-    finalize() {
-        API.post('cart/finalize').then(
-            this.props.updateFunction()
-        )
+        this.state = {}
     }
 
-    componentDidMount() {
-        API.get('cart').then(
-            jsonData => {
-                this.setState({cart: jsonData.data});
-                console.log(this.state.cart)
-            }
-        )
-    }
+    componentDidMount() {}
 
     render() {
         return(

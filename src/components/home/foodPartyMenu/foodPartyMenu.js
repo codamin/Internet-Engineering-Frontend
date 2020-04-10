@@ -15,15 +15,13 @@ class FoodPartyMenu extends React.Component {
     }
 
     componentDidMount() {
-        // console.log('menu did mount')
         this.getFoodPartyInfo();
     }
 
     getFoodPartyInfo() {
-        // console.log('get info called')
         API.get('party').then(
             jsonData => {
-                // console.log(jsonData.data)
+
                 console.log('getFoodPartyInfo called')
                 this.setState({foods: jsonData.data});
         })
@@ -46,7 +44,7 @@ class FoodPartyMenu extends React.Component {
                     <div className="container-fluid horizontal-scrollable  mt-4">
                         <div className="row flex-nowrap">
                             {this.state.foods.map((position, key) => {
-                                return <FoodPartyItem foodData={position} id={key} updateFunction={this.getFoodPartyInfo} updateCart={this.props.updateCart}/>
+                                return <FoodPartyItem food={position} id={key} updateFunction={this.getFoodPartyInfo} updateCart={this.props.updateCart}/>
                             })}
                         </div>
                     </div>

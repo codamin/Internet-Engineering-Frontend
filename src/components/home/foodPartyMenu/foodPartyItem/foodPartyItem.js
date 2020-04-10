@@ -32,46 +32,46 @@ function FoodPartyItem(props) {
             <div className="row d-flex flex-nowrap">
                 <div className="col-auto container rest-item-food-info">
                     <div className="row justify-content-end">
-                        <div className="col-auto pr-0 text-right foodPartyfoodName">{props.foodData.name}</div>
+                        <div className="col-auto pr-0 text-right foodPartyfoodName">{props.food.name}</div>
                     </div>
                     <div className="row">
                         <div className="col pr-1 text-right">
                             <img className="star" src={star}></img>
                         </div>
                         <div className="col-auto px-0 text-right">
-                            {eng2fa(props.foodData.popularity)}
+                            {eng2fa(props.food.popularity)}
                         </div>
                     </div>
                 </div>
                 <div className="col-auto">
-                    <img className="rounded-lg item-img" src={props.foodData.image}></img>
+                    <img className="rounded-lg item-img" src={props.food.image}></img>
                 </div>
             </div>
             <div className="row home-price-row mt-2">
-                    <div className="col text-right">{eng2fa(props.foodData.price)}</div>
-                <div className="col text-left old-price">{eng2fa(props.foodData.oldPrice)}</div>
+                    <div className="col text-right">{eng2fa(props.food.price)}</div>
+                <div className="col text-left old-price">{eng2fa(props.food.oldPrice)}</div>
             </div>
             <div className="row mt-4 no-gutters">
                 <div className="col  rounded-lg text-center mx-0">
-                    <BuyButton count={props.foodData.count} id={props.id}/>
+                    <BuyButton count={props.food.count} id={props.id}/>
                 </div>
                 <div className="col rounded-lg text-center mx-0">
-                    <RemainingButton count={props.foodData.count}/>
+                    <RemainingButton count={props.food.count}/>
                 </div>
             </div>
             <div className="row justify-content-center mt-3 pt-2 rest-name">
                 <div className="col text-center text-truncate">
-                    {props.foodData.restaurantName}
+                    {props.food.restaurantName}
                 </div>
             </div>
-            <FoodPartyItemModal foodData={props.foodData} id={props.id} updateFunction={props.updateFunction} updateCart={props.updateCart}/>
+            <FoodPartyItemModal food={props.food} id={props.id} updateFunction={props.updateFunction} updateCart={props.updateCart}/>
         </div>
     );
 }
 
 FoodPartyItem.propTypes = {
     count: PropTypes.number,
-    foodData: PropTypes.shape({
+    food: PropTypes.shape({
         available: PropTypes.bool.isRequired,
         count: PropTypes.number.isRequired,
         description: PropTypes.string.isRequired,

@@ -44,7 +44,7 @@ function MenuItem(props) {
                         </div>
                     </div>
                 </div>
-                <FoodPartyItemModal foodData={props.food} key={props.id} id={props.id} updateFunction={props.updateFunction} />
+                <FoodPartyItemModal food={props.food} key={props.id} id={props.id} updateFunction={props.updateFunction} />
             </div>
         </>
     )

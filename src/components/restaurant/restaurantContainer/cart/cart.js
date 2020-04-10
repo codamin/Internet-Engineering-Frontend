@@ -10,7 +10,7 @@ import './cart.css'
 function Cart(props) {
 
     function finalize() {
-        API.post('cart/finalize').then(function (response) {
+        API.post('cart/finalize').then(response => {
             props.updateFunction();
         }).catch(error => {
             if (error.response) {
@@ -20,7 +20,8 @@ function Cart(props) {
 
     if(!props){
         return (
-            <div class="spinner-border" role="status"></div>
+            // <div class="spinner-border" role="status"></div>
+            "fuck"
         )
     }
     return(
@@ -78,7 +79,8 @@ Cart.propTypes = {
             }),
             number: PropTypes.number.isRequired
         }))
-    }).isRequired
+    }).isRequired,
+    updateFunction: PropTypes.func.isRequired
 }
 
 export default Cart
