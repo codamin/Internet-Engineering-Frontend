@@ -10,8 +10,8 @@ function Jombotron(props) {
 
                 {
                 props.userInfo == undefined ?
-                <div class="text-center">
-                    <div class="spinner-grow" role="status"></div>
+                <div className="text-center">
+                    <div className="spinner-grow" role="status"></div>
                 </div> :
                 <div className="row ml-5">
                     <div className={"col-auto mr-auto " + styles.jomboLeft}>

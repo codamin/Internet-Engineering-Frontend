@@ -7,13 +7,8 @@ import './restaurantContainer.css'
 
 
 function RestaurantContainer(props) {
-    if(!props) {
-        return (
-            <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        )
-    }
+    if(!props)
+        return <div className="spinner-border" role="status"/>
     return(
         <div className="container main-part">
             <div className="row pt-5 container">
@@ -24,16 +19,16 @@ function RestaurantContainer(props) {
                     <div className="row container restaurant-menu no-gutters">
                         {props.menu ?
                         <RestaurantMenu  menu={props.menu} updateFunction={props.updateFunction} /> : 
-                        <div class="spinner-border" role="status">
-                            <span class="sr-only">Loading...</span>
+                        <div className="spinner-border" role="status">
+                            <span className="sr-only">Loading...</span>
                         </div>}
                     </div>
                 </div>
                 <div className="col-4 pl-4 no-gutters restaurant-cart">
                     {props.cart ?
                     <Cart cart={props.cart} updateFunction={props.updateFunction} /> :
-                    <div class="spinner-border" role="status">
-                        <span class="sr-only">Loading...</span>
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
                     </div>}
                 </div>
             </div>    

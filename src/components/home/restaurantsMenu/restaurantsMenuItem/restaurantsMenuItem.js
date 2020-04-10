@@ -28,24 +28,25 @@ function RestaurantsMenuItem(props) {
 }
 
 RestaurantsMenuItem.propTypes = {
-    description: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-    location: PropTypes.objectOf(PropTypes.number). isRequired,
-    logo: PropTypes.string.isRequired,
-    menu: PropTypes.arrayOf(shape({
-        available: PropTypes.bool.isRequired,
-        count: PropTypes.number,
+    restaurantData: PropTypes.shape({
         description: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        oldPrice: PropTypes.number.isRequired,
-        popularity: PropTypes.number.isRequired,
-        price: PropTypes.number.isRequired,
-        restaurantId: PropTypes.string.isRequired,
-        restaurantName: PropTypes.string.isRequired
-    })),
-    name: PropTypes.string,
-    // partyMenu: [],
+        id: PropTypes.string.isRequired,
+        location: PropTypes.objectOf(PropTypes.number). isRequired,
+        logo: PropTypes.string.isRequired,
+        menu: PropTypes.arrayOf(shape({
+            available: PropTypes.bool.isRequired,
+            count: PropTypes.number,
+            description: PropTypes.string.isRequired,
+            image: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+            oldPrice: PropTypes.number,
+            popularity: PropTypes.number.isRequired,
+            price: PropTypes.number.isRequired,
+            restaurantId: PropTypes.string.isRequired,
+            restaurantName: PropTypes.string.isRequired
+        })),
+        name: PropTypes.string,
+    })
 }
 
 export default RestaurantsMenuItem;

@@ -73,11 +73,11 @@ FoodPartyItem.propTypes = {
     count: PropTypes.number,
     food: PropTypes.shape({
         available: PropTypes.bool.isRequired,
-        count: PropTypes.number.isRequired,
+        count: PropTypes.number,
         description: PropTypes.string.isRequired,
         image: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
-        oldPrice: PropTypes.number.isRequired,
+        oldPrice: PropTypes.number,
         popularity: PropTypes.number.isRequired,
         price: PropTypes.number.isRequired,
         restaurantId: PropTypes.string.isRequired,

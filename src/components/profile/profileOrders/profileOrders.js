@@ -28,9 +28,7 @@ class ProfileOrders extends React.Component {
     getOrdersInfo() {
         API.get('user').then(
             jsonData => {
-                // console.log('getOrdersInfo called')
-                // console.log(jsonData.data)
-                console.log('orders', jsonData.data.orderRepository.orders)
+                console.log("jsonData.data.orderRepository.orders", jsonData.data.orderRepository.orders)
                 this.setState({orders: jsonData.data.orderRepository.orders});
         })
     }
@@ -48,8 +46,8 @@ class ProfileOrders extends React.Component {
                 </div>
                 {
                     this.state.orders == undefined ?
-                    <div class="text-center">
-                        <div class="spinner-grow" role="status"></div>
+                    <div className="text-center">
+                        <div className="spinner-grow" role="status"></div>
                     </div>:
                     this.state.orders.map((orderData, key) => <OrderItem orderData={orderData} id={key} />)
                 }
