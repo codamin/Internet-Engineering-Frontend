@@ -10,12 +10,12 @@ function MenuItem(props) {
     if(!props || props.food == undefined || props.id == undefined){
         return null; //You can change here to put a customized loading spinner n
     }
-    const style1 = "container mt-0 mr-3 mb-3 ml-3 food no-gutters"
-    const style2 = "container m-3 food no-gutters"
+    const style1 = "container mx-3 mb-3 food no-gutters"
+    const style2 = "container mx-3 mb-3 food no-gutters"
     return (
         <>
-            <div className="col-4 mb-3 flex-container no-gutters menu-item-card">
-                <div className={props.id < 3 ? style1 : style2}>
+            <div className="col-auto mb-3 flex-container no-gutters menu-item-card">
+                <div className={props.id % 3 == 2 ? style1 : style2}>
                     <div className="row mt-2 flex-container no-gutters">
                         <img className="col-auto food-pic no-gutters" src={props.food.image} alt="foodPic" />
                     </div>

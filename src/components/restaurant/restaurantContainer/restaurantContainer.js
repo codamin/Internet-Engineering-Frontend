@@ -10,13 +10,13 @@ function RestaurantContainer(props) {
     if(!props)
         return <div className="spinner-border" role="status"/>
     return(
-        <div className="container main-part">
-            <div className="row pt-5 container">
+        <div className="container-fluid main-part ">
+            <div className="row pt-5 justify-content-center mx-auto">
                 <FoodMenu />
             </div>
-            <div className="row mt-5 no-gutters">
-                <div className="col-8 right-border no-gutter">
-                    <div className="row container restaurant-menu no-gutters">
+            <div className="row mt-5 no-gutters rest-page-main-row d-flex flex-nowrap mx-auto">
+                <div className="col pr-0 right-border no-gutter">
+                    <div className="row rev-dir jusitfy-content-right container restaurant-menu no-gutters ml-auto px-0">
                         {props.menu ?
                         <RestaurantMenu  menu={props.menu} updateFunction={props.updateFunction} /> : 
                         <div className="spinner-border" role="status">
@@ -24,7 +24,7 @@ function RestaurantContainer(props) {
                         </div>}
                     </div>
                 </div>
-                <div className="col-4 pl-4 no-gutters restaurant-cart">
+                <div className="col-auto pl-4 no-gutters restaurant-cart">
                     {props.cart ?
                     <Cart cart={props.cart} updateFunction={props.updateFunction} /> :
                     <div className="spinner-border" role="status">

@@ -9,3 +9,11 @@
     border-color: #c4c3c2;
 }
 
+.rest-page-main-row {
+    max-width: 56%;
+    justify-content: center;
+}
+
+.rev-dir {
+    direction: rtl;
+}
