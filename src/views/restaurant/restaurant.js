@@ -42,7 +42,7 @@ class Restaurant extends React.Component {
         return (
             <div className="restaurant">
                 <Navbar cart={this.state.cart} updateFunction={this.updateCart} />
-                <RestaurantHeader />
+                <RestaurantHeader logo={this.state.data.logo} />
                 <RestaurantName name={this.state.data.name} />
                 <RestaurantContainer menu={this.state.data.menu} cart={this.state.cart} updateFunction={this.updateCart} />
                 <Footer />

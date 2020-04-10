@@ -60,7 +60,6 @@ class Navbar extends React.Component {
                                 {this.props.cart.empty == 'true' ? 0 : eng2fa(this.props.cart.orderItems.length)}
                             </span>
                         </span>
-                        
                         }
                 </div>
                 <CartModal cart={this.props.cart} updateFunction={this.props.updateFunction} show={this.state.show} handleClose={handleClose}/>
