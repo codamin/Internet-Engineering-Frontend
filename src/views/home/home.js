@@ -19,6 +19,7 @@ class Home extends Component {
   updateCart() {
       API.get(`cart`).then(
           jsonData => {
+              console.log('updateCart called')
               this.setState({cart: jsonData.data});
               // console.log(this.state.cart)
       })
@@ -36,7 +37,7 @@ class Home extends Component {
       <div>
         <Navbar cart={this.state.cart} updateFunction={this.updateCart} isHome={true} isProfile={false}/>
         <MainLogo/>
-        <FoodPartyMenu/>
+        <FoodPartyMenu updateCart={this.updateCart}/>
         <RestaurantsMenu/>
         <Footer/>
       </div>

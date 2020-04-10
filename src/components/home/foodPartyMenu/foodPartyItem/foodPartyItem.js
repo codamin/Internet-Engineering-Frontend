@@ -64,7 +64,7 @@ function FoodPartyItem(props) {
                     {props.foodData.restaurantName}
                 </div>
             </div>
-            <FoodPartyItemModal foodData={props.foodData} id={props.id} updateFunction={props.updateFunction}/>
+            <FoodPartyItemModal foodData={props.foodData} id={props.id} updateFunction={props.updateFunction} updateCart={props.updateCart}/>
         </div>
     );
 }

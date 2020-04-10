@@ -38,15 +38,16 @@ class FoodPartyItemModal extends React.Component {
             API.post('cart', {
                 restaurantId: `${this.state.foodData.restaurantId}`,
                 foodName: `${this.state.foodData.name}`           
-            }).catch(function (error) {
-                if(error.response) {
+            }).then((response) => {
+                this.props.updateCart()
+                this.props.updateFunction()
+                if(response.status == 200) {
                     NotificationManager.success('غذا با موفقیت به سبد خرید شما اضافه شد.')
                 }
                 else {
                     NotificationManager.error('خطا در انجام عملیات')
                 }
-            });
-            this.props.updateFunction()
+            })
         }
     }
 

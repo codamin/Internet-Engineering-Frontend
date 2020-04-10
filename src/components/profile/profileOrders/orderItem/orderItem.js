@@ -37,7 +37,7 @@ function OrderItem(props) {
                 <div className="col-5 profile-order-col profile-order-left-col text-center">
                     {renderButton(props.orderData.state, props.id)}
                 </div>
-                <div className="col-5 profile-order-col text-center">{props.orderData.restaurantName}</div>
+                <div className="col-5 profile-order-col profile-order-rest-name-col text-center">{props.orderData.restaurantName}</div>
                 <div className="col-2 profile-order-col text-center profile-order-right-col">{props.id + 1}</div>
             </div>
             <OrderItemModal orderData={props.orderData} id={props.id}/>
