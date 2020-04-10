@@ -7,6 +7,10 @@
     font-size: 2.5em;
     font-family: vazir-light;
     border-bottom: solid 2px rgb(184, 184, 184);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    direction: rtl;
 }
 
 .factor-modal {

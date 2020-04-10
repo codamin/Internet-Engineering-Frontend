@@ -70,18 +70,18 @@ function FoodPartyItem(props) {
 }
 
 FoodPartyItem.propTypes = {
-    count: PropTypes.number.isRequired,
+    count: PropTypes.number,
     foodData: PropTypes.shape({
-        available: PropTypes.bool,
-        count: PropTypes.number,
-        description: PropTypes.string,
-        image: PropTypes.string,
-        name: PropTypes.string,
-        oldPrice: PropTypes.number,
-        popularity: PropTypes.number,
-        price: PropTypes.number,
-        restaurantId: PropTypes.string,
-        restaurantName: PropTypes.string
+        available: PropTypes.bool.isRequired,
+        count: PropTypes.number.isRequired,
+        description: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        oldPrice: PropTypes.number.isRequired,
+        popularity: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        restaurantId: PropTypes.string.isRequired,
+        restaurantName: PropTypes.string.isRequired
     })
 }
 

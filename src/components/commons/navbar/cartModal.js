@@ -35,15 +35,6 @@ class CartModal extends React.Component {
         )
     }
 
-    // update() {
-    //     API.get('cart').then(
-    //         jsonData => {
-    //             this.setState({cart: jsonData.data});
-    //             console.log(this.state.cart)
-    //         }
-    //     )
-    // }
-
     render() {
         return(
             <Modal show={this.props.show} onHide={this.props.handleClose} dialogClassName="cart-modal">

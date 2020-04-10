@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import PropTypes, { shape } from 'prop-types'
 import './restaurantsMenuItem.css'
 
 function RestaurantsMenuItem(props) {
@@ -26,5 +27,25 @@ function RestaurantsMenuItem(props) {
     );
 }
 
-// کافه رستوران ایتالیایی ریچی (اسپرلوس سابق)
+RestaurantsMenuItem.propTypes = {
+    description: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    location: PropTypes.objectOf(PropTypes.number). isRequired,
+    logo: PropTypes.string.isRequired,
+    menu: PropTypes.arrayOf(shape({
+        available: PropTypes.bool.isRequired,
+        count: PropTypes.number,
+        description: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        oldPrice: PropTypes.number.isRequired,
+        popularity: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        restaurantId: PropTypes.string.isRequired,
+        restaurantName: PropTypes.string.isRequired
+    })),
+    name: PropTypes.string,
+    // partyMenu: [],
+}
+
 export default RestaurantsMenuItem;

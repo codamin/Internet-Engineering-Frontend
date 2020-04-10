@@ -3,6 +3,7 @@ import FoodPartyItem from 'components/home/foodPartyMenu/foodPartyItem/foodParty
 import 'components/home/foodPartyMenu/foodPartyMenu.css';
 import Timer from './timer/timer'
 import API from 'apis/api'
+import PropTypes from 'prop-types'
 
 class FoodPartyMenu extends React.Component {
     constructor(props) {
@@ -53,6 +54,10 @@ class FoodPartyMenu extends React.Component {
             </div>
         );
     }
+}
+
+FoodPartyMenu.propTypes = {
+    updateCart: PropTypes.func.isRequired
 }
 
 export default FoodPartyMenu;

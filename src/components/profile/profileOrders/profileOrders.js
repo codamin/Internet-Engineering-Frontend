@@ -10,7 +10,7 @@ class ProfileOrders extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            orders: []
+            orders: undefined
         }
         this.getOrdersInfo = this.getOrdersInfo.bind(this)
     }
@@ -46,7 +46,13 @@ class ProfileOrders extends React.Component {
                         <Link to={'/profile/orders'} className={styles.whiteText}> سفارش ها</Link>
                     </div>
                 </div>
-                {this.state.orders.map((orderData, key) => <OrderItem orderData={orderData} id={key} />)}
+                {
+                    this.state.orders == undefined ?
+                    <div class="text-center">
+                        <div class="spinner-grow" role="status"></div>
+                    </div>:
+                    this.state.orders.map((orderData, key) => <OrderItem orderData={orderData} id={key} />)
+                }
             </div>
         );
   }

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import {eng2fa} from 'utils/utils.js'
 import './orderItemModal.css'
 
 function TableRow(props) {
     return(
         <tr>
-            <td>{props.data.food.price}</td>
-            <td>{props.data.number}</td>
+            <td>{eng2fa(props.data.food.price)}</td>
+            <td>{eng2fa(props.data.number)}</td>
             <td>{props.data.food.name}</td>
-            <td>{props.row + 1}</td>
+            <td>{eng2fa(props.row + 1)}</td>
         </tr>
     );
 }
@@ -20,7 +21,7 @@ export default function OrderItemModal(props) {
                     <div className="modal-body">
                         <div className="container-fluid">
                             <div className="row justify-content-center modal-title-row">
-                                <div className="col-md-6 justify-content-center profile-modal-title-col mb-5 pb-3">{props.orderData.restaurantName}</div>
+                                <div className="col-auto justify-content-center profile-modal-title-col mb-5 pb-3">{props.orderData.restaurantName}</div>
                             </div>
                             <table className="table table-bordered text-center">
                                 <thead>
@@ -39,7 +40,7 @@ export default function OrderItemModal(props) {
                             </table>
                         </div>
                         <div className="col-auto profile-total-cost-row">
-                           {["جمع کل:", props.orderData.totalPrice, "تومان"]}
+                           {["جمع کل: ", eng2fa(props.orderData.finalPrice), " تومان"]}
                         </div>
                     </div>
                 </div>
