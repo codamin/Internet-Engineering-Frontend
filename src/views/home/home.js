@@ -11,7 +11,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cart: [],
+      cart: undefined,
     }
     this.updateCart = this.updateCart.bind(this);
   }

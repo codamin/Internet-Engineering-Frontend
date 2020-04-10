@@ -1,6 +1,6 @@
 import React from 'react'
 import star_logo from 'components/restaurant/restaurantContainer/star.png'
-import FoodPartyItemModal from 'components/home/foodPartyMenu/foodPartyItem/foodPartyItemModal/foodPartyItemModal'
+import FoodPartyItemModal from 'components/commons/foodPartyItemModal/foodPartyItemModal'
 import {eng2fa} from 'utils/utils'
 import './menuItem.css'
 import PropTypes from 'prop-types'

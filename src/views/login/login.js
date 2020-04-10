@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from 'components/commons/navbar/navbar'
-import RestaurantHeader from 'components/restaurantHeader/restaurantHeader'
+import RestaurantHeader from 'components/restaurant/restaurantHeader/restaurantHeader'
 import './login.css'
 
 
@@ -61,7 +61,6 @@ class Login extends React.Component {
             <div className="col-4"></div>
             </div>
             </div>
-
         </div>
         )
     }

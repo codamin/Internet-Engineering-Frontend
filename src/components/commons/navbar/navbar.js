@@ -90,11 +90,11 @@ Navbar.propTypes = {
                 restaurantId: PropTypes.string.isRequired,
                 restaurantName: PropTypes.string.isRequired
             }),
-            number: PropTypes.number.isRequired,
-            price: PropTypes.number.isRequired
+            number: PropTypes.number,
+            price: PropTypes.number
         })),
-    restaurantId: PropTypes.string.isRequired,
-    restaurantName: PropTypes.string.isRequired
+    restaurantId: PropTypes.string,
+    restaurantName: PropTypes.string
     })
 }
 

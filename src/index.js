@@ -19,10 +19,10 @@ import {
 ReactDOM.render(
   <Router>
   <Switch>
-    <Route exact path="/" component={Home}/>
-    <Route path="/profile" component={Profile}/>
-    <Route exact path="/restaurant/:restaurantId" component={Restaurant}/>
-    <Route exact path="/login" component={Login} />
+    <Route key={0} exact path="/" component={Home}/>
+    <Route key={1} path="/profile" component={Profile}/>
+    <Route key={2} exact path="/restaurant/:restaurantId" component={Restaurant}/>
+    <Route key={3} exact path="/login" component={Login} />
   </Switch>
   <NotificationContainer/>
 </Router>,

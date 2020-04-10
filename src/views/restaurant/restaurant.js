@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from 'components/commons/navbar/navbar'
-import RestaurantHeader from 'components/restaurantHeader/restaurantHeader'
+import RestaurantHeader from 'components/restaurant/restaurantHeader/restaurantHeader'
 import RestaurantName from 'components/restaurant/restaurantName/restaurantName'
 import RestaurantContainer from 'components/restaurant/restaurantContainer/restaurantContainer'
 import Footer from 'components/commons/footer/footer'
@@ -10,8 +10,8 @@ class Restaurant extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [],
-            cart: [],
+            data: {},
+            cart: undefined,
         }
         this.updateCart = this.updateCart.bind(this);
     }

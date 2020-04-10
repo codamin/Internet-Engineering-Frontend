@@ -1,5 +1,5 @@
 import React from 'react'
-import FoodPartyItemModal from './foodPartyItemModal/foodPartyItemModal'
+import FoodPartyItemModal from 'components/commons/foodPartyItemModal/foodPartyItemModal'
 import './foodPartyItem.css'
 import star from 'Assets/Icons/star.png'
 import {eng2fa} from 'utils/utils'

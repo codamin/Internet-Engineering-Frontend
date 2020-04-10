@@ -36,10 +36,7 @@ class FoodPartyItemModal extends React.Component {
             foodName: `${this.props.food.name}`,
             num: `${this.state.ordered}`
         }).then(response => {
-            console.log(this.props.updateCart)
             if(this.props.updateCart != undefined) {
-            console.log(this.props.updateCart)
-
                 this.props.updateCart()
             }
             this.props.updateFunction()
@@ -53,6 +50,10 @@ class FoodPartyItemModal extends React.Component {
         }).catch(error => {
             if (error.response) {
                 NotificationManager.error(error.response.data);
+                if(this.props.updateCart != undefined) {
+                    this.props.updateCart()
+                }
+                this.props.updateFunction()
               }})
     }
 

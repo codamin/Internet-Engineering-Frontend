@@ -14,7 +14,9 @@ function Cart(props) {
             props.updateFunction();
         }).catch(error => {
             if (error.response) {
+                props.updateFunction();
                 NotificationManager.error(error.response.data);
+                console.log(error.response.data)
               }})
     }
 
@@ -32,7 +34,7 @@ function Cart(props) {
                 <div className="col-12 flex-container">
                     <div className="container cart-container px-2">
                         {props.cart.empty != 'true' && props.cart.orderItems ?
-                        props.cart.orderItems.map(item => <OrderItem item={item} updateFunction={props.updateFunction} />) :
+                        props.cart.orderItems.map((item, key) => <OrderItem key={key} item={item} updateFunction={props.updateFunction} />) :
                         <div className="text-center mt-4">
                             <div className="spinner-border" role="status"></div>
                         </div>}

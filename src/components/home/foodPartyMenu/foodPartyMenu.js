@@ -44,7 +44,7 @@ class FoodPartyMenu extends React.Component {
                     <div className="container-fluid horizontal-scrollable  mt-4">
                         <div className="row flex-nowrap">
                             {this.state.foods.map((position, key) => {
-                                return <FoodPartyItem food={position} id={key} updateFunction={this.getFoodPartyInfo} updateCart={this.props.updateCart}/>
+                                return <FoodPartyItem food={position} key={key} id={key} updateFunction={this.getFoodPartyInfo} updateCart={this.props.updateCart}/>
                             })}
                         </div>
                     </div>

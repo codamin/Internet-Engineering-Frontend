@@ -32,7 +32,7 @@ class RestaurantsMenu extends React.Component {
                         <div className="spinner-border" role="status"></div>
                     </div> :
                     <div className="row justify-content-center">
-                        {this.state.restaurants.map(restaurantData => <RestaurantsMenuItem restaurantData={restaurantData}/>)}
+                        {this.state.restaurants.map((restaurantData, key) => <RestaurantsMenuItem key={key} restaurantData={restaurantData}/>)}
                     </div>
                 }
             </div>

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import OrderItemModal from './orderItemModal/orderItemModal'
 import './orderItem.css'
+import {eng2fa} from 'utils/utils'
+
 
 function RenderDone(props) {
     return(
@@ -38,7 +40,7 @@ function OrderItem(props) {
                     {renderButton(props.orderData.state, props.id)}
                 </div>
                 <div className="col-5 profile-order-col profile-order-rest-name-col text-center">{props.orderData.restaurantName}</div>
-                <div className="col-2 profile-order-col text-center profile-order-right-col">{props.id + 1}</div>
+                <div className="col-2 profile-order-col text-center profile-order-right-col">{eng2fa(props.id + 1)}</div>
             </div>
             <OrderItemModal orderData={props.orderData} id={props.id}/>
         </div>
