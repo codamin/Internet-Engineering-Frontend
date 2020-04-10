@@ -19,7 +19,7 @@ function BuyButton(props) {
 
 function RemainingButton(props) {
     if(props.count == 0) return(
-        <button type="button" className="btn rmn-number">{[eng2fa(props.count)," :موجودی"].join(' ')}</button>
+        <button type="button" className="btn rmn-number">ناموجود</button>
     );
     else return(
         <button type="button" className="btn rmn-number">{[eng2fa(props.count)," :موجودی"].join(' ')}</button>
@@ -47,16 +47,15 @@ function FoodPartyItem(props) {
                     <img className="rounded-lg item-img" src={props.foodData.image}></img>
                 </div>
             </div>
-            <div className="row mt-2">
+            <div className="row home-price-row mt-2">
                     <div className="col text-right">{eng2fa(props.foodData.price)}</div>
                 <div className="col text-left old-price">{eng2fa(props.foodData.oldPrice)}</div>
             </div>
-            <div className="row mt-2 no-gutters">
+            <div className="row mt-4 no-gutters">
                 <div className="col  rounded-lg text-center mx-0">
                     <BuyButton count={props.foodData.count} id={props.id}/>
                 </div>
                 <div className="col rounded-lg text-center mx-0">
-                    {/* <button type="button" className="btn rmn-number">{[eng2fa(props.foodData.count)," :موجودی"].join(' ')}</button> */}
                     <RemainingButton count={props.foodData.count}/>
                 </div>
             </div>
@@ -65,7 +64,7 @@ function FoodPartyItem(props) {
                     {props.foodData.restaurantName}
                 </div>
             </div>
-            <FoodPartyItemModal foodData={props.foodData} id={props.id} updateFunction={props.updateFunction}/>
+            <FoodPartyItemModal foodData={props.foodData} id={props.id} updateFunction={props.updateFunction} updateCart={props.updateCart}/>
         </div>
     );
 }

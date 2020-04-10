@@ -39,6 +39,12 @@ class FoodPartyItemModal extends React.Component {
         }).then(response => {
             this.props.updateFunction()
             this.setState({ordered: 0})
+            if(response.status == 200) {
+                NotificationManager.success('غذا با موفقیت به سبد خرید شما اضافه شد.')
+            }
+            else {
+                NotificationManager.error('خطا در انجام عملیات')
+            }
         }).catch(error => {
             if (error.response) {
                 NotificationManager.error(error.response.data);

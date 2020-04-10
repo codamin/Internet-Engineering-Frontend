@@ -10,8 +10,6 @@ function Cart(props) {
 
     function finalize() {
         API.post('cart/finalize').then(function (response) {
-            console.log(response);
-            
             props.updateFunction();
         }).catch(error => {
             if (error.response) {

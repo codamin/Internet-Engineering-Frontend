@@ -12,7 +12,7 @@ function OrderItem(props) {
             foodName: `${props.item.food.name}`,
             num: 1         
         }).then(function (response) {
-            console.log(response);
+            // console.log(response);
             props.updateFunction();
           }).catch(error => {
             if (error.response) {
@@ -26,7 +26,7 @@ function OrderItem(props) {
             restaurantId: `${props.item.food.restaurantId}`,
             foodName: `${props.item.food.name}`            
         }}).then(function (response) {
-            console.log(response);
+            // console.log(response);
             props.updateFunction();
           }).catch(error => {
             if (error.response) {

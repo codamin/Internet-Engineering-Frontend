@@ -20,8 +20,8 @@ class Navbar extends React.Component {
     componentDidMount() {
         API.get(`cart`).then(
             jsonData => {
-                console.log('cart')
-                console.log(jsonData.data)
+                // console.log('cart')
+                // console.log(jsonData.data)
                 this.setState({cart: jsonData.data});
             }
         )
@@ -61,9 +61,9 @@ class Navbar extends React.Component {
                     
                     {
                         this.props.isHome == false &&
-                        <div className="col-auto ml-auto">
-                            <img Link to={'/'} className="nav-mainLogo ml-auto" src={mainLogo}/>
-                        </div>
+                        <Link to={'/'} className="col-auto ml-auto">
+                            <img className="nav-mainLogo ml-auto" src={mainLogo}/>
+                        </Link>
                     }
                     <CartModal cart={this.props.cart} updateFunction={this.props.updateFunction} show={this.state.show} handleClose={handleClose}/>
                 </div>
