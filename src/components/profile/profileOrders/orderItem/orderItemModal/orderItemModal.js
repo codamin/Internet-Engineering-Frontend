@@ -16,11 +16,11 @@ export default function OrderItemModal(props) {
     return(
         <div className="modal fade" id={"order_modal_" + props.id} tabIndex="-1" role="dialog" aria-labelledby="mymodalLabel" aria-hidden="true">
             <div className="modal-dialog modal-xl" role="document">
-                <div className="modal-content">
+                <div className="modal-content factor-modal px-4">
                     <div className="modal-body">
                         <div className="container-fluid">
                             <div className="row justify-content-center modal-title-row">
-                                <div className="col-md-6 justify-content-center profile-modal-title-col">رستوران خامس</div>
+                                <div className="col-md-6 justify-content-center profile-modal-title-col mb-5 pb-3">{props.orderData.restaurantName}</div>
                             </div>
                             <table className="table table-bordered text-center">
                                 <thead>
@@ -39,7 +39,7 @@ export default function OrderItemModal(props) {
                             </table>
                         </div>
                         <div className="col-auto profile-total-cost-row">
-                            جمع کل: ۱۸۰۰۰ تومان
+                           {["جمع کل:", props.orderData.totalPrice, "تومان"]}
                         </div>
                     </div>
                 </div>

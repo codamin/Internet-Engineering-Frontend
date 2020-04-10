@@ -16,15 +16,14 @@ class Profile extends Component{
   constructor(props) {
     super(props)
     this.state = {
-      userInfo: {},
-      cart: []
+      userInfo: undefined,
+      cart: undefined
     }
     this.getUserInfo = this.getUserInfo.bind(this)
     this.updateCart = this.updateCart.bind(this)
   }
 
   componentDidMount() {
-    // console.log('profile did mount called')
     this.getUserInfo();
     API.get(`cart`).then(
       jsonData => {
@@ -35,17 +34,12 @@ class Profile extends Component{
     API.get(`cart`).then(
         jsonData => {
             this.setState({cart: jsonData.data});
-            // console.log(this.state.cart)
     })
   }
   getUserInfo() {
-    // console.log('getUserInfo called');
     API.get('user').then((response) => {
       this.setState({userInfo: response.data});
-      // console.log(response.data)
-      // console.log('user up dated')
     }).catch(function (error) {
-      // console.log(error);
     });
   }
 

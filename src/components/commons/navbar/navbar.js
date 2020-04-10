@@ -24,7 +24,6 @@ class Navbar extends React.Component {
         )
     }
 
-    
     render() {
         const handleClose = () => this.setState({show:false});
         const handleShow = () => this.setState({show:true});
@@ -51,8 +50,8 @@ class Navbar extends React.Component {
                     }
 
                     {
-                        this.props.cart.empty == undefined ?
-                        <div class="text-center ml-3">
+                        this.props.cart == undefined || this.props.cart.empty == undefined || this.props.cart.orderItems == undefined ?
+                        <div class="text-center ml-3 mb-0">
                             <div class="spinner-border" role="status"></div>
                         </div>: 
                         this.props.cart.empty == 'true' ? 0 :
