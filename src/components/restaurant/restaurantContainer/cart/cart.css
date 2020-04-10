@@ -28,6 +28,8 @@
 }
 
 .restaurant-cart .total-sum {
+    /* flex-wrap: nowrap; */
+    white-space: nowrap;
     font-family: Vazir;
     font-size: 1.7;
 }

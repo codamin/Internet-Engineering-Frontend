@@ -35,7 +35,7 @@ export default function OrderItemModal(props) {
                                 </thead>
                                 <tbody>
                                     {props.orderData.orderItems.map((orderItemData, key) =>
-                                        <TableRow data={orderItemData} row={key}/>)
+                                        <TableRow data={orderItemData} key={key} row={key}/>)
                                     }
                                 </tbody>
                             </table>

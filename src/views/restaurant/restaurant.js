@@ -11,7 +11,7 @@ class Restaurant extends React.Component {
         super(props);
         this.state = {
             data: {},
-            cart: undefined,
+            cart: {},
         }
         this.updateCart = this.updateCart.bind(this);
     }

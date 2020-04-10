@@ -52,7 +52,7 @@ CartModal.propTypes = {
     restaurantId: PropTypes.string,
     restaurantName: PropTypes.string
     }),
-    updateFunction: PropTypes.func.isRequired,
+    updateFunction: PropTypes.func,
     show: PropTypes.bool.isRequired,
     handleClose: PropTypes.func.isRequired
 }

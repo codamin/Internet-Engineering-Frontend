@@ -81,7 +81,7 @@ Cart.propTypes = {
             number: PropTypes.number.isRequired
         }))
     }).isRequired,
-    updateFunction: PropTypes.func.isRequired
+    updateFunction: PropTypes.func
 }
 
 export default Cart

@@ -49,7 +49,7 @@ class ProfileOrders extends React.Component {
                     <div className="text-center">
                         <div className="spinner-grow" role="status"></div>
                     </div>:
-                    this.state.orders.map((orderData, key) => <OrderItem orderData={orderData} id={key} />)
+                    this.state.orders.map((orderData, key) => <OrderItem orderData={orderData} key={key} id={key} />)
                 }
             </div>
         );
