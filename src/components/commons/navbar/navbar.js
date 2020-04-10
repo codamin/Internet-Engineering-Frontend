@@ -32,7 +32,7 @@ class Navbar extends React.Component {
         const handleClose = () => this.setState({show:false});
         const handleShow = () => this.setState({show:true});
         return (
-            <div className="container-fulid main-navbar">
+            <div className="container-fulid sticky-top main-navbar">
                 <div className="row px-5 no-gutters d-flex align-items-center">
                     <div className="col-auto">
                         <a className="exitLink persian" href="#">خروج</a>

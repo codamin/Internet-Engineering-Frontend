@@ -4,6 +4,7 @@ import styles from './foodPartyItemModal.module.css'
 import star from 'Assets/Icons/star.png'
 import {eng2fa} from 'utils/utils'
 import PropTypes from 'prop-types'
+import {NotificationManager} from 'react-notifications';
 
 class FoodPartyItemModal extends React.Component {
 
@@ -19,35 +20,29 @@ class FoodPartyItemModal extends React.Component {
     }
     
     handlePlus(event) {
-        // console.log(this.state);
         this.setState({
             ordered: this.state.ordered + 1
           });
     }
     
     handleMinus(event) {
-        // console.log(this.state);
         if(this.state.ordered > 0) {
             this.setState(state =>({ordered:state.ordered - 1}))
         }
     }
     
     handleAddToCart(envent) {
-        for(let i = 0; i < this.state.ordered; i++) {
-            console.log('sent')
-            console.log(`${this.state.foodData.restaurantId}`)
-            console.log(`${this.state.foodData.name}`)
-            API.post('cart', {
-                restaurantId: `${this.state.foodData.restaurantId}`,
-                foodName: `${this.state.foodData.name}`           
-            }).then(function (response) {
-                console.log(response);
-              })
-              .catch(function (error) {
-                console.log(error);
-            });
+        API.post('cart', {
+            restaurantId: `${this.state.foodData.restaurantId}`,
+            foodName: `${this.state.foodData.name}`,
+            num: `${this.state.ordered}`
+        }).then(response => {
             this.props.updateFunction()
-        }
+            this.setState({ordered: 0})
+        }).catch(error => {
+            if (error.response) {
+                NotificationManager.error(error.response.data);
+              }})
     }
 
     render() {
