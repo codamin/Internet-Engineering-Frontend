@@ -7,6 +7,12 @@ function Jombotron(props) {
     return(
         <div className={"jombotron jumbotron-fluid p-4 " + styles.main}>
             <div className="container-fluid">
+
+                {
+                props.userInfo == undefined ?
+                <div class="text-center">
+                    <div class="spinner-grow" role="status"></div>
+                </div> :
                 <div className="row ml-5">
                     <div className={"col-auto mr-auto " + styles.jomboLeft}>
                         <div className="row justify-content-end align-items-center no-gutters">
@@ -14,9 +20,7 @@ function Jombotron(props) {
                                 <p className={[styles.infoText, styles.smallText].join(' ')}>{eng2fa(props.userInfo.phone)}</p>
                             </div>
                             <div className="col-auto">
-                                <a href="# ">
-                                    <i className={"flaticon-phone " + styles.smallIcon}></i>
-                                </a>
+                                <i className={"flaticon-phone " + styles.smallIcon}></i>
                             </div>
                         </div>
                         <div className="row justify-content-end align-items-center no-gutters">
@@ -24,9 +28,7 @@ function Jombotron(props) {
                                 <p className={[styles.infoText, styles.smallText].join(' ')}>{props.userInfo.email}</p>
                             </div>
                             <div className="col-auto">
-                                <a href="# ">
-                                    <i className={"flaticon-mail " + styles.smallIcon}></i>
-                                </a>
+                                <i className={"flaticon-mail " + styles.smallIcon}></i>
                             </div>
                         </div>
                         <div className="row justify-content-end align-items-center no-gutters">
@@ -37,9 +39,7 @@ function Jombotron(props) {
                                 <p className={[styles.infoText, styles.smallText].join(' ')}>{eng2fa(props.userInfo.credit)} </p>
                             </div>
                             <div className="col-auto">
-                                <a href="# ">
-                                    <i className={"flaticon-card "+styles.smallIcon}></i>
-                                </a>
+                                <i className={"flaticon-card "+styles.smallIcon}></i>
                             </div>
                         </div>
                     </div>
@@ -56,6 +56,8 @@ function Jombotron(props) {
                         </div>
                     </div>
                 </div>
+                }
+
             </div>
         </div>
     );
