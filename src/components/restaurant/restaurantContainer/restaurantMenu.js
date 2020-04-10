@@ -6,11 +6,7 @@ import './restaurantMenu.css'
 
 function RestaurantMenu(props) {
     if(!props || props.menu == undefined){
-        return (
-            <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        )
+        return <div className="spinner-border" role="status"/>
     }
     return props.menu.map((position, key) => {
         return(

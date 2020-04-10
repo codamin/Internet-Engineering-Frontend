@@ -6,8 +6,8 @@ import './restaurantName.css'
 function RestaurantName(props) {
     if(!props){
         return (
-            <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
+            <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
             </div>
         )
     }
@@ -15,8 +15,8 @@ function RestaurantName(props) {
         <div className="row m-4 flex-container">
             {props.name ?
             <h2 className="khames">{props.name}</h2> :
-            <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
+            <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
             </div>}
         </div>
     )

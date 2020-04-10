@@ -3,8 +3,8 @@ import './spinner.css'
 
 function Spinner(props) {
     return(
-        <div class="spinner-border align-self-center" role="status">
-            <span class="sr-only">Loading...</span>
+        <div className="spinner-border align-self-center" role="status">
+            <span className="sr-only">Loading...</span>
         </div>
     )
 }

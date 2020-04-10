@@ -46,14 +46,45 @@ function OrderItem(props) {
 }
 
 OrderItem.propTypes = {
+    id: PropTypes.number.isRequired,
     orderData: PropTypes.shape({
-        id: PropTypes.number,
-        orderItems: PropTypes.object,
-        remMin: PropTypes.number,
-        remSec: PropTypes.number,
-        restaurant: PropTypes.object,
-        restaurantName: PropTypes.string,
-        state: PropTypes.string
+        finalPrice: PropTypes.number.isRequired,
+        id: PropTypes.number.isRequired,
+        orderItems: PropTypes.arrayOf(PropTypes.shape({
+            number: PropTypes.number.isRequired,
+            price: PropTypes.number.isRequired,
+            food: PropTypes.shape({
+                name: PropTypes.string.isRequired,
+                description: PropTypes.string.isRequired,
+                popularity: PropTypes.number.isRequired,
+                price: PropTypes.number.isRequired,
+                image: PropTypes.string.isRequired,
+                restaurantName: PropTypes.string.isRequired,
+                restaurantId: PropTypes.string.isRequired,
+                count: PropTypes.number,
+                oldPrice: PropTypes.number,
+            })
+        })),
+        restaurant: PropTypes.shape({
+            description: PropTypes.string.isRequired,
+            id: PropTypes.string.isRequired,
+            location: PropTypes.objectOf(PropTypes.number).isRequired,
+            logo: PropTypes.string.isRequired,
+            menu: PropTypes.arrayOf(PropTypes.shape({
+                available: PropTypes.bool.isRequired,
+                count: PropTypes.number,
+                description: PropTypes.string.isRequired,
+                image: PropTypes.string.isRequired,
+                name: PropTypes.string.isRequired,
+                oldPrice: PropTypes.number,
+                popularity: PropTypes.number.isRequired,
+                price: PropTypes.number.isRequired,
+                restaurantId: PropTypes.string.isRequired,
+                restaurantName: PropTypes.string.isRequired
+            }))
+        }),
+        restaurantName: PropTypes.string.isRequired,
+        state: PropTypes.string.isRequired
     })
 }
 

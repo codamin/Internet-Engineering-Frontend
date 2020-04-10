@@ -21,6 +21,7 @@ class Navbar extends React.Component {
     componentDidMount() {
         API.get(`cart`).then(
             jsonData => {
+                console.log('cart', jsonData.data)
                 this.setState({cart: jsonData.data});
             }
         )
@@ -29,14 +30,14 @@ class Navbar extends React.Component {
     render() {
         const handleClose = () => this.setState({show:false});
         const handleShow = () => this.setState({show:true});
-        if(this.props.updateFunction == undefined) {
+        if(this.state.cart == undefined) {
             return(
                 <div className="container-fulid sticky-top main-navbar">
-                <div className="row px-5 no-gutters d-flex align-items-center">
-                </div>
+                    <div className="row px-5 no-gutters d-flex align-items-center"/>
                 </div>
             )
         }
+
         return (
             <div className="container-fulid sticky-top main-navbar">
                 <div className="row px-5 no-gutters d-flex align-items-center">
@@ -53,8 +54,8 @@ class Navbar extends React.Component {
 
                     {
                         this.state.cart == undefined?
-                        <div class="text-center ml-3 mb-0">
-                            <div class="spinner-border" role="status"></div>
+                        <div className="text-center ml-3 mb-0">
+                            <div className="spinner-border" role="status"></div>
                         </div>: 
                         this.state.cart.empty == 'true' ? 0 :
                         <div className="col-auto">
@@ -81,25 +82,6 @@ class Navbar extends React.Component {
 Navbar.propTypes = {
     isHome: PropTypes.bool.isRequired,
     isProfile: PropTypes.bool.isRequired,
-    cart: PropTypes.shape({
-        empty: PropTypes.bool.isRequired,
-        finalPrice: PropTypes.number.isRequired,
-        orderItems: PropTypes.arrayOf(PropTypes.shape({
-            food: PropTypes.shape({
-                available: PropTypes.bool.isRequired,
-                count: PropTypes.number,
-                description: PropTypes.string.isRequired,
-                image: PropTypes.string.isRequired,
-                name: PropTypes.string.isRequired,
-                oldPrice: PropTypes.number.isRequired,
-                popularity: PropTypes.number.isRequired,
-                price: PropTypes.number.isRequired,
-                restaurantId: PropTypes.string.isRequired,
-                restaurantName: PropTypes.string.isRequired
-            }),
-            number: PropTypes.number.isRequired,
-            price: PropTypes.number.isRequired
-        })),
     restaurantId: PropTypes.string.isRequired,
     restaurantName: PropTypes.string.isRequired
     })

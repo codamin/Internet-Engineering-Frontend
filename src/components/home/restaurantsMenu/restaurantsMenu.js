@@ -28,8 +28,8 @@ class RestaurantsMenu extends React.Component {
                 </div>
                 {
                     this.state.restaurants == undefined ?
-                    <div class="text-center mt-5">
-                        <div class="spinner-border" role="status"></div>
+                    <div className="text-center mt-5">
+                        <div className="spinner-border" role="status"></div>
                     </div> :
                     <div className="row justify-content-center">
                         {this.state.restaurants.map(restaurantData => <RestaurantsMenuItem restaurantData={restaurantData}/>)}

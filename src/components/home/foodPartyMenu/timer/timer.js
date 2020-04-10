@@ -57,14 +57,14 @@ class Timer extends React.Component {
     render() {
         if(this.state.period == undefined || this.state.remainingTime == undefined) {
             return(
-                <div class="text-center ml-3">
-                    <div class="spinner-border" role="status"></div>
+                <div className="text-center ml-3">
+                    <div className="spinner-border" role="status"></div>
                 </div>
             );
         }
         return(
             <div className="row justify-content-center">
-                <span class="label label-default rem-timer">
+                <span className="label label-default rem-timer">
                     {"زمان باقی مانده:   " + this.format()}
                 </span>
             </div>

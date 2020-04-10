@@ -11,7 +11,7 @@ function FoodModal(props) {
             restaurantId: `${props.food.restaurantId}`,
             foodName: `${props.food.name}`            
         }).then(function (response) {
-            console.log(response);
+            // console.log(response);
           }).catch(error => {
         if (error.response) {
             NotificationManager.error(error.response.data);
@@ -23,7 +23,7 @@ function FoodModal(props) {
             restaurantId: `${props.food.restaurantId}`,
             foodName: `${props.food.name}`            
         }}).then(function (response) {
-            console.log(response);
+            // console.log(response);
           }).catch(error => {
         if (error.response) {
             NotificationManager.error(error.response.data);

@@ -40,8 +40,8 @@ class FoodPartyMenu extends React.Component {
                 <Timer updateFunction={this.getFoodPartyInfo}/>
                 {
                     this.state.foods == undefined ?
-                    <div class="text-center ml-3">
-                        <div class="spinner-border mt-5" role="status"></div>
+                    <div className="text-center ml-3">
+                        <div className="spinner-border mt-5" role="status"></div>
                     </div> :
                     <div className="container-fluid horizontal-scrollable  mt-4">
                         <div className="row flex-nowrap">

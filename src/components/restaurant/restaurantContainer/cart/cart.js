@@ -20,7 +20,7 @@ function Cart(props) {
 
     if(!props){
         return (
-            <div class="spinner-border" role="status"></div>
+            <div className="spinner-border" role="status"></div>
         )
     }
     return(
@@ -33,8 +33,8 @@ function Cart(props) {
                     <div className="container cart-container px-2">
                         {props.cart.empty != 'true' && props.cart.orderItems ?
                         props.cart.orderItems.map(item => <OrderItem item={item} updateFunction={props.updateFunction} />) :
-                        <div class="text-center mt-4">
-                            <div class="spinner-border" role="status"></div>
+                        <div className="text-center mt-4">
+                            <div className="spinner-border" role="status"></div>
                         </div>}
                     </div>
                 </div>
@@ -44,8 +44,8 @@ function Cart(props) {
                 <div className="col-3 flex-container justify-content-start">
                     {props.cart.finalPrice != undefined ?
                     eng2fa(props.cart.finalPrice) : 
-                    <div class="spinner-border" role="status">
-                        <span class="sr-only">Loading...</span>
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
                     </div>}
                 </div>
                 <div className="col-6 flex-container justify-content-end persian total-sum">جمع کل:</div>
