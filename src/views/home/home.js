@@ -12,12 +12,20 @@ class Home extends Component {
     super(props);
     this.state = {
       cart: undefined,
-      restaurants: undefined
+      restaurants: undefined,
+      page: 1,
+      items: 10
     }
     this.updateCart = this.updateCart.bind(this);
     this.updateRestaurants = this.updateRestaurants.bind(this);
+    this.loadMore = this.loadMore.bind(this);
   }
 
+  loadMore() {
+    this.setState(state =>({page: state.page + 1}))
+    this.updateRestaurants()
+  }
+  
   updateCart() {
       API.get(`cart`).then(
           jsonData => {
@@ -30,11 +38,14 @@ class Home extends Component {
       API.get('restaurant', {
         params: {
             restaurantSearch: restaurantSearchName,
-            foodSearch: foodSearchName
+            foodSearch: foodSearchName,
+            page: this.state.page,
+            items: this.state.items
         }
     }).then((resp) => {
         if(resp.status == 200) {
-          this.setState({restaurants: resp.data})
+
+          this.setState(state => ({restaurants: state.restaurants? state.restaurants.concat(resp.data) : resp.data}))
         }
         else{
             NotificationManager.error('خطا در انجام عملیات')
@@ -53,7 +64,7 @@ class Home extends Component {
         <Navbar cart={this.state.cart} updateFunction={this.updateCart} isHome={true} isProfile={false}/>
         <MainLogo updateRestaurants={this.updateRestaurants}/>
         <FoodPartyMenu updateCart={this.updateCart}/>
-        <RestaurantsMenu restaurants={this.state.restaurants}/>
+        <RestaurantsMenu restaurants={this.state.restaurants} loadMore={this.loadMore}/>
         <Footer/>
       </div>
     );
