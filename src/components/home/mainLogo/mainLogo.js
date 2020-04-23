@@ -1,9 +1,10 @@
 import React from 'react'
 import logo from './logo.png'
 import styles from './mainLogo.module.css'
+import SearchBar from './searchBar/searchBar'
 
 
-function MainLogo() {
+function MainLogo(props) {
     return(
         <div>
             <div className={"jumbotron jumbotron-fluid " + styles.pannel}>
@@ -21,17 +22,7 @@ function MainLogo() {
                 </div>
             </div>
             <div>
-            <form className={"form-inline mx-auto py-2 " + styles.searchBar}>
-            <div className="form-group mx-1 mb-1">
-                <button type="submit" className={"btn btn-primary " + styles.searchBtn}>جست و جو</button>
-            </div>
-            <div className="form-group mx-1 mb-1">
-                <input type="text" className={["form-control",styles.searchInput, styles.inputPlaceholder].join(' ')} placeholder="نام رستوران"/>
-            </div>
-            <div className="form-group mx-1 mb-1">
-                <input type="text" className={["form-control",styles.searchInput, styles.inputPlaceholder].join(' ')} placeholder="نام غذا"/>
-            </div>
-            </form>
+                <SearchBar updateRestaurants = {props.updateRestaurants}/>
             </div>
         </div>
     );
