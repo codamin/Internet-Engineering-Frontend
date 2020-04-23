@@ -17,11 +17,14 @@ class Timer extends React.Component {
     }
 
     getTimerInfo() {
+        console.log("sent time req")
+
         API.get('party/time').then(
             jsonData => {
+                console.log("hi..............................",jsonData)
                 this.setState({
                     remainingTime: jsonData.data.remainingTime,
-                    period: jsonData.data.updatePeriod}
+                    period: jsonData.data.period}
                 );
                 this.props.updateFunction();
             }
