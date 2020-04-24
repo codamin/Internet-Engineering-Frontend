@@ -99,7 +99,7 @@ class FoodPartyItemModal extends React.Component {
                             <div className="col-auto ml-2">
                                 <span className={styles.clickable} onClick={this.handlePlus}><i className={["flaticon-plus", styles.plus].join(' ')}></i></span>
                             </div>
-                            {this.props.food.count != undefined &&
+                            {this.props.food.party == true &&
                                 <div className={"col-3 ml-auto text-center rounded " + styles.count}>
                                     {this.props.food.count ?
                                     [eng2fa(this.props.food.count)," :موجودی"].join(' '):
