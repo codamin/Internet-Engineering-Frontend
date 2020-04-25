@@ -16,7 +16,7 @@ class Home extends Component {
       restaurantSearch: undefined,
       foodSearch: undefined,
       page: 1,
-      items: 10,
+      items: 8,
       isInSearch: false
     }
     this.updateCart = this.updateCart.bind(this);
@@ -26,7 +26,7 @@ class Home extends Component {
 
   loadMore() {
     this.setState(state =>({page: state.page + 1}))
-    this.updateRestaurants(this.state.isInSearch, this.state.restaurantSearch, this.state.foodSearch)
+    this.updateRestaurants(true, this.state.isInSearch, this.state.restaurantSearch, this.state.foodSearch)
   }
   
   updateCart() {
@@ -36,7 +36,7 @@ class Home extends Component {
       })
   }
 
-  updateRestaurants(isSearch = false, restaurantSearchName, foodSearchName) {
+  updateRestaurants(loadMore = false, isSearch = false, restaurantSearchName, foodSearchName) {
     console.log('updateRestaurants called with params', restaurantSearchName, foodSearchName, this.state.page, this.state.items)
       API.get('restaurant', {
         params: {
@@ -49,13 +49,20 @@ class Home extends Component {
       console.log('resp.data = ' , resp.data)
         if(resp.status == 200) {
           if(isSearch) {
+            console.log(this.isInSearch)
+            if(this.state.isInSearch == false) {
+              this.setState({page: 1})
+            }
             this.setState({isInSearch: true})
             this.setState({foodSearch:foodSearchName, restaurantSearch:restaurantSearchName})
-            this.setState(state => ({restaurants: state.restaurants && state.isInSearch == true? state.restaurants.concat(resp.data) : resp.data}))
+            this.setState(state => ({restaurants: state.restaurants && state.isInSearch && loadMore == true? state.restaurants.concat(resp.data) : resp.data}))
           }
           else {
+            if(this.state.isInSearch == true) {
+              this.setState({page: 1})
+            }
             this.setState({isInSearch: false})
-            this.setState(state => ({restaurants: state.restaurants && state.isInSearch == false? state.restaurants.concat(resp.data) : resp.data}))
+            this.setState(state => ({restaurants: state.restaurants && state.isInSearch == false && loadMore? state.restaurants.concat(resp.data) : resp.data}))
           }
         }
         else{
@@ -66,7 +73,7 @@ class Home extends Component {
 
   componentDidMount() {
     this.updateCart()
-    this.updateRestaurants(false)
+    this.updateRestaurants(false, false)
   }
 
   render() {
