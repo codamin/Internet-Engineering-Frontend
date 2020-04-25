@@ -2,7 +2,6 @@ import React from 'react'
 import RestaurantsMenuItem from 'components/home/restaurantsMenu/restaurantsMenuItem/restaurantsMenuItem'
 import './restaurantsMenu.css'
 
-
 function RestaurantsMenu(props) {
     return(
         <div className="container-fluid mt-5 resMenuItem justify-content-center">

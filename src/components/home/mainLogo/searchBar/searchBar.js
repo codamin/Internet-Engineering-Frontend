@@ -29,7 +29,7 @@ class SearchBar extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        this.props.updateRestaurants(this.state.restaurantSearch, this.state.foodSearch)
+        this.props.updateRestaurants(true, this.state.restaurantSearch, this.state.foodSearch)
     }
 
     render() {

@@ -13,8 +13,11 @@ class Home extends Component {
     this.state = {
       cart: undefined,
       restaurants: undefined,
+      restaurantSearch: undefined,
+      foodSearch: undefined,
       page: 1,
-      items: 10
+      items: 10,
+      isInSearch: false
     }
     this.updateCart = this.updateCart.bind(this);
     this.updateRestaurants = this.updateRestaurants.bind(this);
@@ -23,7 +26,7 @@ class Home extends Component {
 
   loadMore() {
     this.setState(state =>({page: state.page + 1}))
-    this.updateRestaurants()
+    this.updateRestaurants(this.state.isInSearch, this.state.restaurantSearch, this.state.foodSearch)
   }
   
   updateCart() {
@@ -33,29 +36,37 @@ class Home extends Component {
       })
   }
 
-  updateRestaurants(restaurantSearchName = '', foodSearchName = '') {
-    console.log('updateRestaurants called with params', restaurantSearchName, foodSearchName)
+  updateRestaurants(isSearch = false, restaurantSearchName, foodSearchName) {
+    console.log('updateRestaurants called with params', restaurantSearchName, foodSearchName, this.state.page, this.state.items)
       API.get('restaurant', {
         params: {
-            restaurantSearch: restaurantSearchName,
-            foodSearch: foodSearchName,
+            restaurantSearch: restaurantSearchName == '' ? null : restaurantSearchName,
+            foodSearch: foodSearchName == '' ? null : foodSearchName,
             page: this.state.page,
             items: this.state.items
         }
-    }).then((resp) => {
+    }).then(resp => {
+      console.log('resp.data = ' , resp.data)
         if(resp.status == 200) {
-
-          this.setState(state => ({restaurants: state.restaurants? state.restaurants.concat(resp.data) : resp.data}))
+          if(isSearch) {
+            this.setState({isInSearch: true})
+            this.setState({foodSearch:foodSearchName, restaurantSearch:restaurantSearchName})
+            this.setState(state => ({restaurants: state.restaurants && state.isInSearch == true? state.restaurants.concat(resp.data) : resp.data}))
+          }
+          else {
+            this.setState({isInSearch: false})
+            this.setState(state => ({restaurants: state.restaurants && state.isInSearch == false? state.restaurants.concat(resp.data) : resp.data}))
+          }
         }
         else{
             NotificationManager.error('خطا در انجام عملیات')
         }
-    })
+    }).catch(e=> console.log('in catch' , e))
   }
 
   componentDidMount() {
     this.updateCart()
-    this.updateRestaurants()
+    this.updateRestaurants(false)
   }
 
   render() {
