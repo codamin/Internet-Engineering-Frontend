@@ -82,10 +82,10 @@ class Signup extends React.Component {
             <div className={"container card align-items-center " + styles.maincard}>
                 <div className={"row align-items-strech " + styles.cardOptions}>
                     <div className={"col-6 text-center " + styles.cardLeftOption}>
-                        <Link to={'/login'} className={styles.whiteText}> ورود</Link>
+                        <Link to={'/login'} className={styles.blackText}> ورود</Link>
                     </div>
                     <div className={"col-6 text-center " + styles.cardRightOption}>
-                        <Link to={'/signup'} className={styles.blackText}> ثبت نام </Link>
+                        <Link to={'/signup'} className={styles.whiteText}> ثبت نام </Link>
                     </div>
                 </div>
 
@@ -117,6 +117,7 @@ class Signup extends React.Component {
                         <input className={"form-control " + styles.input} onChange={this.handleRepeatChange} type="password" id="materialRegisterFormPassword"/>
                     </div>
                     <button type="submit" className={"btn my-5 " + styles.creditBtn}>ثبت نام</button>
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
                 </form>
             </div>
         );

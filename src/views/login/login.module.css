@@ -19,7 +19,7 @@
 }
 
 .cardLeftOption {
-    background-color: white;
+    background-color: #ff6b6b;
     border-style: hidden;
     border-right-style: dashed;
     border-width: 3px;
@@ -34,7 +34,7 @@
 }
 
 .cardRightOption {
-    background-color: #ff6b6b;
+    background-color: white;
     border-style: hidden;
     border-left-style: dashed;
     border-width: 3px;
@@ -59,6 +59,13 @@ input:focus{
     outline: none;
 }
 
+.md_form {
+    width: 34em;
+}
+
+.g_sign_in {
+    width: 34em;
+}
 
 .creditBtn {
     font-size: 2em;
