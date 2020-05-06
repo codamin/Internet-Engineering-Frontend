@@ -1,0 +1,95 @@
+.login-container .maincard {
+    background-color: white;
+    height: 40em;
+    width: 60em;
+    margin-top: 10em;
+    border-radius: 3em;
+    padding: 0em;
+    padding-top: 7em;
+    margin-bottom: 40em;
+}
+
+.login-container .cardOptions {
+    position: absolute;
+    align-self: center;
+    top: -2em;
+    width: 60%;
+    box-shadow: 0px 7px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+}
+
+.login-container .cardLeftOption {
+    background-color: #ff6b6b;
+    border-style: hidden;
+    border-right-style: dashed;
+    border-width: 3px;
+    border-color: #8c8c8c;
+    font-size: 2em;
+    color: white;
+    border-radius: 12px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    line-height: 3em;
+    font-family: Vazir-Medium;
+}
+
+.login-container .cardRightOption {
+    background-color: white;
+    border-style: hidden;
+    border-left-style: dashed;
+    border-width: 3px;
+    border-color: #8c8c8c;
+    font-size: 2em;
+    color: black;
+    border-radius: 12px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    line-height: 3em;
+}
+
+.login-container .input {
+    font-family: Vazir-Light;
+    border: none;
+    border-bottom: 3px solid #118f9e;
+    border-radius: 0px;
+    outline: none;
+}
+
+.login-container input:focus{
+    outline: none;
+}
+
+.login-container .md_form {
+    width: 34em;
+}
+
+.login-container .g_sign_in {
+    width: 34em;
+}
+
+.login-container .creditBtn {
+    font-size: 2em;
+    background-color: #4ecdc4;
+    color: white;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.login-container .creditForm {
+    font-size: 2em;
+    border-radius: 20px;
+    background-color: #efefef;
+}
+
+.login-container .whiteText {
+    color: white;
+}
+
+.login-container .blackText {
+    color: black;
+}
+
+.login-container .label {
+    float: right;
+    font-size: 1.5em;
+}
