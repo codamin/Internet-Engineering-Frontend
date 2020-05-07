@@ -5,6 +5,7 @@ import styles from './profileOrders.module.css'
 import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import axios from 'axios'
+import authHeader from '../../../services/auth-header';
 
 
 class ProfileOrders extends React.Component {
@@ -27,10 +28,8 @@ class ProfileOrders extends React.Component {
         clearInterval(this.timerID);
     }
     
-    getOrdersInfo() {
-        const token = localStorage.getItem("token");
-        console.log("token "+token);    
-        API.get('user', { headers: {Authorization: token} }).then((response) => {
+    getOrdersInfo() {  
+        API.get('user', { headers: authHeader() }).then((response) => {
           this.setState({orders: response.data.orderRepository.orders});
         }).catch(function (error) {
         });

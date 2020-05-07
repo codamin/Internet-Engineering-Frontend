@@ -6,6 +6,8 @@ import {Link} from 'react-router-dom'
 import './navbar.css'
 import mainLogo from 'Assets/LOGO.png'
 import PropTypes from 'prop-types'
+import logout from '../../../services/logout';
+
 
 
 class Navbar extends React.Component {
@@ -34,7 +36,7 @@ class Navbar extends React.Component {
             <div className="container-fulid sticky-top main-navbar">
                 <div className="row px-5 no-gutters d-flex align-items-center">
                     <div className="col-auto">
-                        <a className="exitLink persian" href="#">خروج</a>
+                        <a className="exitLink persian" href="#" onClick={logout}>خروج</a>
                     </div>
 
                     {

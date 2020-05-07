@@ -4,6 +4,7 @@ import 'components/home/foodPartyMenu/foodPartyMenu.css';
 import Timer from './timer/timer'
 import API from 'apis/api'
 import PropTypes from 'prop-types'
+import authHeader from '../../../services/auth-header';
 
 class FoodPartyMenu extends React.Component {
     constructor(props) {
@@ -19,8 +20,7 @@ class FoodPartyMenu extends React.Component {
     }
 
     getFoodPartyInfo() {
-        const token = localStorage.getItem("token");
-        API.get('party', { headers: {Authorization: token} }).then(
+        API.get('party', { headers: authHeader() }).then(
             jsonData => {
 
                 console.log('getFoodPartyInfo called')

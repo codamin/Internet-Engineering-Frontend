@@ -5,6 +5,7 @@ import star from 'Assets/Icons/star.png'
 import {eng2fa} from 'utils/utils'
 import PropTypes from 'prop-types'
 import {NotificationManager} from 'react-notifications';
+import authHeader from '../../../services/auth-header'
 
 class FoodPartyItemModal extends React.Component {
 
@@ -31,14 +32,13 @@ class FoodPartyItemModal extends React.Component {
     }
     
     handleAddToCart(envent) {
-        const token = localStorage.getItem("token");
         API.post('cart', {
             restaurantId: `${this.props.food.restaurantId}`,
             foodName: `${this.props.food.name}`,
             num: `${this.state.ordered}`
         },
         {
-            headers: {Authorization: token}
+            headers: authHeader()
         }).then(response => {
             if(this.props.updateCart != undefined) {
                 this.props.updateCart()

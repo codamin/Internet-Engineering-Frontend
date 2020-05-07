@@ -5,6 +5,7 @@ import {eng2fa} from 'utils/utils'
 import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {NotificationManager} from 'react-notifications';
+import authHeader from '../../../services/auth-header';
 
 class ProfileCredit extends React.Component {
     constructor(props) {
@@ -35,13 +36,12 @@ class ProfileCredit extends React.Component {
             NotificationManager.error('credit must be a positive number')
         }
         else {
-            const token = localStorage.getItem("token");
             API.post('user/credit',
             {
                 credit: this.state.credit,
             },
             {
-                headers: {Authorization: token}
+                headers: authHeader()
             }).then((resp) => {
                 this.props.updateUserFunction()
                 if(resp.status == 200) {

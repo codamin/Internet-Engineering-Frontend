@@ -5,15 +5,13 @@ import Jombotron from 'components/commons/jombotron/jombotron'
 import ProfileOrders from 'components/profile/profileOrders/profileOrders'
 import ProfileCredit from 'components/profile/profileCredit/profileCredit'
 import authHeader from 'services/auth-header'
-import axios from 'axios'
-
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
-
 import API from 'apis/api'
+
 
 class Profile extends Component{
   constructor(props) {
@@ -28,25 +26,36 @@ class Profile extends Component{
 
   componentDidMount() {
     this.getUserInfo();
-    const token = localStorage.getItem("token");
-    API.get(`cart`, { headers: {Authorization: token} }).then(
+    API.get(`cart`, { headers: authHeader() }).then(
       jsonData => {
           this.setState({cart: jsonData.data});
+      }).catch(error => {
+        console.log(error.response.status)
+        if(error.response.status == 401 || error.response.status == 403) {
+          window.location.href = "http://localhost:3000/login"
+        }
       })
   }
   updateCart() {
-    const token = localStorage.getItem("token");
-    API.get(`cart`, { headers: {Authorization: token} }).then(
+    API.get(`cart`, { headers: authHeader() }).then(
         jsonData => {
             this.setState({cart: jsonData.data});
+    }).catch(error => {
+      console.log(error.response.status)
+      if(error.response.status == 401 || error.response.status == 403) {
+        window.location.href = "http://localhost:3000/login"
+      }
     })
   }
   getUserInfo() {
-    const token = localStorage.getItem("token");
-    API.get('user', { headers: {Authorization: token} }).then((response) => {
+    API.get('user', { headers: authHeader() }).then((response) => {
       this.setState({userInfo: response.data});
-    }).catch(function (error) {
-    });
+    }).catch(error => {
+      console.log(error.response.status)
+      if(error.response.status == 401 || error.response.status == 403) {
+        window.location.href = "http://localhost:3000/login"
+      }
+    })
   }
 
   render() {

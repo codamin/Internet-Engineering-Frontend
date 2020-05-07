@@ -4,19 +4,19 @@ import API from 'apis/api'
 import {eng2fa} from 'utils/utils'
 import {NotificationManager} from 'react-notifications'
 import PropTypes from 'prop-types'
+import authHeader from '../../../../services/auth-header'
 
 
 function OrderItem(props) {
 
     function handleClickPlus(e) {
-        const token = localStorage.getItem("token")
         API.post('cart', {
             restaurantId: `${props.item.food.restaurantId}`,
             foodName: `${props.item.food.name}`,
             num: 1         
         },
         {
-            headers: {Authorization: token}
+            headers: authHeader()
         }).then(function (response) {
             props.updateFunction();
           }).catch(error => {
@@ -27,9 +27,8 @@ function OrderItem(props) {
     }
     
     function handleClickMinus(e) {
-        const token = localStorage.getItem("token")
         API.delete('cart',
-        {headers: {Authorization: token},
+        {headers: authHeader(),
         data: {
             restaurantId: `${props.item.food.restaurantId}`,
             foodName: `${props.item.food.name}`            

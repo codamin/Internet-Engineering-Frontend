@@ -3,6 +3,7 @@ import './timer.css';
 import {eng2fa} from 'utils/utils'
 import API from 'apis/api'
 import PropTypes from 'prop-types'
+import authHeader from '../../../../services/auth-header';
 
 class Timer extends React.Component {
     constructor(props) {
@@ -17,8 +18,7 @@ class Timer extends React.Component {
     }
 
     getTimerInfo() {
-        const token = localStorage.getItem("token");
-        API.get('party/time', { headers: {Authorization: token} }).then(
+        API.get('party/time', { headers: authHeader() }).then(
             jsonData => {
                 this.setState({
                     remainingTime: jsonData.data.remainingTime,

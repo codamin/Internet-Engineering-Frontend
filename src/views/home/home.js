@@ -6,6 +6,9 @@ import FoodPartyMenu from 'components/home/foodPartyMenu/foodPartyMenu'
 import RestaurantsMenu from 'components/home/restaurantsMenu/restaurantsMenu';
 import API from 'apis/api'
 import {NotificationManager} from 'react-notifications';
+import authHeader from '../../services/auth-header';
+import { Redirect } from 'react-router';
+
 
 class Home extends Component {
   constructor(props) {
@@ -30,15 +33,18 @@ class Home extends Component {
   }
   
   updateCart() {
-    const token = localStorage.getItem("token")
-      API.get(`cart`, { headers: {Authorization: token} }).then(
+      API.get(`cart`, { headers: authHeader() }).then(
           jsonData => {
               this.setState({cart: jsonData.data});
+      }).catch(error => {
+        console.log(error.response.status)
+        if(error.response.status == 401 || error.response.status == 403) {
+          window.location.href = "http://localhost:3000/login"
+        }
       })
   }
 
   updateRestaurants(loadMore = false, isSearch = false, restaurantSearchName, foodSearchName) {
-    const token = localStorage.getItem("token")
       API.get('restaurant', 
       {
         params: {
@@ -47,7 +53,7 @@ class Home extends Component {
             page: this.state.page,
             items: this.state.items
         }
-        , headers: {Authorization: token}
+        , headers: authHeader()
     }
     ).then(resp => {
       console.log('resp.data = ' , resp.data)
@@ -72,7 +78,12 @@ class Home extends Component {
         else{
             NotificationManager.error('خطا در انجام عملیات')
         }
-    }).catch(e=> console.log('in catch' , e))
+    }).catch(error => {
+      console.log(error.response.status)
+      if(error.response.status == 401 || error.response.status == 403) {
+        window.location.href = "http://localhost:3000/login"
+      }
+    })
   }
 
   componentDidMount() {
@@ -83,8 +94,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Navbar cart={this.state.cart} updateFunction={this.updateCart} isHome={true} isProfile={false}/>
-        <MainLogo updateRestaurants={this.updateRestaurants}/>
+        <Navbar cart={this.state.cart} updateFunction={this.updateCart} isHome={true} isProfile={false} />
+        <MainLogo updateRestaurants={this.updateRestaurants} />
         <FoodPartyMenu updateCart={this.updateCart}/>
         <RestaurantsMenu restaurants={this.state.restaurants} loadMore={this.loadMore}/>
         <Footer/>

@@ -41,7 +41,7 @@ class Login extends React.Component {
     }
 
     handleSubmit(e) {
-        if(!isNaN(this.state.email) || !isNaN(this.state.password)){
+        if(!this.state.email || !this.state.password){
             NotificationManager.error('تمام فیلد ها باید پر باشند!!!')
         }
         API.post('auth/login', {
@@ -51,7 +51,7 @@ class Login extends React.Component {
             if(resp.status == 200) {
                 NotificationManager.success('ورود با موفقیت انجام شد.')
                 localStorage.setItem("token", resp.data.jwt)
-                return <Route path="/" Component={Home} />
+                window.location.href = "http://localhost:3000/"
             }
             else{
                 NotificationManager.error('اطلاعات وروردی، مسئله دارند.')

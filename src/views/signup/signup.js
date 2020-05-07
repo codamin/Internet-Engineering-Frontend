@@ -70,6 +70,7 @@ class Signup extends React.Component {
         }).then((resp) => {
             if(resp.status == 200) {
                 NotificationManager.success('ثبت نام با موفقیت انجام شد.')
+                window.location.href = "http://localhost:3000/login"
             }
             else{
                 NotificationManager.error('خطا در ثبت نام')

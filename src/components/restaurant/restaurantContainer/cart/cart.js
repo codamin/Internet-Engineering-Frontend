@@ -5,13 +5,13 @@ import API from 'apis/api'
 import {eng2fa} from 'utils/utils'
 import {NotificationManager} from 'react-notifications';
 import './cart.css'
+import authHeader from '../../../../services/auth-header'
 
 
 function Cart(props) {
 
     function finalize() {
-        const token = localStorage.getItem("token")
-        API.post('cart/finalize', {}, {headers: {Authorization: token}}).then(response => {
+        API.post('cart/finalize', {}, {headers: authHeader()}).then(response => {
             props.updateFunction();
         }).catch(error => {
             if (error.response) {

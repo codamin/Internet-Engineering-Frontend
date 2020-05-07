@@ -5,6 +5,7 @@ import RestaurantName from 'components/restaurant/restaurantName/restaurantName'
 import RestaurantContainer from 'components/restaurant/restaurantContainer/restaurantContainer'
 import Footer from 'components/commons/footer/footer'
 import API from 'apis/api'
+import authHeader from '../../services/auth-header';
 
 class Restaurant extends React.Component {
     constructor(props) {
@@ -17,24 +18,37 @@ class Restaurant extends React.Component {
     }
 
     updateCart() {
-        const token = localStorage.getItem("token")
-        API.get(`cart`, { headers: {Authorization: token} }).then(
+        API.get(`cart`, { headers: authHeader() }).then(
             jsonData => {
                 this.setState({cart: jsonData.data});
-        })
+        }).catch(error => {
+            console.log(error.response.status)
+            if(error.response.status == 401 || error.response.status == 403) {
+              window.location.href = "http://localhost:3000/login"
+            }
+          })
     }
 
     componentDidMount() {
-        const token = localStorage.getItem("token")
         const { restaurantId } = this.props.match.params
-        API.get(`restaurant/${restaurantId}`, { headers: {Authorization: token} }).then(
+        API.get(`restaurant/${restaurantId}`, { headers: authHeader() }).then(
             jsonData => {
                 this.setState({data: jsonData.data});
-            })
-        API.get(`cart`, { headers: {Authorization: token} }).then(
+            }).catch(error => {
+                console.log(error.response.status)
+                if(error.response.status == 401 || error.response.status == 403) {
+                  window.location.href = "http://localhost:3000/login"
+                }
+              })
+        API.get(`cart`, { headers: authHeader() }).then(
             jsonData => {
                 this.setState({cart: jsonData.data});
-            })
+            }).catch(error => {
+                console.log(error.response.status)
+                if(error.response.status == 401 || error.response.status == 403) {
+                  window.location.href = "http://localhost:3000/login"
+                }
+              })
     }
 
     render() {
