@@ -15,6 +15,8 @@ import styles from './login.module.css'
 import {eng2fa} from 'utils/utils'
 import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
+import GoogleLogin from 'react-google-login';
+
 
 
 class Login extends React.Component {
@@ -27,6 +29,7 @@ class Login extends React.Component {
         this.handleEmailChange = this.handleEmailChange.bind(this)
         this.handlePasswordChange = this.handlePasswordChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.onSignIn = this.onSignIn.bind(this)
     }
 
     handleEmailChange(event) {
@@ -37,6 +40,24 @@ class Login extends React.Component {
     handlePasswordChange(event) {
         this.setState({
             password: event.target.value
+        });
+    }
+
+    fail() {
+        console.log('ridiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii')
+    }
+
+    onSignIn(googleUser) {
+        var tocken_id = googleUser.getAuthResponse().id_token;
+        API.post('auth/tokenIDLogin', {
+            tockenId: tocken_id
+        }).then((resp) => {
+            console.log('hi guyyyyyy' + resp)
+        // var profile = googleUser.getBasicProfile();
+        // console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        // console.log('Name: ' + profile.getName());
+        // console.log('Image URL: ' + profile.getImageUrl());
+        // console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
         });
     }
 
@@ -54,7 +75,7 @@ class Login extends React.Component {
                 window.location.href = "http://localhost:3000/"
             }
             else{
-                NotificationManager.error('اطلاعات وروردی، مسئله دارند.')
+                NotificationManager.error('اطلاعات وروردی، نادرست است.')
             }
         })
         e.preventDefault();
@@ -86,7 +107,12 @@ class Login extends React.Component {
 
                     <button type="submit" className={"btn my-5 " + styles.creditBtn}>ورود</button>
                     <p> or sign in with:  </p>
-                    <div class="g-signin2 mt-5" data-width="550" data-height="80" data-longtitle="true" data-onsuccess="onSignIn"></div>
+                    <GoogleLogin
+                        clientId="805487349717-mup8qor9qlha42ooq5v45g0nols9g1s4.apps.googleusercontent.com"
+                        onSuccess={this.onSignIn}
+                        // onFailure={responseGoogle}
+                        cookiePolicy={'single_host_origin'}
+                    />
                 </form>
             </div>
         );

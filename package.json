@@ -10,6 +10,7 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
     "react-dom": "^16.13.1",
+    "react-google-login": "^5.1.14",
     "react-notification": "^6.8.5",
     "react-notifications": "^1.6.0",
     "react-router": "^5.1.2",
