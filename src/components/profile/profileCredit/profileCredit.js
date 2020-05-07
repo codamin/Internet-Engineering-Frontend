@@ -35,8 +35,13 @@ class ProfileCredit extends React.Component {
             NotificationManager.error('credit must be a positive number')
         }
         else {
-            API.post('user', {
+            const token = localStorage.getItem("token");
+            API.post('user/credit',
+            {
                 credit: this.state.credit,
+            },
+            {
+                headers: {Authorization: token}
             }).then((resp) => {
                 this.props.updateUserFunction()
                 if(resp.status == 200) {

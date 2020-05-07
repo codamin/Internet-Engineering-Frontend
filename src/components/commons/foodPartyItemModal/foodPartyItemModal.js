@@ -31,10 +31,14 @@ class FoodPartyItemModal extends React.Component {
     }
     
     handleAddToCart(envent) {
+        const token = localStorage.getItem("token");
         API.post('cart', {
             restaurantId: `${this.props.food.restaurantId}`,
             foodName: `${this.props.food.name}`,
             num: `${this.state.ordered}`
+        },
+        {
+            headers: {Authorization: token}
         }).then(response => {
             if(this.props.updateCart != undefined) {
                 this.props.updateCart()

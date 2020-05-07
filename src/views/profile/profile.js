@@ -4,6 +4,9 @@ import Footer from 'components/commons/footer/footer'
 import Jombotron from 'components/commons/jombotron/jombotron'
 import ProfileOrders from 'components/profile/profileOrders/profileOrders'
 import ProfileCredit from 'components/profile/profileCredit/profileCredit'
+import authHeader from 'services/auth-header'
+import axios from 'axios'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,19 +28,22 @@ class Profile extends Component{
 
   componentDidMount() {
     this.getUserInfo();
-    API.get(`cart`).then(
+    const token = localStorage.getItem("token");
+    API.get(`cart`, { headers: {Authorization: token} }).then(
       jsonData => {
           this.setState({cart: jsonData.data});
       })
   }
   updateCart() {
-    API.get(`cart`).then(
+    const token = localStorage.getItem("token");
+    API.get(`cart`, { headers: {Authorization: token} }).then(
         jsonData => {
             this.setState({cart: jsonData.data});
     })
   }
   getUserInfo() {
-    API.get('user').then((response) => {
+    const token = localStorage.getItem("token");
+    API.get('user', { headers: {Authorization: token} }).then((response) => {
       this.setState({userInfo: response.data});
     }).catch(function (error) {
     });
@@ -50,7 +56,6 @@ class Profile extends Component{
         <Jombotron userInfo={this.state.userInfo}/>
         <Router>
             <Switch>
-              {/* {console.log(match.url)} */}
               <Route exact path={this.props.match.path} render={(props) => <ProfileOrders {...props} updateUserFunction={this.getUserInfo} />} />
               <Route path={this.props.match.path + "/orders"} render={(props) => <ProfileOrders {...props} updateUserFunction={this.getUserInfo} />} />
               <Route path={this.props.match.path + "/credit"} render={(props) => <ProfileCredit {...props} updateUserFunction={this.getUserInfo} />} />

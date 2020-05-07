@@ -4,6 +4,8 @@ import OrderItem from './orderItem/orderItem'
 import styles from './profileOrders.module.css'
 import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
+import axios from 'axios'
+
 
 class ProfileOrders extends React.Component {
 
@@ -26,11 +28,17 @@ class ProfileOrders extends React.Component {
     }
     
     getOrdersInfo() {
-        API.get('user').then(
-            jsonData => {
-                console.log("jsonData.data.orderRepository.orders", jsonData.data.orderRepository.orders)
-                this.setState({orders: jsonData.data.orderRepository.orders});
-        })
+        // API.get('user').then(
+        //     jsonData => {
+        //         console.log("jsonData.data.orderRepository.orders", jsonData.data.orderRepository.orders)
+        //         this.setState({orders: jsonData.data.orderRepository.orders});
+        // })
+        const token = localStorage.getItem("token");
+        console.log("token "+token);    
+        API.get('user', { headers: {Authorization: token} }).then((response) => {
+          this.setState({orders: response.data.orderRepository.orders});
+        }).catch(function (error) {
+        });
     }
 
     render() {

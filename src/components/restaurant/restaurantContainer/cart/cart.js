@@ -10,7 +10,8 @@ import './cart.css'
 function Cart(props) {
 
     function finalize() {
-        API.post('cart/finalize').then(response => {
+        const token = localStorage.getItem("token")
+        API.post('cart/finalize', {}, {headers: {Authorization: token}}).then(response => {
             props.updateFunction();
         }).catch(error => {
             if (error.response) {

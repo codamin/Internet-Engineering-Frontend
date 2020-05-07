@@ -17,10 +17,10 @@ class Restaurant extends React.Component {
     }
 
     updateCart() {
-        API.get(`cart`).then(
+        const token = localStorage.getItem("token")
+        API.get(`cart`, { headers: {Authorization: token} }).then(
             jsonData => {
                 this.setState({cart: jsonData.data});
-                // console.log(this.state.cart)
         })
     }
 
@@ -30,7 +30,8 @@ class Restaurant extends React.Component {
             jsonData => {
                 this.setState({data: jsonData.data});
             })
-        API.get(`cart`).then(
+        const token = localStorage.getItem("token")
+        API.get(`cart`, { headers: {Authorization: token} }).then(
             jsonData => {
                 this.setState({cart: jsonData.data});
             })

@@ -3,6 +3,13 @@ import Navbar from 'components/commons/navbar/navbar'
 import RestaurantHeader from 'components/restaurant/restaurantHeader/restaurantHeader'
 import './login.css'
 import API from 'apis/api';
+import {NotificationManager} from 'react-notifications';
+import Home from 'views/home/home';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+  } from "react-router-dom";
 
 
 class Login extends React.Component {
@@ -26,18 +33,20 @@ class Login extends React.Component {
     }
 
     submitForm(e) {
-        // API.post('user', {
-        //     credit: this.state.credit,
-        // }).then((resp) => {
-        //     this.props.updateUserFunction()
-        //     if(resp.status == 200) {
-        //         NotificationManager.success('اعتبار شما با موقفیت افزایش یافت.')
-        //     }
-        //     else{
-        //         NotificationManager.error('خطا در انجام عملیات')
-        //     }
-        // })
-        // e.preventDefault();
+        API.post('auth/login', {
+            email: this.state.email,
+            password: this.state.pass
+        }).then((resp) => {
+            if(resp.status == 200) {
+                NotificationManager.success('ورود با موفقیت انجام شد.')
+                localStorage.setItem("token", resp.data.jwt)
+                return <Route path="/" Component={Home} />
+            }
+            else{
+                NotificationManager.error('اطلاعات وروردی، مسئله دارند.')
+            }
+        })
+        e.preventDefault();
     }
 
     render() {

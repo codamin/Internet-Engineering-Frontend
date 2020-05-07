@@ -9,10 +9,14 @@ import PropTypes from 'prop-types'
 function OrderItem(props) {
 
     function handleClickPlus(e) {
+        const token = localStorage.getItem("token")
         API.post('cart', {
             restaurantId: `${props.item.food.restaurantId}`,
             foodName: `${props.item.food.name}`,
             num: 1         
+        },
+        {
+            headers: {Authorization: token}
         }).then(function (response) {
             props.updateFunction();
           }).catch(error => {
@@ -23,10 +27,14 @@ function OrderItem(props) {
     }
     
     function handleClickMinus(e) {
-        API.delete('cart', {data: {
+        const token = localStorage.getItem("token")
+        API.delete('cart',
+        {headers: {Authorization: token},
+        data: {
             restaurantId: `${props.item.food.restaurantId}`,
             foodName: `${props.item.food.name}`            
-        }}).then(function (response) {
+        }
+        }).then(function (response) {
             props.updateFunction();
           }).catch(error => {
             if (error.response) {

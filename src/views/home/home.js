@@ -30,7 +30,8 @@ class Home extends Component {
   }
   
   updateCart() {
-      API.get(`cart`).then(
+    const token = localStorage.getItem("token")
+      API.get(`cart`, { headers: {Authorization: token} }).then(
           jsonData => {
               this.setState({cart: jsonData.data});
       })
