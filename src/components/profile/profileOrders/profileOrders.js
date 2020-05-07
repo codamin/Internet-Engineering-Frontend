@@ -28,11 +28,6 @@ class ProfileOrders extends React.Component {
     }
     
     getOrdersInfo() {
-        // API.get('user').then(
-        //     jsonData => {
-        //         console.log("jsonData.data.orderRepository.orders", jsonData.data.orderRepository.orders)
-        //         this.setState({orders: jsonData.data.orderRepository.orders});
-        // })
         const token = localStorage.getItem("token");
         console.log("token "+token);    
         API.get('user', { headers: {Authorization: token} }).then((response) => {

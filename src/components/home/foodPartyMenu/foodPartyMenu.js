@@ -19,7 +19,8 @@ class FoodPartyMenu extends React.Component {
     }
 
     getFoodPartyInfo() {
-        API.get('party').then(
+        const token = localStorage.getItem("token");
+        API.get('party', { headers: {Authorization: token} }).then(
             jsonData => {
 
                 console.log('getFoodPartyInfo called')

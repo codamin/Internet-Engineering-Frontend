@@ -38,15 +38,18 @@ class Home extends Component {
   }
 
   updateRestaurants(loadMore = false, isSearch = false, restaurantSearchName, foodSearchName) {
-    console.log('updateRestaurants called with params', restaurantSearchName, foodSearchName, this.state.page, this.state.items)
-      API.get('restaurant', {
+    const token = localStorage.getItem("token")
+      API.get('restaurant', 
+      {
         params: {
             restaurantSearch: restaurantSearchName == '' ? null : restaurantSearchName,
             foodSearch: foodSearchName == '' ? null : foodSearchName,
             page: this.state.page,
             items: this.state.items
         }
-    }).then(resp => {
+        , headers: {Authorization: token}
+    }
+    ).then(resp => {
       console.log('resp.data = ' , resp.data)
         if(resp.status == 200) {
           if(isSearch) {

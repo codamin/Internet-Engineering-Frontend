@@ -17,11 +17,9 @@ class Timer extends React.Component {
     }
 
     getTimerInfo() {
-        console.log("sent time req")
-
-        API.get('party/time').then(
+        const token = localStorage.getItem("token");
+        API.get('party/time', { headers: {Authorization: token} }).then(
             jsonData => {
-                console.log("hi..............................",jsonData)
                 this.setState({
                     remainingTime: jsonData.data.remainingTime,
                     period: jsonData.data.period}

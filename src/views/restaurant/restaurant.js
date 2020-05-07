@@ -25,12 +25,12 @@ class Restaurant extends React.Component {
     }
 
     componentDidMount() {
+        const token = localStorage.getItem("token")
         const { restaurantId } = this.props.match.params
-        API.get(`restaurant/${restaurantId}`).then(
+        API.get(`restaurant/${restaurantId}`, { headers: {Authorization: token} }).then(
             jsonData => {
                 this.setState({data: jsonData.data});
             })
-        const token = localStorage.getItem("token")
         API.get(`cart`, { headers: {Authorization: token} }).then(
             jsonData => {
                 this.setState({cart: jsonData.data});
