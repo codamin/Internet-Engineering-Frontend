@@ -9,33 +9,44 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-  } from "react-router-dom";
+} from "react-router-dom";
+
+import styles from './login.module.css'
+import {eng2fa} from 'utils/utils'
+import {Link} from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 
 class Login extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            email:'',
-            pass:''
+            email: '',
+            password: '',
         }
-        this.updateEmail = this.updateEmail.bind(this)
-        this.updatePass = this.updatePass.bind(this)
-        this.submitForm = this.submitForm.bind(this)
+        this.handleEmailChange = this.handleEmailChange.bind(this)
+        this.handlePasswordChange = this.handlePasswordChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    updateEmail(e) {
-        this.setState({email: e.target.value})
+    handleEmailChange(event) {
+        this.setState({
+            email: event.target.value
+        });
+    }
+    handlePasswordChange(event) {
+        this.setState({
+            password: event.target.value
+        });
     }
 
-    updatePass(e) {
-        this.setState({pass: e.target.value})
-    }
-
-    submitForm(e) {
+    handleSubmit(e) {
+        if(!isNaN(this.state.email) || !isNaN(this.state.password)){
+            NotificationManager.error('تمام فیلد ها باید پر باشند!!!')
+        }
         API.post('auth/login', {
             email: this.state.email,
-            password: this.state.pass
+            password: this.state.password
         }).then((resp) => {
             if(resp.status == 200) {
                 NotificationManager.success('ورود با موفقیت انجام شد.')
@@ -51,56 +62,35 @@ class Login extends React.Component {
 
     render() {
         return(
-        <div className="row login-container">
-            <div className="col-12 container">
-            <Navbar cart={undefined} updateFunction={undefined} />
-            <RestaurantHeader logo={undefined} />
-            <div className="row mt-3">
-                <div className="container">
-                    <div className="col-12 flex-container login-page-word">
-                        صفحه ورود
+            <div className={"container card align-items-center " + styles.maincard}>
+                <div className={"row align-items-strech " + styles.cardOptions}>
+                    <div className={"col-6 text-center " + styles.cardLeftOption}>
+                        <Link to={'/login'} className={styles.whiteText}> ورود</Link>
+                    </div>
+                    <div className={"col-6 text-center " + styles.cardRightOption}>
+                        <Link to={'/signup'} className={styles.blackText}> ثبت نام </Link>
                     </div>
                 </div>
+
+                <form className="text-center" onSubmit={this.handleSubmit}>
+
+                    <div className={"md-form mt-3 " + styles.md_form}>
+                        <label className={styles.label} for="materialRegisterFormEmail">ایمیل</label>
+                        <input className={"form-control " + styles.input} onChange={this.handleEmailChange} type="email" id="materialRegisterFormEmail"/>
+                    </div>
+
+                    <div className={"md-form mt-3 " + styles.md_form}>
+                        <label className={styles.label} for="materialRegisterFormPassword">رمز عبور</label>
+                        <input className={"form-control " + styles.input} onChange={this.handlePasswordChange} type="password" id="materialRegisterFormPassword"/>
+                    </div>
+
+                    <button type="submit" className={"btn my-5 " + styles.creditBtn}>ورود</button>
+                    <p> or sign in with:  </p>
+                    <div class="g-signin2 mt-5" data-width="550" data-height="80" data-longtitle="true" data-onsuccess="onSignIn"></div>
+                </form>
             </div>
-            <div className="row no-gutters">
-                <div className="col-4"></div>
-                <div className="col-4 container m-3 main-box">
-                    <form onSubmit={this.submitForm}>
-                        <div className="row container no-gutters">
-                            <div className="container">
-                                <div className="row m-4">
-                                    <div className="col-4 flex-container justify-content-end">
-                                        <label for="exampleInputEmail1">ایمیل</label>
-                                    </div>
-                                    <div className="col-8 flex-container justify-content-start">
-                                        <input value={this.state.email} onChange={this.updateEmail} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                                    </div>
-                                </div>
-                                <div className="row m-4">
-                                    <div className="col-4 flex-container justify-content-end">
-                                        <label for="exampleInputPassword1">رمز عبور</label>
-                                    </div>
-                                    <div className="col-8 flex-container justify-content-start">
-                                        <input type="password" value={this.state.pass} onChange={this.updatePass} className="form-control" id="exampleInputPassword1" />
-                                    </div>
-                                </div>
-                                <div className="row m-5 justify-content-center">
-                                    {/* <div className="col-4"></div> */}
-                                    <div className="col-4 flex-container">
-                                        <button type="submit" className="btn btn-primary submit-btn">ورود</button>
-                                    </div>
-                                    {/* <div className="col-4"></div> */}
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            <div className="col-4"></div>
-            </div>
-            </div>
-        </div>
-        )
+        );
     }
 }
 
-export default Login;
+export default Login
