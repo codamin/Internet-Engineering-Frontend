@@ -5,6 +5,8 @@ import {eng2fa} from 'utils/utils'
 import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {NotificationManager} from 'react-notifications';
+import validateToken from '../../services/validate-token';
+
 
 class Signup extends React.Component {
     constructor(props) {
@@ -22,6 +24,9 @@ class Signup extends React.Component {
         this.handlePasswordChange = this.handlePasswordChange.bind(this)
         this.handleRepeatChange = this.handleRepeatChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        if(validateToken()) {
+            window.location.href = "http://localhost:3000/home"
+        }
     }
 
     handleFirstNameChange(event) {
@@ -75,6 +80,8 @@ class Signup extends React.Component {
             else{
                 NotificationManager.error('خطا در ثبت نام')
             }
+        }).catch(error => {
+            NotificationManager.error('کاربری با این ایمیل قبلا ثبت‌نام کرده‌است.')
         })
     }
 
@@ -118,7 +125,6 @@ class Signup extends React.Component {
                         <input className={"form-control " + styles.input} onChange={this.handleRepeatChange} type="password" id="materialRegisterFormPassword"/>
                     </div>
                     <button type="submit" className={"btn my-5 " + styles.creditBtn}>ثبت نام</button>
-                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
                 </form>
             </div>
         );

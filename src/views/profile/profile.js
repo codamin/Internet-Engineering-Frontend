@@ -32,6 +32,7 @@ class Profile extends Component{
       }).catch(error => {
         console.log(error.response.status)
         if(error.response.status == 401 || error.response.status == 403) {
+          localStorage.removeItem("token")
           window.location.href = "http://localhost:3000/login"
         }
       })
@@ -43,6 +44,7 @@ class Profile extends Component{
     }).catch(error => {
       console.log(error.response.status)
       if(error.response.status == 401 || error.response.status == 403) {
+        localStorage.removeItem("token")
         window.location.href = "http://localhost:3000/login"
       }
     })
@@ -53,6 +55,7 @@ class Profile extends Component{
     }).catch(error => {
       console.log(error.response.status)
       if(error.response.status == 401 || error.response.status == 403) {
+        localStorage.removeItem("token")
         window.location.href = "http://localhost:3000/login"
       }
     })

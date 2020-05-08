@@ -24,6 +24,7 @@ class Restaurant extends React.Component {
         }).catch(error => {
             console.log(error.response.status)
             if(error.response.status == 401 || error.response.status == 403) {
+              localStorage.removeItem("token")
               window.location.href = "http://localhost:3000/login"
             }
           })
@@ -37,6 +38,7 @@ class Restaurant extends React.Component {
             }).catch(error => {
                 console.log(error.response.status)
                 if(error.response.status == 401 || error.response.status == 403) {
+                  localStorage.removeItem("token")
                   window.location.href = "http://localhost:3000/login"
                 }
               })
@@ -46,6 +48,7 @@ class Restaurant extends React.Component {
             }).catch(error => {
                 console.log(error.response.status)
                 if(error.response.status == 401 || error.response.status == 403) {
+                  localStorage.removeItem("token")
                   window.location.href = "http://localhost:3000/login"
                 }
               })

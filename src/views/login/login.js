@@ -54,20 +54,19 @@ class Login extends React.Component {
     }
 
     onSignIn(googleUser) {
-        var tocken_id = googleUser.getAuthResponse().id_token;
+        var token_id = googleUser.getAuthResponse().id_token;
         API.post('auth/tokenIDLogin', {
-            tockenId: tocken_id
+            tokenId: token_id
         }).then((resp) => {
-            console.log('hi guyyyyyy' + resp)
-        var profile = googleUser.getBasicProfile();
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+            if(resp.status == 200) {
+                NotificationManager.success('ورود با موفقیت انجام شد.')
+                localStorage.setItem("token", resp.data.jwt)
+                window.location.href = "http://localhost:3000/home"
+            }
         }).catch(error => {
             NotificationManager.error('ایمیل در سیستم یافت نشد.')
-            // window.location.href = "http://localhost:3000/signup"
-        });
+            window.location.href = "http://localhost:3000/signup"
+        })
     }
 
     handleSubmit(e) {
@@ -118,6 +117,7 @@ class Login extends React.Component {
                     <GoogleLogin
                         clientId="805487349717-belcub0d2g4mrq6mq9dn8sjddf0fhqh6.apps.googleusercontent.com"
                         onSuccess={this.onSignIn}
+                        onFailure={err => console.log('fail', err)}
                         // onFailure={responseGoogle}
                         cookiePolicy={'single_host_origin'}
                     />
