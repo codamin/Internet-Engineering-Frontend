@@ -7,6 +7,10 @@ function validateToken() {
     if(token) {
       const decode = jwt.decode(token)
       const now = Math.floor(Date.now() / 1000)
+      if(!decode) {
+        localStorage.removeItem("token")
+        return false;
+      }
       if(decode.exp < now) {
         localStorage.removeItem("token")
         return false;

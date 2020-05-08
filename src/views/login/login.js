@@ -55,7 +55,7 @@ class Login extends React.Component {
 
     onSignIn(googleUser) {
         var tocken_id = googleUser.getAuthResponse().id_token;
-        API_SEC.post('auth/tokenIDLogin', {
+        API.post('auth/tokenIDLogin', {
             tockenId: tocken_id
         }).then((resp) => {
             console.log('hi guyyyyyy' + resp)
@@ -64,10 +64,14 @@ class Login extends React.Component {
         console.log('Name: ' + profile.getName());
         console.log('Image URL: ' + profile.getImageUrl());
         console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        }).catch(error => {
+            NotificationManager.error('ایمیل در سیستم یافت نشد.')
+            // window.location.href = "http://localhost:3000/signup"
         });
     }
 
     handleSubmit(e) {
+        e.preventDefault();
         if(!this.state.email || !this.state.password){
             NotificationManager.error('تمام فیلد ها باید پر باشند!!!')
         }
@@ -80,11 +84,9 @@ class Login extends React.Component {
                 localStorage.setItem("token", resp.data.jwt)
                 window.location.href = "http://localhost:3000/home"
             }
-            else{
-                NotificationManager.error('اطلاعات وروردی، نادرست است.')
-            }
+        }).catch(error => {
+            NotificationManager.error('نام کاربری یا رمز عبور نادرست است.')
         })
-        e.preventDefault();
     }
 
     render() {
@@ -114,7 +116,7 @@ class Login extends React.Component {
                     <button type="submit" className={"btn my-5 " + styles.creditBtn}>ورود</button>
                     <p> or sign in with:  </p>
                     <GoogleLogin
-                        clientId="805487349717-mup8qor9qlha42ooq5v45g0nols9g1s4.apps.googleusercontent.com"
+                        clientId="805487349717-belcub0d2g4mrq6mq9dn8sjddf0fhqh6.apps.googleusercontent.com"
                         onSuccess={this.onSignIn}
                         // onFailure={responseGoogle}
                         cookiePolicy={'single_host_origin'}
