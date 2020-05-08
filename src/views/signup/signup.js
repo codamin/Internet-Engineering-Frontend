@@ -118,7 +118,6 @@ class Signup extends React.Component {
                         <input className={"form-control " + styles.input} onChange={this.handleRepeatChange} type="password" id="materialRegisterFormPassword"/>
                     </div>
                     <button type="submit" className={"btn my-5 " + styles.creditBtn}>ثبت نام</button>
-                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
                 </form>
             </div>
         );
