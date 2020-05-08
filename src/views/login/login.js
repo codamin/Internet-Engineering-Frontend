@@ -73,6 +73,7 @@ class Login extends React.Component {
         e.preventDefault();
         if(!this.state.email || !this.state.password){
             NotificationManager.error('تمام فیلد ها باید پر باشند!!!')
+            return
         }
         API.post('auth/login', {
             email: this.state.email,

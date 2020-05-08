@@ -58,6 +58,10 @@ class Signup extends React.Component {
     handleSubmit(event) {
         console.log(this.state)
         event.preventDefault();
+        if(!this.state.email || !this.state.password
+            || !this.state.r_password){
+            NotificationManager.error('تمام فیلد ها باید پر باشند!!!')
+        }
         if(!isNaN(this.state.first_name) || !isNaN(this.state.last_name)){
             NotificationManager.error('نام و نام خانوادگی نامعتبر')
             return
