@@ -38,6 +38,7 @@ class Profile extends Component{
       })
   }
   updateCart() {
+    console.log("call update cart in profile")
     API.get(`cart`, { headers: authHeader() }).then(
         jsonData => {
             this.setState({cart: jsonData.data});
@@ -48,6 +49,7 @@ class Profile extends Component{
         window.location.href = "http://localhost:3000/login"
       }
     })
+    this.getUserInfo()
   }
   getUserInfo() {
     API.get('user', { headers: authHeader() }).then((response) => {
@@ -64,7 +66,7 @@ class Profile extends Component{
   render() {
     return (
       <div>
-        <Navbar cart={this.state.cart} updateUserFunction={this.updateCart} isProfile={true} isHome={false}/>
+        <Navbar cart={this.state.cart} updateFunction={this.updateCart} isProfile={true} isHome={false}/>
         <Jombotron userInfo={this.state.userInfo}/>
         <Router>
             <Switch>
