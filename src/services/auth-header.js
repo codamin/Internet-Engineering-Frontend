@@ -11,7 +11,8 @@ function authHeader() {
       if(decode.exp < now) {
         NotificationManager.error('ورود شما منقضی شده است و باید  مجددا وارد شوید.')
         localStorage.removeItem("token")
-        return "null"
+        window.location.href = "http://localhost:3000/login"
+
       }
       else {
         return {Authorization: token}
@@ -19,7 +20,8 @@ function authHeader() {
     }
     else {
       NotificationManager.error('شما وارد سیستم نشده‌اید باید لاگین کنید.')
-      return null
+      window.location.href = "http://localhost:3000/login"
+
     }
   }
 

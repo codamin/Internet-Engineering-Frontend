@@ -10,17 +10,19 @@ import './Assets/Fonts/vazir-fonts/fonts.css';
 import './Assets/Icons/font/flaticon.css';
 import './index.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
-
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+// import authHeader from '../../services/auth-header';
+
 
 ReactDOM.render(
   <Router>
   <Switch>
-    <Route key={0} exact path="/" component={Home}/>
+    <Route key={0} exact path="/" component={Login}/>
+    <Route key={5} exact path="/home" component={Home} />
     <Route key={1} path="/profile" component={Profile}/>
     <Route key={2} exact path="/restaurant/:restaurantId" component={Restaurant}/>
     <Route key={3} exact path="/login" component={Login} />

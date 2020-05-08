@@ -37,7 +37,6 @@ class Home extends Component {
           jsonData => {
               this.setState({cart: jsonData.data});
       }).catch(error => {
-        console.log(error.response.status)
         if(error.response.status == 401 || error.response.status == 403) {
           window.location.href = "http://localhost:3000/login"
         }
@@ -79,7 +78,6 @@ class Home extends Component {
             NotificationManager.error('خطا در انجام عملیات')
         }
     }).catch(error => {
-      console.log(error.response.status)
       if(error.response.status == 401 || error.response.status == 403) {
         window.location.href = "http://localhost:3000/login"
       }

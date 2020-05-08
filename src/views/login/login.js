@@ -3,6 +3,7 @@ import Navbar from 'components/commons/navbar/navbar'
 import RestaurantHeader from 'components/restaurant/restaurantHeader/restaurantHeader'
 import './login.css'
 import API from 'apis/api';
+import API_SEC from 'apis/api-sec'
 import {NotificationManager} from 'react-notifications';
 import Home from 'views/home/home';
 import {
@@ -16,6 +17,7 @@ import {eng2fa} from 'utils/utils'
 import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import GoogleLogin from 'react-google-login';
+import validateToken from '../../services/validate-token';
 
 
 
@@ -30,6 +32,10 @@ class Login extends React.Component {
         this.handlePasswordChange = this.handlePasswordChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.onSignIn = this.onSignIn.bind(this)
+        console.log(validateToken())
+        if(validateToken()) {
+          window.location.href = "http://localhost:3000/home"
+        }
     }
 
     handleEmailChange(event) {
@@ -49,15 +55,15 @@ class Login extends React.Component {
 
     onSignIn(googleUser) {
         var tocken_id = googleUser.getAuthResponse().id_token;
-        API.post('auth/tokenIDLogin', {
+        API_SEC.post('auth/tokenIDLogin', {
             tockenId: tocken_id
         }).then((resp) => {
             console.log('hi guyyyyyy' + resp)
-        // var profile = googleUser.getBasicProfile();
-        // console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        // console.log('Name: ' + profile.getName());
-        // console.log('Image URL: ' + profile.getImageUrl());
-        // console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
         });
     }
 
@@ -72,7 +78,7 @@ class Login extends React.Component {
             if(resp.status == 200) {
                 NotificationManager.success('ورود با موفقیت انجام شد.')
                 localStorage.setItem("token", resp.data.jwt)
-                window.location.href = "http://localhost:3000/"
+                window.location.href = "http://localhost:3000/home"
             }
             else{
                 NotificationManager.error('اطلاعات وروردی، نادرست است.')
