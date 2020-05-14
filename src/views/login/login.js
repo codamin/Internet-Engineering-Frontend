@@ -123,7 +123,6 @@ class Login extends React.Component {
                         cookiePolicy={'single_host_origin'}
                     />
                 </form>
-                <p> hi amin when the docker master</p>
             </div>
         );
     }

@@ -1,5 +1,10 @@
+
+#######################################
+## STAGE ONE: BUILD FRONT_END IMAGE  ##
+#######################################
+
 # Use the official image as a parent image.
-FROM node:current
+FROM node:alpine as front-stage
 
 # Set the working directory.
 WORKDIR /usr/src/app
@@ -10,17 +15,32 @@ COPY package.json .
 # Run the command inside your image filesystem.
 RUN npm install
 
-# Inform Docker that the container is listening on the specified port at runtime.
-EXPOSE 3000
-
-# Run the specified command within the container.
-CMD [ "npm", "start" ]
-
 # Copy the rest of your app's source code from your host to your image filesystem.
 COPY . .
 
+# Run the specified command within the container.
+RUN npm run build
 
-#commands:
-# sudo docker build -t [IMAGE_NAME =  a name + version] [LOCATION OF DOCKER FILE]
+##################################
+## STAGE TWO: BUILD NGINX IMAGE ##
+##################################
+
+FROM nginx:alpine
+
+# Instruct docker to copy built folder from stage one
+COPY --from=front-stage /usr/src/app/build/ /usr/share/nginx/html
+
+# Copy nginx configuration file into container
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose port 80 to outside of the container
+EXPOSE 80
+
+# Directive tell that nginx should stay in the foreground,
+# Because for containers, it is useful as best practice is one process = one container.
+CMD ["nginx", "-g", "daemon off;"]
+
+# commands:
+# sudo docker build -t [IMAGE_NAME+TAG] [LOCATION OF DOCKER FILE]
 # sudo docker run -it --publish 3000:3000 --detach --name [CONTAINER_NAME] [IMAGE_NAME]
 # docker stop 
