@@ -1,7 +1,7 @@
 
-#######################################
-## STAGE ONE: BUILD FRONT_END IMAGE  ##
-#######################################
+#####################################
+# STAGE ONE: BUILD FRONT_END IMAGE  #
+#####################################
 
 # Use the official image as a parent image.
 FROM node:alpine as front-stage
@@ -21,9 +21,9 @@ COPY . .
 # Run the specified command within the container.
 RUN npm run build
 
-##################################
-## STAGE TWO: BUILD NGINX IMAGE ##
-##################################
+#################################
+# STAGE TWO: BUILD NGINX IMAGE  #
+#################################
 
 FROM nginx:alpine
 
@@ -43,4 +43,4 @@ CMD ["nginx", "-g", "daemon off;"]
 # commands:
 # sudo docker build -t [IMAGE_NAME+TAG] [LOCATION OF DOCKER FILE]
 # sudo docker run -it --publish 3000:3000 --detach --name [CONTAINER_NAME] [IMAGE_NAME]
-# docker stop 
+# docker stop
