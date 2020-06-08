@@ -50,7 +50,7 @@ class Login extends React.Component {
     }
 
     fail() {
-        console.log('ridiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii')
+        console.log('ridii')
     }
 
     onSignIn(googleUser) {
