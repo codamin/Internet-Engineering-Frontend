@@ -1,3 +1,6 @@
+variables:
+  REG_ADDR: "aminhoseinorg/loghme_frontend:latest"
+
 stages:
  - build
  
@@ -7,10 +10,15 @@ docker-build:
   stage: build
   services:
     - docker:dind
+
   before_script:
-    - echo $CI_BUILD_TOKEN | docker login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY
+    - docker login -u "codamin" -p "mydockeridcodamin"
+
   script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE" .
-    - docker push "$CI_REGISTRY_IMAGE"
+    - docker pull $REG_ADDR || true
+    - docker build --cache-from $REG_ADDR -t backend_image .
+    - docker tag backend_image $REG_ADDR
+    - docker push $REG_ADDR
+    
   only:
     - master
