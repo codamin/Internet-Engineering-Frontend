@@ -1,5 +1,5 @@
 variables:
-  REG_ADDR: "aminhoseinorg/loghme_frontend:latest"
+  REG_ADDR: "aminhoseinorg/loghme-frontend:latest"
 
 stages:
  - build
