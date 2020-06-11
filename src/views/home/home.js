@@ -37,10 +37,11 @@ class Home extends Component {
           jsonData => {
               this.setState({cart: jsonData.data});
       }).catch(error => {
-        if(error.response.status == 401 || error.response.status == 403) {
-          localStorage.removeItem("token");
-          window.location.href = "http://ie.etuts.ir:31085/login"
-        }
+        // if(error.response.status == 401 || error.response.status == 403) {
+        localStorage.removeItem("token");
+        window.location.href = "http://ie.etuts.ir:31085/login"
+
+        // }
       })
   }
 
