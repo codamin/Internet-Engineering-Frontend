@@ -12,8 +12,6 @@ function authHeader() {
         NotificationManager.error('ورود شما منقضی شده است و باید  مجددا وارد شوید.')
         localStorage.removeItem("token")
         window.location.href = "http://ie.etuts.ir:31085/login"
-
-
       }
       else {
         return {Authorization: token}
@@ -22,7 +20,6 @@ function authHeader() {
     else {
       NotificationManager.error('شما وارد سیستم نشده‌اید باید لاگین کنید.')
       window.location.href = "http://ie.etuts.ir:31085/login"
-
     }
   }
 
