@@ -34,7 +34,7 @@ class Login extends React.Component {
         this.onSignIn = this.onSignIn.bind(this)
         console.log(validateToken())
         if(validateToken()) {
-          window.location.href = "http://185.166.105.6:31085/home"
+          window.location.href = "http://ie.etuts.ir:31085/home"
         }
     }
 
@@ -61,11 +61,11 @@ class Login extends React.Component {
             if(resp.status == 200) {
                 NotificationManager.success('ورود با موفقیت انجام شد.')
                 localStorage.setItem("token", resp.data.jwt)
-                window.location.href = "http://185.166.105.6:31085/home"
+                window.location.href = "http://ie.etuts.ir:31085/home"
             }
         }).catch(error => {
             NotificationManager.error('ایمیل در سیستم یافت نشد.')
-            window.location.href = "http://185.166.105.6:31085/signup"
+            window.location.href = "http://ie.etuts.ir:31085/signup"
         })
     }
 
@@ -82,7 +82,7 @@ class Login extends React.Component {
             if(resp.status == 200) {
                 NotificationManager.success('ورود با موفقیت انجام شد.')
                 localStorage.setItem("token", resp.data.jwt)
-                window.location.href = "http://185.166.105.6:31085/home"
+                window.location.href = "http://ie.etuts.ir:31085/home"
             }
         }).catch(error => {
             NotificationManager.error('نام کاربری یا رمز عبور نادرست است.')

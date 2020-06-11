@@ -25,7 +25,7 @@ class Signup extends React.Component {
         this.handleRepeatChange = this.handleRepeatChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         if(validateToken()) {
-            window.location.href = "http://185.166.105.6:31085/home"
+            window.location.href = "http://ie.etuts.ir:31085/home"
         }
     }
 
@@ -79,7 +79,7 @@ class Signup extends React.Component {
         }).then((resp) => {
             if(resp.status == 200) {
                 NotificationManager.success('ثبت نام با موفقیت انجام شد.')
-                window.location.href = "http://185.166.105.6:31085/login"
+                window.location.href = "http://ie.etuts.ir:31085/login"
             }
             else{
                 NotificationManager.error('خطا در ثبت نام')

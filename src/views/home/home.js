@@ -39,7 +39,7 @@ class Home extends Component {
       }).catch(error => {
         if(error.response.status == 401 || error.response.status == 403) {
           localStorage.removeItem("token");
-          window.location.href = "http://185.166.105.6:31085/login"
+          window.location.href = "http://ie.etuts.ir:31085/login"
         }
       })
   }
@@ -81,7 +81,7 @@ class Home extends Component {
     }).catch(error => {
       if(error.response.status == 401 || error.response.status == 403) {
         localStorage.removeItem("token");
-        window.location.href = "http://185.166.105.6:31085/login"
+        window.location.href = "http://ie.etuts.ir:31085/login"
       }
     })
   }
