@@ -27,9 +27,9 @@ spec:
             limits:
               cpu: 0.2
               memory: 200Mi
-            # requests:
-            #   cpu: 185m
-            #   memory: 185Mi
+            requests:
+              cpu: 0.09
+              memory: 90Mi
       restartPolicy: Always
 ---
 kind: Service

@@ -98,10 +98,10 @@ class Home extends Component {
         
 
         <Navbar cart={this.state.cart} updateFunction={this.updateCart} isHome={true} isProfile={false} />
-        {/* <MainLogo updateRestaurants={this.updateRestaurants} /> */}
+        <MainLogo updateRestaurants={this.updateRestaurants} />
         <FoodPartyMenu updateCart={this.updateCart}/>
-        {/* <RestaurantsMenu restaurants={this.state.restaurants} loadMore={this.loadMore}/> */}
-        {/* <Footer/> */}
+        <RestaurantsMenu restaurants={this.state.restaurants} loadMore={this.loadMore}/>
+        <Footer/>
       </div>
     );
   }
