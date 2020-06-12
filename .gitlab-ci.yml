@@ -24,7 +24,7 @@ kuber-deploy:
     - local
   stage: deploy
   script:
-    - kubectl set image deployment/loghme-frontend loghme-frontend=aminhoseinorg/loghme-frontend
+    - kubectl set image deployment/loghme-frontend loghme-frontend=aminhoseinorg/loghme-frontend --record
 
   only:
     - master

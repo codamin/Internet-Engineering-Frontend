@@ -95,7 +95,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Navbar cart={this.state.cart} updateFunction={this.updateCart} isHome={true} isProfile={false} />
+        {/* <Navbar cart={this.state.cart} updateFunction={this.updateCart} isHome={true} isProfile={false} /> */}
         <MainLogo updateRestaurants={this.updateRestaurants} />
         <FoodPartyMenu updateCart={this.updateCart}/>
         <RestaurantsMenu restaurants={this.state.restaurants} loadMore={this.loadMore}/>
