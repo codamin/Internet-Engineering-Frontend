@@ -21,7 +21,7 @@ docker-build:
 
 kuber-deploy:
   tags:
-    - local
+    - ter
   stage: deploy
   script:
     - kubectl set image deployment/loghme-frontend loghme-frontend=aminhoseinorg/loghme-frontend --record
