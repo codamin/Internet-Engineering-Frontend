@@ -40,6 +40,7 @@ EXPOSE 80
 # Because for containers, it is useful as best practice is one process = one container.
 CMD ["nginx", "-g", "daemon off;"]
 
+
 # commands:
 # sudo docker build -t [IMAGE_NAME+TAG] [LOCATION OF DOCKER FILE]
 # sudo docker run -it --publish 3000:3000 --detach --name [CONTAINER_NAME] [IMAGE_NAME]
